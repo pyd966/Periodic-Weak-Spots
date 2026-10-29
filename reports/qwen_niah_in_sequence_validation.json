@@ -1,0 +1,18 @@
+{
+  "dataset_id": "niah-128k-qwen3.8-flash-next-balanced-target64k-16000pairs-in-sequence",
+  "padding_protocol": {
+    "gap_seed": 20260721,
+    "max_gap_extras": 4,
+    "mode": "in_sequence",
+    "outer_guard_tokens": 8,
+    "pad_text": "｜",
+    "pad_token_id": 158819,
+    "reference_dataset": "/root/Periodic-Weak-Spots/.research/niah_qwen_128k_512",
+    "reference_filler_offset": 8,
+    "total_gap_extras": 32
+  },
+  "prompt_tokens": 128000,
+  "query_start": 127958,
+  "status": "ok",
+  "validated_rows": 4096
+}

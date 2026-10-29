@@ -1,0 +1,184 @@
+{
+  "q2_followup": {
+    "weak_phase_rows_in_sequence": 1024,
+    "accuracy_by_gap_before_at_weak_phases": {
+      "0": {
+        "correct": 909,
+        "rows": 955,
+        "accuracy": 0.9518324607329843
+      },
+      "1": {
+        "correct": 66,
+        "rows": 66,
+        "accuracy": 1.0
+      },
+      "2": {
+        "correct": 3,
+        "rows": 3,
+        "accuracy": 1.0
+      }
+    },
+    "rows_with_gap_before": 69,
+    "prefix_wrong_among_same_binding_phase": 5,
+    "prefix_wrong_rows": [
+      {
+        "binding_id": 482,
+        "phase": 3,
+        "gap_before": 1,
+        "key": "转载",
+        "in_sequence_correct": true,
+        "prefix_correct": false
+      },
+      {
+        "binding_id": 90,
+        "phase": 7,
+        "gap_before": 1,
+        "key": "笑著",
+        "in_sequence_correct": true,
+        "prefix_correct": false
+      },
+      {
+        "binding_id": 216,
+        "phase": 7,
+        "gap_before": 1,
+        "key": "足り",
+        "in_sequence_correct": true,
+        "prefix_correct": false
+      },
+      {
+        "binding_id": 394,
+        "phase": 7,
+        "gap_before": 1,
+        "key": "たく",
+        "in_sequence_correct": true,
+        "prefix_correct": false
+      },
+      {
+        "binding_id": 487,
+        "phase": 7,
+        "gap_before": 1,
+        "key": "务必",
+        "in_sequence_correct": true,
+        "prefix_correct": false
+      }
+    ],
+    "binomial_p_all_correct_if_pad_irrelevant": 0.03316464119246821,
+    "expected_wrong_if_pad_irrelevant": 3.3235602094240813
+  },
+  "q3_followup": {
+    "prefix": {
+      "target_phase3_winners": 29,
+      "winner_phase_counts_for_target_phase3": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 29
+      },
+      "chi2_vs_uniform_df3": 87.0,
+      "winners_within_two_records": [
+        {
+          "target_phase_mod4": 0,
+          "winner_phase_mod4": 0,
+          "record_offset": -1,
+          "winner_key": "教学资源",
+          "target_key": "化纤",
+          "shared_chars": 0,
+          "top1_prob": 0.999
+        }
+      ],
+      "winners_sharing_char_by_target_phase": {
+        "0": [
+          2,
+          3
+        ],
+        "1": [
+          2,
+          3
+        ],
+        "2": [
+          2,
+          5
+        ],
+        "3": [
+          6,
+          29
+        ]
+      }
+    },
+    "in_sequence": {
+      "target_phase3_winners": 38,
+      "winner_phase_counts_for_target_phase3": {
+        "0": 13,
+        "1": 7,
+        "2": 4,
+        "3": 14
+      },
+      "chi2_vs_uniform_df3": 7.2631578947368425,
+      "winners_within_two_records": [
+        {
+          "target_phase_mod4": 0,
+          "winner_phase_mod4": 0,
+          "record_offset": -2,
+          "winner_key": "却一直",
+          "target_key": "锢",
+          "shared_chars": 0,
+          "top1_prob": 0.811
+        },
+        {
+          "target_phase_mod4": 1,
+          "winner_phase_mod4": 1,
+          "record_offset": -1,
+          "winner_key": "教学资源",
+          "target_key": "化纤",
+          "shared_chars": 0,
+          "top1_prob": 0.865
+        },
+        {
+          "target_phase_mod4": 0,
+          "winner_phase_mod4": 0,
+          "record_offset": -1,
+          "winner_key": "教学资源",
+          "target_key": "化纤",
+          "shared_chars": 0,
+          "top1_prob": 0.864
+        },
+        {
+          "target_phase_mod4": 2,
+          "winner_phase_mod4": 2,
+          "record_offset": -1,
+          "winner_key": "教学资源",
+          "target_key": "化纤",
+          "shared_chars": 0,
+          "top1_prob": 0.704
+        },
+        {
+          "target_phase_mod4": 3,
+          "winner_phase_mod4": 3,
+          "record_offset": -2,
+          "winner_key": "却一直",
+          "target_key": "锢",
+          "shared_chars": 0,
+          "top1_prob": 0.919
+        }
+      ],
+      "winners_sharing_char_by_target_phase": {
+        "0": [
+          3,
+          5
+        ],
+        "1": [
+          2,
+          3
+        ],
+        "2": [
+          1,
+          8
+        ],
+        "3": [
+          15,
+          38
+        ]
+      }
+    }
+  }
+}

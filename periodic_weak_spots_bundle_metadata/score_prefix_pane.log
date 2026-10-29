@@ -1,0 +1,109 @@
+Processed prompts: 100%|███████████████████████████████████████████████████████████████| 16/16 [02:08<00:00,  8.04s/it,
+est. speed input: 15923.97 toks/s, output: 0.25 toks/s]
+Rendering prompts: 100%|████████████████████████████████████████████████████████████████████████████████████████████████
+██████████████████████| 16/16 [00:00<00:00, 225.05it/s]
+Processed prompts: 100%|███████████████████████████████████████████████████████████████| 16/16 [02:08<00:00,  8.04s/it,
+est. speed input: 15922.49 toks/s, output: 0.25 toks/s]
+(MainProcess pid=225721) INFO 10-27 18:29:47 [utils.py:628] [shutdown] Process manager: send sigterm to process EngineCo
+re
+(EngineCore pid=229108) INFO 10-27 18:29:47 [core.py:1454] [shutdown] EngineCore: trigger received signal=SIGTERM
+(EngineCore pid=229108) INFO 10-27 18:29:47 [core.py:1635] [shutdown] EngineCore: start mode=abort timeout=0s
+(EngineCore pid=229108) INFO 10-27 18:29:47 [core.py:1666] [shutdown] EngineCore: request processing complete; starting
+resource teardown
+(EngineCore pid=229108) INFO 10-27 18:29:47 [core.py:1499] [shutdown] EngineCore: exiting busy loop
+(Worker_TP0_EP0 pid=229946) INFO 10-27 18:29:47 [multiproc_executor.py:843] Parent process exited, terminating worker qu
+eues
+(EngineCore pid=229108) INFO 10-27 18:29:47 [multiproc_executor.py:479] [shutdown] Executor: waiting for worker exit cou
+nt=4
+(MainProcess pid=225721) WARNING 10-27 18:29:52 [utils.py:648] [shutdown] Process manager: force killing remaining proce
+sses count=1
+(MainProcess pid=225721) WARNING 10-27 18:29:52 [utils.py:653] [shutdown] Process manager: force killing remaining proce
+ss EngineCore pid 229108
+(MainProcess pid=225721) WARNING 10-27 18:29:52 [system_utils.py:225] [shutdown] force killing sub process VLLM::Worker_
+TP pid 229946
+(MainProcess pid=225721) WARNING 10-27 18:29:52 [system_utils.py:225] [shutdown] force killing sub process VLLM::Worker_
+TP pid 230821
+(MainProcess pid=225721) WARNING 10-27 18:29:52 [system_utils.py:225] [shutdown] force killing sub process VLLM::Worker_
+TP pid 231789
+(MainProcess pid=225721) WARNING 10-27 18:29:52 [system_utils.py:225] [shutdown] force killing sub process VLLM::Worker_
+TP pid 232758
+{
+  "absolute_accuracy_difference_r_vs_r_plus_4": {
+    "0": 0.001953125,
+    "1": 0.001953125,
+    "2": 0.00390625,
+    "3": 0.0078125
+  },
+  "answer_prefix_accuracy": 0.98486328125,
+  "answer_prefix_accuracy_by_residue": {
+    "0": 0.99609375,
+    "1": 0.9921875,
+    "2": 0.994140625,
+    "3": 0.962890625,
+    "4": 0.994140625,
+    "5": 0.994140625,
+    "6": 0.990234375,
+    "7": 0.955078125
+  },
+  "correct_count_by_residue": {
+    "0": 510,
+    "1": 508,
+    "2": 509,
+    "3": 493,
+    "4": 509,
+    "5": 509,
+    "6": 507,
+    "7": 489
+  },
+  "gap": 0.041015625,
+  "mean_absolute_accuracy_difference_r_vs_r_plus_4": 0.00390625,
+  "rows": 4096,
+  "sample_count_by_residue": {
+    "0": 512,
+    "1": 512,
+    "2": 512,
+    "3": 512,
+    "4": 512,
+    "5": 512,
+    "6": 512,
+    "7": 512
+  },
+  "wilson_95_by_residue": {
+    "0": {
+      "lower": 0.9858703008860721,
+      "upper": 0.9989281333619606
+    },
+    "1": {
+      "lower": 0.9800862685977904,
+      "upper": 0.9969578472703368
+    },
+    "2": {
+      "lower": 0.9829159147435814,
+      "upper": 0.9980053603144984
+    },
+    "3": {
+      "lower": 0.9427703121926854,
+      "upper": 0.9761164158261484
+    },
+    "4": {
+      "lower": 0.9829159147435814,
+      "upper": 0.9980053603144984
+    },
+    "5": {
+      "lower": 0.9829159147435814,
+      "upper": 0.9980053603144984
+    },
+    "6": {
+      "lower": 0.9773451967514872,
+      "upper": 0.995821759926687
+    },
+    "7": {
+      "lower": 0.9334955903063304,
+      "upper": 0.9698825009526917
+    }
+  }
+}
+/root/miniconda3/lib/python3.12/multiprocessing/resource_tracker.py:254: UserWarning: resource_tracker: There appear to
+be 1 leaked shared_memory objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '
+(periodic-weak-spots-vllm) root@autodl-container-07a443923d-4bd01d3e:~/Periodic-Weak-Spots#

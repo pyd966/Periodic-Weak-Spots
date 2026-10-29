@@ -1,0 +1,4 @@
+.research/
+__pycache__/
+*.zip
+periodic_weak_spots/niah_qwen_128k_in_sequence/

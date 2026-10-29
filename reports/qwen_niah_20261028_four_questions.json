@@ -1,0 +1,2027 @@
+{
+  "q1_key_features": {
+    "bindings_failing_at_weak_phases": 42,
+    "bindings_failing_at_other_phases": 15,
+    "features": {
+      "key_chars": {
+        "weak_fail_mean": 2.380952380952381,
+        "weak_ok_mean": 2.5148936170212766,
+        "weak_fail_median": 2.0,
+        "weak_ok_median": 2.0,
+        "auc_weak": 0.46512158054711245,
+        "auc_other_phases": 0.49517102615694164
+      },
+      "key_token_id": {
+        "weak_fail_mean": 141384.16666666666,
+        "weak_ok_mean": 127008.29787234042,
+        "weak_fail_median": 133979.0,
+        "weak_ok_median": 124750.0,
+        "auc_weak": 0.641742654508612,
+        "auc_other_phases": 0.5694835680751174
+      },
+      "key_char_freq_mean_log": {
+        "weak_fail_mean": 4.487199143939144,
+        "weak_ok_mean": 4.352888118365595,
+        "weak_fail_median": 5.151695585250634,
+        "weak_ok_median": 4.6801602791598675,
+        "auc_weak": 0.563855116514691,
+        "auc_other_phases": 0.5318578135479544
+      },
+      "key_char_freq_max": {
+        "weak_fail_mean": 1135.6190476190477,
+        "weak_ok_mean": 653.704255319149,
+        "weak_fail_median": 282.0,
+        "weak_ok_median": 245.5,
+        "auc_weak": 0.5518996960486322,
+        "auc_other_phases": 0.5429242119382964
+      },
+      "key_char_freq_min": {
+        "weak_fail_mean": 73.33333333333333,
+        "weak_ok_mean": 72.42553191489361,
+        "weak_fail_median": 49.5,
+        "weak_ok_median": 41.0,
+        "auc_weak": 0.5155775075987842,
+        "auc_other_phases": 0.4966465459423206
+      },
+      "competitors_sharing_any_char": {
+        "weak_fail_mean": 365.4761904761905,
+        "weak_ok_mean": 229.9,
+        "weak_fail_median": 125.0,
+        "weak_ok_median": 101.0,
+        "auc_weak": 0.55,
+        "auc_other_phases": 0.5303822937625755
+      },
+      "competitors_sharing_half_chars": {
+        "weak_fail_mean": 115.78571428571429,
+        "weak_ok_mean": 67.51914893617021,
+        "weak_fail_median": 29.0,
+        "weak_ok_median": 21.0,
+        "auc_weak": 0.5505825734549139,
+        "auc_other_phases": 0.47585513078470826
+      },
+      "prev_value_chars": {
+        "weak_fail_mean": 2.3095238095238093,
+        "weak_ok_mean": 2.5829787234042554,
+        "weak_fail_median": 2.0,
+        "weak_ok_median": 2.0,
+        "auc_weak": 0.4138804457953394,
+        "auc_other_phases": 0.4653252850435949
+      },
+      "prev_value_char_freq_mean_log": {
+        "weak_fail_mean": 4.6030848946328256,
+        "weak_ok_mean": 4.442653308609502,
+        "weak_fail_median": 5.017643776425803,
+        "weak_ok_median": 4.731531486795115,
+        "auc_weak": 0.5656534954407295,
+        "auc_other_phases": 0.4983232729711603
+      },
+      "prev_value_shares_char_with_key": {
+        "weak_fail_mean": 0.0,
+        "weak_ok_mean": 0.02553191489361702,
+        "weak_fail_median": 0.0,
+        "weak_ok_median": 0.0,
+        "auc_weak": 0.48723404255319147,
+        "auc_other_phases": 0.4879275653923541
+      },
+      "prev_key_shares_char_with_key": {
+        "weak_fail_mean": 0.0,
+        "weak_ok_mean": 0.01276595744680851,
+        "weak_fail_median": 0.0,
+        "weak_ok_median": 0.0,
+        "auc_weak": 0.49361702127659574,
+        "auc_other_phases": 0.4939637826961771
+      },
+      "prev_value_same_script_as_key": {
+        "weak_fail_mean": 0.8333333333333334,
+        "weak_ok_mean": 0.902127659574468,
+        "weak_fail_median": 1.0,
+        "weak_ok_median": 1.0,
+        "auc_weak": 0.4656028368794326,
+        "auc_other_phases": 0.5189805499664655
+      }
+    },
+    "script_breakdown": {
+      "CJK": {
+        "bindings": 482,
+        "weak_slot_error_rate": 0.03941908713692946,
+        "other_slot_error_rate": 0.0084716459197787
+      },
+      "HIRAGANA": {
+        "bindings": 12,
+        "weak_slot_error_rate": 0.10416666666666667,
+        "other_slot_error_rate": 0.0
+      },
+      "LATIN": {
+        "bindings": 9,
+        "weak_slot_error_rate": 0.1111111111111111,
+        "other_slot_error_rate": 0.0
+      },
+      "CYRILLIC": {
+        "bindings": 2,
+        "weak_slot_error_rate": 0.125,
+        "other_slot_error_rate": 0.0
+      },
+      "KATAKANA": {
+        "bindings": 2,
+        "weak_slot_error_rate": 0.0,
+        "other_slot_error_rate": 0.0
+      },
+      "THAI": {
+        "bindings": 2,
+        "weak_slot_error_rate": 0.0,
+        "other_slot_error_rate": 0.0
+      },
+      "THAANA": {
+        "bindings": 1,
+        "weak_slot_error_rate": 0.0,
+        "other_slot_error_rate": 0.0
+      },
+      "IDEOGRAPHIC": {
+        "bindings": 1,
+        "weak_slot_error_rate": 0.0,
+        "other_slot_error_rate": 0.0
+      },
+      "KHMER": {
+        "bindings": 1,
+        "weak_slot_error_rate": 0.5,
+        "other_slot_error_rate": 0.0
+      }
+    },
+    "quartiles": {
+      "key_chars": [
+        {
+          "quartile": 1,
+          "feature_range": [
+            1,
+            2
+          ],
+          "bindings": 128,
+          "weak_slot_error_rate": 0.064453125,
+          "other_slot_error_rate": 0.011067708333333334
+        },
+        {
+          "quartile": 2,
+          "feature_range": [
+            2,
+            2
+          ],
+          "bindings": 128,
+          "weak_slot_error_rate": 0.0234375,
+          "other_slot_error_rate": 0.00390625
+        },
+        {
+          "quartile": 3,
+          "feature_range": [
+            2,
+            3
+          ],
+          "bindings": 128,
+          "weak_slot_error_rate": 0.048828125,
+          "other_slot_error_rate": 0.013671875
+        },
+        {
+          "quartile": 4,
+          "feature_range": [
+            3,
+            9
+          ],
+          "bindings": 128,
+          "weak_slot_error_rate": 0.03515625,
+          "other_slot_error_rate": 0.0032552083333333335
+        }
+      ],
+      "key_token_id": [
+        {
+          "quartile": 1,
+          "feature_range": [
+            29015,
+            111023
+          ],
+          "bindings": 128,
+          "weak_slot_error_rate": 0.029296875,
+          "other_slot_error_rate": 0.011067708333333334
+        },
+        {
+          "quartile": 2,
+          "feature_range": [
+            111054,
+            125219
+          ],
+          "bindings": 128,
+          "weak_slot_error_rate": 0.029296875,
+          "other_slot_error_rate": 0.007161458333333333
+        },
+        {
+          "quartile": 3,
+          "feature_range": [
+            125230,
+            137925
+          ],
+          "bindings": 128,
+          "weak_slot_error_rate": 0.0390625,
+          "other_slot_error_rate": 0.008463541666666666
+        },
+        {
+          "quartile": 4,
+          "feature_range": [
+            137943,
+            247985
+          ],
+          "bindings": 128,
+          "weak_slot_error_rate": 0.07421875,
+          "other_slot_error_rate": 0.005208333333333333
+        }
+      ],
+      "key_char_freq_mean_log": [
+        {
+          "quartile": 1,
+          "feature_range": [
+            0.0,
+            3.6532656994697525
+          ],
+          "bindings": 128,
+          "weak_slot_error_rate": 0.0390625,
+          "other_slot_error_rate": 0.009765625
+        },
+        {
+          "quartile": 2,
+          "feature_range": [
+            3.6665115071932406,
+            4.6967938897863455
+          ],
+          "bindings": 128,
+          "weak_slot_error_rate": 0.025390625,
+          "other_slot_error_rate": 0.006510416666666667
+        },
+        {
+          "quartile": 3,
+          "feature_range": [
+            4.697329965716405,
+            5.4138337501123495
+          ],
+          "bindings": 128,
+          "weak_slot_error_rate": 0.04296875,
+          "other_slot_error_rate": 0.0
+        },
+        {
+          "quartile": 4,
+          "feature_range": [
+            5.420965544525709,
+            7.337140232669189
+          ],
+          "bindings": 128,
+          "weak_slot_error_rate": 0.064453125,
+          "other_slot_error_rate": 0.015625
+        }
+      ],
+      "competitors_sharing_any_char": [
+        {
+          "quartile": 1,
+          "feature_range": [
+            0,
+            28
+          ],
+          "bindings": 128,
+          "weak_slot_error_rate": 0.041015625,
+          "other_slot_error_rate": 0.009765625
+        },
+        {
+          "quartile": 2,
+          "feature_range": [
+            28,
+            101
+          ],
+          "bindings": 128,
+          "weak_slot_error_rate": 0.037109375,
+          "other_slot_error_rate": 0.006510416666666667
+        },
+        {
+          "quartile": 3,
+          "feature_range": [
+            102,
+            237
+          ],
+          "bindings": 128,
+          "weak_slot_error_rate": 0.03125,
+          "other_slot_error_rate": 0.0
+        },
+        {
+          "quartile": 4,
+          "feature_range": [
+            238,
+            1673
+          ],
+          "bindings": 128,
+          "weak_slot_error_rate": 0.0625,
+          "other_slot_error_rate": 0.015625
+        }
+      ],
+      "prev_value_char_freq_mean_log": [
+        {
+          "quartile": 1,
+          "feature_range": [
+            0.0,
+            3.8548784322270824
+          ],
+          "bindings": 128,
+          "weak_slot_error_rate": 0.04296875,
+          "other_slot_error_rate": 0.008463541666666666
+        },
+        {
+          "quartile": 2,
+          "feature_range": [
+            3.8916120081680186,
+            4.744285821258451
+          ],
+          "bindings": 128,
+          "weak_slot_error_rate": 0.021484375,
+          "other_slot_error_rate": 0.005859375
+        },
+        {
+          "quartile": 3,
+          "feature_range": [
+            4.750159901738324,
+            5.410922275859203
+          ],
+          "bindings": 128,
+          "weak_slot_error_rate": 0.0546875,
+          "other_slot_error_rate": 0.006510416666666667
+        },
+        {
+          "quartile": 4,
+          "feature_range": [
+            5.434334287355061,
+            7.587743305383145
+          ],
+          "bindings": 128,
+          "weak_slot_error_rate": 0.052734375,
+          "other_slot_error_rate": 0.011067708333333334
+        }
+      ]
+    },
+    "failing_keys_at_weak_phases": [
+      {
+        "key": "就地",
+        "weak_wrong": 4,
+        "other_wrong": 0,
+        "char_freq_mean_log": 5.87,
+        "competitors_any": 198,
+        "prev_value": "图等"
+      },
+      {
+        "key": "在思想上",
+        "weak_wrong": 4,
+        "other_wrong": 1,
+        "char_freq_mean_log": 5.73,
+        "competitors_any": 481,
+        "prev_value": "滚筒"
+      },
+      {
+        "key": "为此",
+        "weak_wrong": 4,
+        "other_wrong": 0,
+        "char_freq_mean_log": 5.37,
+        "competitors_any": 183,
+        "prev_value": "人体内"
+      },
+      {
+        "key": "ichtige",
+        "weak_wrong": 4,
+        "other_wrong": 0,
+        "char_freq_mean_log": 5.36,
+        "competitors_any": 184,
+        "prev_value": "枕"
+      },
+      {
+        "key": "既に",
+        "weak_wrong": 4,
+        "other_wrong": 0,
+        "char_freq_mean_log": 4.17,
+        "competitors_any": 68,
+        "prev_value": "原体"
+      },
+      {
+        "key": "長輩",
+        "weak_wrong": 4,
+        "other_wrong": 1,
+        "char_freq_mean_log": 2.61,
+        "competitors_any": 7,
+        "prev_value": "散了"
+      },
+      {
+        "key": "効",
+        "weak_wrong": 4,
+        "other_wrong": 0,
+        "char_freq_mean_log": 1.79,
+        "competitors_any": 2,
+        "prev_value": "菜单栏"
+      },
+      {
+        "key": "叁",
+        "weak_wrong": 4,
+        "other_wrong": 12,
+        "char_freq_mean_log": 0.0,
+        "competitors_any": 0,
+        "prev_value": "对自身"
+      },
+      {
+        "key": "时在",
+        "weak_wrong": 3,
+        "other_wrong": 0,
+        "char_freq_mean_log": 6.29,
+        "competitors_any": 345,
+        "prev_value": "理念和"
+      },
+      {
+        "key": "的实践",
+        "weak_wrong": 3,
+        "other_wrong": 4,
+        "char_freq_mean_log": 5.7,
+        "competitors_any": 1253,
+        "prev_value": "推荐"
+      },
+      {
+        "key": "的特征",
+        "weak_wrong": 3,
+        "other_wrong": 0,
+        "char_freq_mean_log": 5.69,
+        "competitors_any": 1205,
+        "prev_value": "多层"
+      },
+      {
+        "key": "處的",
+        "weak_wrong": 3,
+        "other_wrong": 0,
+        "char_freq_mean_log": 5.32,
+        "competitors_any": 1204,
+        "prev_value": "采购"
+      },
+      {
+        "key": "たく",
+        "weak_wrong": 3,
+        "other_wrong": 0,
+        "char_freq_mean_log": 5.13,
+        "competitors_any": 97,
+        "prev_value": "就已"
+      },
+      {
+        "key": "收到的",
+        "weak_wrong": 2,
+        "other_wrong": 0,
+        "char_freq_mean_log": 6.42,
+        "competitors_any": 1336,
+        "prev_value": "修建"
+      },
+      {
+        "key": "这么多的",
+        "weak_wrong": 2,
+        "other_wrong": 0,
+        "char_freq_mean_log": 6.31,
+        "competitors_any": 1443,
+        "prev_value": "会所"
+      },
+      {
+        "key": "端的",
+        "weak_wrong": 2,
+        "other_wrong": 0,
+        "char_freq_mean_log": 6.05,
+        "competitors_any": 1207,
+        "prev_value": "通知我"
+      },
+      {
+        "key": "的实践",
+        "weak_wrong": 2,
+        "other_wrong": 0,
+        "char_freq_mean_log": 5.7,
+        "competitors_any": 1249,
+        "prev_value": "酸性"
+      },
+      {
+        "key": "和信息",
+        "weak_wrong": 2,
+        "other_wrong": 4,
+        "char_freq_mean_log": 5.66,
+        "competitors_any": 260,
+        "prev_value": "滅"
+      },
+      {
+        "key": "就更",
+        "weak_wrong": 2,
+        "other_wrong": 0,
+        "char_freq_mean_log": 5.51,
+        "competitors_any": 140,
+        "prev_value": "窃"
+      },
+      {
+        "key": "务必",
+        "weak_wrong": 2,
+        "other_wrong": 0,
+        "char_freq_mean_log": 4.95,
+        "competitors_any": 101,
+        "prev_value": "故而"
+      },
+      {
+        "key": "目を",
+        "weak_wrong": 2,
+        "other_wrong": 0,
+        "char_freq_mean_log": 4.71,
+        "competitors_any": 63,
+        "prev_value": "书上"
+      },
+      {
+        "key": "转载",
+        "weak_wrong": 2,
+        "other_wrong": 4,
+        "char_freq_mean_log": 4.62,
+        "competitors_any": 56,
+        "prev_value": "っていました"
+      },
+      {
+        "key": "足り",
+        "weak_wrong": 2,
+        "other_wrong": 0,
+        "char_freq_mean_log": 4.56,
+        "competitors_any": 56,
+        "prev_value": "教育和"
+      },
+      {
+        "key": "笑著",
+        "weak_wrong": 2,
+        "other_wrong": 0,
+        "char_freq_mean_log": 3.82,
+        "competitors_any": 16,
+        "prev_value": "开学"
+      },
+      {
+        "key": "ញ",
+        "weak_wrong": 2,
+        "other_wrong": 0,
+        "char_freq_mean_log": 0.0,
+        "competitors_any": 0,
+        "prev_value": "虽然没有"
+      },
+      {
+        "key": "支持的",
+        "weak_wrong": 1,
+        "other_wrong": 0,
+        "char_freq_mean_log": 5.84,
+        "competitors_any": 1246,
+        "prev_value": "瑚"
+      },
+      {
+        "key": "人生观",
+        "weak_wrong": 1,
+        "other_wrong": 3,
+        "char_freq_mean_log": 5.83,
+        "competitors_any": 422,
+        "prev_value": "定"
+      },
+      {
+        "key": "她是",
+        "weak_wrong": 1,
+        "other_wrong": 3,
+        "char_freq_mean_log": 5.64,
+        "competitors_any": 261,
+        "prev_value": "拉着"
+      },
+      {
+        "key": "的传播",
+        "weak_wrong": 1,
+        "other_wrong": 0,
+        "char_freq_mean_log": 5.5,
+        "competitors_any": 1167,
+        "prev_value": "笑得"
+      },
+      {
+        "key": "年には",
+        "weak_wrong": 1,
+        "other_wrong": 0,
+        "char_freq_mean_log": 5.41,
+        "competitors_any": 205,
+        "prev_value": "章節"
+      },
+      {
+        "key": "三道",
+        "weak_wrong": 1,
+        "other_wrong": 0,
+        "char_freq_mean_log": 5.37,
+        "competitors_any": 110,
+        "prev_value": "人也"
+      },
+      {
+        "key": "不倒",
+        "weak_wrong": 1,
+        "other_wrong": 0,
+        "char_freq_mean_log": 5.16,
+        "competitors_any": 309,
+        "prev_value": "连接"
+      },
+      {
+        "key": "可持续性",
+        "weak_wrong": 1,
+        "other_wrong": 0,
+        "char_freq_mean_log": 5.15,
+        "competitors_any": 242,
+        "prev_value": "台的"
+      },
+      {
+        "key": "端正",
+        "weak_wrong": 1,
+        "other_wrong": 0,
+        "char_freq_mean_log": 4.36,
+        "competitors_any": 47,
+        "prev_value": "月は"
+      },
+      {
+        "key": "直属",
+        "weak_wrong": 1,
+        "other_wrong": 0,
+        "char_freq_mean_log": 4.35,
+        "competitors_any": 54,
+        "prev_value": "而有"
+      },
+      {
+        "key": "紧紧",
+        "weak_wrong": 1,
+        "other_wrong": 0,
+        "char_freq_mean_log": 3.83,
+        "competitors_any": 14,
+        "prev_value": "每项"
+      },
+      {
+        "key": "逝去",
+        "weak_wrong": 1,
+        "other_wrong": 0,
+        "char_freq_mean_log": 3.52,
+        "competitors_any": 38,
+        "prev_value": "极地"
+      },
+      {
+        "key": "っぱ",
+        "weak_wrong": 1,
+        "other_wrong": 0,
+        "char_freq_mean_log": 3.08,
+        "competitors_any": 50,
+        "prev_value": "溶解"
+      },
+      {
+        "key": "仲間",
+        "weak_wrong": 1,
+        "other_wrong": 0,
+        "char_freq_mean_log": 2.66,
+        "competitors_any": 16,
+        "prev_value": "所在"
+      },
+      {
+        "key": "舍弃",
+        "weak_wrong": 1,
+        "other_wrong": 0,
+        "char_freq_mean_log": 2.62,
+        "competitors_any": 6,
+        "prev_value": "工艺品"
+      },
+      {
+        "key": "ғы",
+        "weak_wrong": 1,
+        "other_wrong": 0,
+        "char_freq_mean_log": 2.11,
+        "competitors_any": 9,
+        "prev_value": "适用简易程序"
+      },
+      {
+        "key": "锢",
+        "weak_wrong": 1,
+        "other_wrong": 1,
+        "char_freq_mean_log": 0.69,
+        "competitors_any": 0,
+        "prev_value": "了口气"
+      }
+    ]
+  },
+  "q2_previous_record": {
+    "by_phase_mod4_gap_before": {
+      "mod4=0,gap_before=0": {
+        "correct": 968,
+        "rows": 979,
+        "accuracy": 0.9887640449438202,
+        "wilson_95": [
+          0.9799925920448538,
+          0.9937146665815617
+        ]
+      },
+      "mod4=0,gap_before>=1": {
+        "correct": 45,
+        "rows": 45,
+        "accuracy": 1.0,
+        "wilson_95": [
+          0.9213457380593594,
+          1.0000000000000002
+        ]
+      },
+      "mod4=1,gap_before=0": {
+        "correct": 961,
+        "rows": 968,
+        "accuracy": 0.9927685950413223,
+        "wilson_95": [
+          0.9851486405255607,
+          0.9964928121556169
+        ]
+      },
+      "mod4=1,gap_before>=1": {
+        "correct": 56,
+        "rows": 56,
+        "accuracy": 1.0,
+        "wilson_95": [
+          0.9358038555118846,
+          1.0
+        ]
+      },
+      "mod4=2,gap_before=0": {
+        "correct": 943,
+        "rows": 952,
+        "accuracy": 0.990546218487395,
+        "wilson_95": [
+          0.9821308226906115,
+          0.9950185292522208
+        ]
+      },
+      "mod4=2,gap_before>=1": {
+        "correct": 70,
+        "rows": 72,
+        "accuracy": 0.9722222222222222,
+        "wilson_95": [
+          0.9042564183109327,
+          0.9923491385338594
+        ]
+      },
+      "mod4=3,gap_before=0": {
+        "correct": 909,
+        "rows": 955,
+        "accuracy": 0.9518324607329843,
+        "wilson_95": [
+          0.9363486847657336,
+          0.9636957021277845
+        ]
+      },
+      "mod4=3,gap_before>=1": {
+        "correct": 69,
+        "rows": 69,
+        "accuracy": 1.0,
+        "wilson_95": [
+          0.9472609058559944,
+          1.0
+        ]
+      }
+    },
+    "by_phase_mod4_gap_after": {
+      "mod4=0,gap_after=0": {
+        "correct": 1013,
+        "rows": 1024,
+        "accuracy": 0.9892578125,
+        "wilson_95": [
+          0.9808670326348792,
+          0.9939913502132174
+        ]
+      },
+      "mod4=1,gap_after=0": {
+        "correct": 1017,
+        "rows": 1024,
+        "accuracy": 0.9931640625,
+        "wilson_95": [
+          0.985956850275924,
+          0.9966848330340337
+        ]
+      },
+      "mod4=2,gap_after=0": {
+        "correct": 1013,
+        "rows": 1024,
+        "accuracy": 0.9892578125,
+        "wilson_95": [
+          0.9808670326348792,
+          0.9939913502132174
+        ]
+      },
+      "mod4=3,gap_after=0": {
+        "correct": 978,
+        "rows": 1024,
+        "accuracy": 0.955078125,
+        "wilson_95": [
+          0.9406003958708662,
+          0.9661541079359461
+        ]
+      }
+    },
+    "gap_distribution": {
+      "before=0,after=0": 3854,
+      "before=1,after=0": 230,
+      "before=2,after=0": 12
+    },
+    "prev_record_features_at_weak_phases": {
+      "prefix": {
+        "prev_value_chars": {
+          "wrong_mean": 2.357142857142857,
+          "right_mean": 2.569246435845214,
+          "auc": 0.436572592377073
+        },
+        "prev_value_char_freq_mean_log": {
+          "wrong_mean": 4.61289781462457,
+          "right_mean": 4.449095247482544,
+          "auc": 0.5577053632043448
+        },
+        "prev_value_shares_char_with_key": {
+          "wrong_mean": 0.0,
+          "right_mean": 0.024439918533604887,
+          "auc": 0.48778004073319753
+        },
+        "prev_key_shares_char_with_key": {
+          "wrong_mean": 0.0,
+          "right_mean": 0.012219959266802444,
+          "auc": 0.4938900203665988
+        },
+        "prev_value_same_script_as_key": {
+          "wrong_mean": 0.8571428571428571,
+          "right_mean": 0.8981670061099797,
+          "auc": 0.47948792551643876
+        }
+      },
+      "in_sequence": {
+        "prev_value_chars": {
+          "wrong_mean": 2.260869565217391,
+          "right_mean": 2.574642126789366,
+          "auc": 0.4196896950297857
+        },
+        "prev_value_char_freq_mean_log": {
+          "wrong_mean": 4.355722603849139,
+          "right_mean": 4.460521473890623,
+          "auc": 0.5271183426691562
+        },
+        "prev_value_shares_char_with_key": {
+          "wrong_mean": 0.0,
+          "right_mean": 0.024539877300613498,
+          "auc": 0.48773006134969327
+        },
+        "prev_key_shares_char_with_key": {
+          "wrong_mean": 0.0,
+          "right_mean": 0.012269938650306749,
+          "auc": 0.4938650306748466
+        },
+        "prev_value_same_script_as_key": {
+          "wrong_mean": 0.8260869565217391,
+          "right_mean": 0.8997955010224948,
+          "auc": 0.46314572774962215
+        }
+      }
+    }
+  },
+  "q3_winner_phase": {
+    "prefix": {
+      "other_record_value_errors": 40,
+      "winner_phase_counts": {
+        "0": 3,
+        "1": 3,
+        "2": 5,
+        "3": 29
+      },
+      "expected_counts_from_prompt_phase_mix": {
+        "0": 3.0,
+        "1": 3.0,
+        "2": 5.0,
+        "3": 29.0
+      },
+      "winner_phase_by_target_phase": {
+        "0": {
+          "0": 3
+        },
+        "1": {
+          "1": 3
+        },
+        "2": {
+          "2": 5
+        },
+        "3": {
+          "3": 29
+        }
+      },
+      "record_offset_abs_median": 4515.0,
+      "record_offsets": [
+        -1,
+        10,
+        10,
+        145,
+        145,
+        145,
+        145,
+        148,
+        409,
+        931,
+        1502,
+        1818,
+        1909,
+        1909,
+        2386,
+        2396,
+        2583,
+        3088,
+        3590,
+        4515,
+        4515,
+        4554,
+        4647,
+        6021,
+        6021,
+        6738,
+        6744,
+        7124,
+        7532,
+        8819,
+        10247,
+        10312,
+        10348,
+        12018,
+        12716,
+        14441,
+        14441,
+        14979,
+        14979,
+        14979
+      ],
+      "winners_sharing_char_with_target_key": 12,
+      "rows": [
+        {
+          "target_phase_mod4": 0,
+          "winner_phase_mod4": 0,
+          "record_offset": 145,
+          "winner_key": "中的地位",
+          "target_key": "的地位",
+          "shared_chars": 3,
+          "top1_prob": 0.988
+        },
+        {
+          "target_phase_mod4": 1,
+          "winner_phase_mod4": 1,
+          "record_offset": 145,
+          "winner_key": "中的地位",
+          "target_key": "的地位",
+          "shared_chars": 3,
+          "top1_prob": 0.991
+        },
+        {
+          "target_phase_mod4": 1,
+          "winner_phase_mod4": 1,
+          "record_offset": 12716,
+          "winner_key": "许许多多的",
+          "target_key": "尔顿",
+          "shared_chars": 0,
+          "top1_prob": 0.193
+        },
+        {
+          "target_phase_mod4": 2,
+          "winner_phase_mod4": 2,
+          "record_offset": 10348,
+          "winner_key": "了半天",
+          "target_key": "的实践",
+          "shared_chars": 0,
+          "top1_prob": 0.36
+        },
+        {
+          "target_phase_mod4": 2,
+          "winner_phase_mod4": 2,
+          "record_offset": 8819,
+          "winner_key": "与信息",
+          "target_key": "和信息",
+          "shared_chars": 2,
+          "top1_prob": 0.047
+        },
+        {
+          "target_phase_mod4": 3,
+          "winner_phase_mod4": 3,
+          "record_offset": 148,
+          "winner_key": "不退",
+          "target_key": "不倒",
+          "shared_chars": 1,
+          "top1_prob": 0.113
+        },
+        {
+          "target_phase_mod4": 3,
+          "winner_phase_mod4": 3,
+          "record_offset": 14979,
+          "winner_key": "亲朋好友",
+          "target_key": "在思想上",
+          "shared_chars": 0,
+          "top1_prob": 0.03
+        },
+        {
+          "target_phase_mod4": 3,
+          "winner_phase_mod4": 3,
+          "record_offset": 6744,
+          "winner_key": "局的",
+          "target_key": "就更",
+          "shared_chars": 0,
+          "top1_prob": 0.019
+        },
+        {
+          "target_phase_mod4": 3,
+          "winner_phase_mod4": 3,
+          "record_offset": 1909,
+          "winner_key": "胡萝卜",
+          "target_key": "長輩",
+          "shared_chars": 0,
+          "top1_prob": 0.768
+        },
+        {
+          "target_phase_mod4": 3,
+          "winner_phase_mod4": 3,
+          "record_offset": 4515,
+          "winner_key": "疱",
+          "target_key": "處的",
+          "shared_chars": 0,
+          "top1_prob": 0.461
+        },
+        {
+          "target_phase_mod4": 3,
+          "winner_phase_mod4": 3,
+          "record_offset": 931,
+          "winner_key": "憩",
+          "target_key": "たく",
+          "shared_chars": 0,
+          "top1_prob": 0.142
+        },
+        {
+          "target_phase_mod4": 3,
+          "winner_phase_mod4": 3,
+          "record_offset": 3590,
+          "winner_key": "了一份",
+          "target_key": "就地",
+          "shared_chars": 0,
+          "top1_prob": 0.005
+        },
+        {
+          "target_phase_mod4": 3,
+          "winner_phase_mod4": 3,
+          "record_offset": 14441,
+          "winner_key": "为满足",
+          "target_key": "务必",
+          "shared_chars": 0,
+          "top1_prob": 0.197
+        },
+        {
+          "target_phase_mod4": 3,
+          "winner_phase_mod4": 3,
+          "record_offset": 2386,
+          "winner_key": "ーマ",
+          "target_key": "効",
+          "shared_chars": 0,
+          "top1_prob": 0.91
+        },
+        {
+          "target_phase_mod4": 3,
+          "winner_phase_mod4": 3,
+          "record_offset": 10,
+          "winner_key": "马超",
+          "target_key": "的特征",
+          "shared_chars": 0,
+          "top1_prob": 0.056
+        },
+        {
+          "target_phase_mod4": 3,
+          "winner_phase_mod4": 3,
+          "record_offset": 6021,
+          "winner_key": "ighed",
+          "target_key": "ichtige",
+          "shared_chars": 4,
+          "top1_prob": 0.235
+        },
+        {
+          "target_phase_mod4": 3,
+          "winner_phase_mod4": 3,
+          "record_offset": 10247,
+          "winner_key": "收到了",
+          "target_key": "收到的",
+          "shared_chars": 2,
+          "top1_prob": 0.915
+        },
+        {
+          "target_phase_mod4": 0,
+          "winner_phase_mod4": 0,
+          "record_offset": -1,
+          "winner_key": "教学资源",
+          "target_key": "化纤",
+          "shared_chars": 0,
+          "top1_prob": 0.999
+        },
+        {
+          "target_phase_mod4": 0,
+          "winner_phase_mod4": 0,
+          "record_offset": 145,
+          "winner_key": "中的地位",
+          "target_key": "的地位",
+          "shared_chars": 3,
+          "top1_prob": 0.961
+        },
+        {
+          "target_phase_mod4": 1,
+          "winner_phase_mod4": 1,
+          "record_offset": 145,
+          "winner_key": "中的地位",
+          "target_key": "的地位",
+          "shared_chars": 3,
+          "top1_prob": 0.767
+        },
+        {
+          "target_phase_mod4": 2,
+          "winner_phase_mod4": 2,
+          "record_offset": 14979,
+          "winner_key": "亲朋好友",
+          "target_key": "在思想上",
+          "shared_chars": 0,
+          "top1_prob": 0.402
+        },
+        {
+          "target_phase_mod4": 2,
+          "winner_phase_mod4": 2,
+          "record_offset": 6738,
+          "winner_key": "置身于",
+          "target_key": "的实践",
+          "shared_chars": 0,
+          "top1_prob": 0.069
+        },
+        {
+          "target_phase_mod4": 2,
+          "winner_phase_mod4": 2,
+          "record_offset": 4647,
+          "winner_key": "和设备",
+          "target_key": "和信息",
+          "shared_chars": 1,
+          "top1_prob": 0.071
+        },
+        {
+          "target_phase_mod4": 3,
+          "winner_phase_mod4": 3,
+          "record_offset": 14979,
+          "winner_key": "亲朋好友",
+          "target_key": "在思想上",
+          "shared_chars": 0,
+          "top1_prob": 0.124
+        },
+        {
+          "target_phase_mod4": 3,
+          "winner_phase_mod4": 3,
+          "record_offset": 4554,
+          "winner_key": "飞的",
+          "target_key": "的实践",
+          "shared_chars": 1,
+          "top1_prob": 0.007
+        },
+        {
+          "target_phase_mod4": 3,
+          "winner_phase_mod4": 3,
+          "record_offset": 10312,
+          "winner_key": "了一款",
+          "target_key": "笑著",
+          "shared_chars": 0,
+          "top1_prob": 0.027
+        },
+        {
+          "target_phase_mod4": 3,
+          "winner_phase_mod4": 3,
+          "record_offset": 1909,
+          "winner_key": "胡萝卜",
+          "target_key": "長輩",
+          "shared_chars": 0,
+          "top1_prob": 0.774
+        },
+        {
+          "target_phase_mod4": 3,
+          "winner_phase_mod4": 3,
+          "record_offset": 4515,
+          "winner_key": "疱",
+          "target_key": "處的",
+          "shared_chars": 0,
+          "top1_prob": 0.284
+        },
+        {
+          "target_phase_mod4": 3,
+          "winner_phase_mod4": 3,
+          "record_offset": 12018,
+          "winner_key": "骨头",
+          "target_key": "足り",
+          "shared_chars": 0,
+          "top1_prob": 0.009
+        },
+        {
+          "target_phase_mod4": 3,
+          "winner_phase_mod4": 3,
+          "record_offset": 7532,
+          "winner_key": "趨勢",
+          "target_key": "端的",
+          "shared_chars": 0,
+          "top1_prob": 0.009
+        },
+        {
+          "target_phase_mod4": 3,
+          "winner_phase_mod4": 3,
+          "record_offset": 10,
+          "winner_key": "马超",
+          "target_key": "的特征",
+          "shared_chars": 0,
+          "top1_prob": 0.024
+        },
+        {
+          "target_phase_mod4": 3,
+          "winner_phase_mod4": 3,
+          "record_offset": 2583,
+          "winner_key": "音を",
+          "target_key": "目を",
+          "shared_chars": 1,
+          "top1_prob": 0.494
+        },
+        {
+          "target_phase_mod4": 3,
+          "winner_phase_mod4": 3,
+          "record_offset": 6021,
+          "winner_key": "ighed",
+          "target_key": "ichtige",
+          "shared_chars": 4,
+          "top1_prob": 0.364
+        },
+        {
+          "target_phase_mod4": 3,
+          "winner_phase_mod4": 3,
+          "record_offset": 7124,
+          "winner_key": "当年",
+          "target_key": "这么多的",
+          "shared_chars": 0,
+          "top1_prob": 0.045
+        },
+        {
+          "target_phase_mod4": 3,
+          "winner_phase_mod4": 3,
+          "record_offset": 1502,
+          "winner_key": "景點",
+          "target_key": "为此",
+          "shared_chars": 0,
+          "top1_prob": 0.003
+        },
+        {
+          "target_phase_mod4": 3,
+          "winner_phase_mod4": 3,
+          "record_offset": 409,
+          "winner_key": "雛",
+          "target_key": "たく",
+          "shared_chars": 0,
+          "top1_prob": 0.017
+        },
+        {
+          "target_phase_mod4": 3,
+          "winner_phase_mod4": 3,
+          "record_offset": 1818,
+          "winner_key": "對此",
+          "target_key": "紧紧",
+          "shared_chars": 0,
+          "top1_prob": 0.206
+        },
+        {
+          "target_phase_mod4": 3,
+          "winner_phase_mod4": 3,
+          "record_offset": 3088,
+          "winner_key": "午休",
+          "target_key": "时在",
+          "shared_chars": 0,
+          "top1_prob": 0.121
+        },
+        {
+          "target_phase_mod4": 3,
+          "winner_phase_mod4": 3,
+          "record_offset": 14441,
+          "winner_key": "为满足",
+          "target_key": "务必",
+          "shared_chars": 0,
+          "top1_prob": 0.196
+        },
+        {
+          "target_phase_mod4": 3,
+          "winner_phase_mod4": 3,
+          "record_offset": 2396,
+          "winner_key": "トレンド",
+          "target_key": "効",
+          "shared_chars": 0,
+          "top1_prob": 0.35
+        }
+      ]
+    },
+    "in_sequence": {
+      "other_record_value_errors": 54,
+      "winner_phase_counts": {
+        "0": 19,
+        "1": 12,
+        "3": 17,
+        "2": 6
+      },
+      "expected_counts_from_prompt_phase_mix": {
+        "0": 15.75,
+        "1": 12.21,
+        "2": 11.8,
+        "3": 14.24
+      },
+      "winner_phase_by_target_phase": {
+        "0": {
+          "0": 4,
+          "1": 1
+        },
+        "1": {
+          "1": 3
+        },
+        "2": {
+          "3": 3,
+          "2": 2,
+          "0": 2,
+          "1": 1
+        },
+        "3": {
+          "1": 7,
+          "0": 13,
+          "2": 4,
+          "3": 14
+        }
+      },
+      "record_offset_abs_median": 1909.0,
+      "record_offsets": [
+        -244,
+        -201,
+        -69,
+        -2,
+        -2,
+        -1,
+        -1,
+        -1,
+        48,
+        48,
+        115,
+        145,
+        145,
+        145,
+        145,
+        245,
+        245,
+        371,
+        470,
+        494,
+        789,
+        885,
+        885,
+        1345,
+        1411,
+        1909,
+        1909,
+        1909,
+        2043,
+        2246,
+        2386,
+        2462,
+        3059,
+        3088,
+        3102,
+        3255,
+        4515,
+        4554,
+        4634,
+        4917,
+        6687,
+        7064,
+        7698,
+        8232,
+        8619,
+        8819,
+        9868,
+        10247,
+        10312,
+        10348,
+        10348,
+        10428,
+        13075,
+        14546
+      ],
+      "winners_sharing_char_with_target_key": 21,
+      "rows": [
+        {
+          "target_phase_mod4": 0,
+          "winner_phase_mod4": 0,
+          "record_offset": 145,
+          "winner_key": "中的地位",
+          "target_key": "的地位",
+          "shared_chars": 3,
+          "top1_prob": 0.96
+        },
+        {
+          "target_phase_mod4": 0,
+          "winner_phase_mod4": 1,
+          "record_offset": 7698,
+          "winner_key": "初期的",
+          "target_key": "初期",
+          "shared_chars": 2,
+          "top1_prob": 0.347
+        },
+        {
+          "target_phase_mod4": 0,
+          "winner_phase_mod4": 0,
+          "record_offset": -2,
+          "winner_key": "却一直",
+          "target_key": "锢",
+          "shared_chars": 0,
+          "top1_prob": 0.811
+        },
+        {
+          "target_phase_mod4": 1,
+          "winner_phase_mod4": 1,
+          "record_offset": -1,
+          "winner_key": "教学资源",
+          "target_key": "化纤",
+          "shared_chars": 0,
+          "top1_prob": 0.865
+        },
+        {
+          "target_phase_mod4": 1,
+          "winner_phase_mod4": 1,
+          "record_offset": 145,
+          "winner_key": "中的地位",
+          "target_key": "的地位",
+          "shared_chars": 3,
+          "top1_prob": 0.925
+        },
+        {
+          "target_phase_mod4": 2,
+          "winner_phase_mod4": 3,
+          "record_offset": 1909,
+          "winner_key": "胡萝卜",
+          "target_key": "長輩",
+          "shared_chars": 0,
+          "top1_prob": 0.688
+        },
+        {
+          "target_phase_mod4": 2,
+          "winner_phase_mod4": 2,
+          "record_offset": 10348,
+          "winner_key": "了半天",
+          "target_key": "的实践",
+          "shared_chars": 0,
+          "top1_prob": 0.146
+        },
+        {
+          "target_phase_mod4": 2,
+          "winner_phase_mod4": 0,
+          "record_offset": 3102,
+          "winner_key": "在",
+          "target_key": "和信息",
+          "shared_chars": 0,
+          "top1_prob": 0.012
+        },
+        {
+          "target_phase_mod4": 2,
+          "winner_phase_mod4": 3,
+          "record_offset": 3059,
+          "winner_key": "文件的",
+          "target_key": "生物科技",
+          "shared_chars": 0,
+          "top1_prob": 0.637
+        },
+        {
+          "target_phase_mod4": 2,
+          "winner_phase_mod4": 3,
+          "record_offset": 789,
+          "winner_key": "总台",
+          "target_key": "露头",
+          "shared_chars": 0,
+          "top1_prob": 0.601
+        },
+        {
+          "target_phase_mod4": 3,
+          "winner_phase_mod4": 1,
+          "record_offset": 14546,
+          "winner_key": "企业公示",
+          "target_key": "可持续性",
+          "shared_chars": 0,
+          "top1_prob": 0.067
+        },
+        {
+          "target_phase_mod4": 3,
+          "winner_phase_mod4": 0,
+          "record_offset": 1411,
+          "winner_key": "抛弃",
+          "target_key": "舍弃",
+          "shared_chars": 1,
+          "top1_prob": 0.781
+        },
+        {
+          "target_phase_mod4": 3,
+          "winner_phase_mod4": 2,
+          "record_offset": 2462,
+          "winner_key": "的支持",
+          "target_key": "支持的",
+          "shared_chars": 3,
+          "top1_prob": 0.044
+        },
+        {
+          "target_phase_mod4": 3,
+          "winner_phase_mod4": 0,
+          "record_offset": 3255,
+          "winner_key": "ខ",
+          "target_key": "ញ",
+          "shared_chars": 0,
+          "top1_prob": 0.534
+        },
+        {
+          "target_phase_mod4": 3,
+          "winner_phase_mod4": 3,
+          "record_offset": 371,
+          "winner_key": "迄今",
+          "target_key": "端的",
+          "shared_chars": 0,
+          "top1_prob": 0.018
+        },
+        {
+          "target_phase_mod4": 3,
+          "winner_phase_mod4": 2,
+          "record_offset": 2246,
+          "winner_key": "ых",
+          "target_key": "ғы",
+          "shared_chars": 1,
+          "top1_prob": 0.941
+        },
+        {
+          "target_phase_mod4": 3,
+          "winner_phase_mod4": 0,
+          "record_offset": 885,
+          "winner_key": "和数据",
+          "target_key": "和信息",
+          "shared_chars": 1,
+          "top1_prob": 0.509
+        },
+        {
+          "target_phase_mod4": 3,
+          "winner_phase_mod4": 3,
+          "record_offset": 8232,
+          "winner_key": "钙",
+          "target_key": "在思想上",
+          "shared_chars": 0,
+          "top1_prob": 0.033
+        },
+        {
+          "target_phase_mod4": 3,
+          "winner_phase_mod4": 0,
+          "record_offset": 4634,
+          "winner_key": "就又",
+          "target_key": "就更",
+          "shared_chars": 1,
+          "top1_prob": 0.303
+        },
+        {
+          "target_phase_mod4": 3,
+          "winner_phase_mod4": 0,
+          "record_offset": 10312,
+          "winner_key": "了一款",
+          "target_key": "笑著",
+          "shared_chars": 0,
+          "top1_prob": 0.019
+        },
+        {
+          "target_phase_mod4": 3,
+          "winner_phase_mod4": 0,
+          "record_offset": 1909,
+          "winner_key": "胡萝卜",
+          "target_key": "長輩",
+          "shared_chars": 0,
+          "top1_prob": 0.63
+        },
+        {
+          "target_phase_mod4": 3,
+          "winner_phase_mod4": 0,
+          "record_offset": 4515,
+          "winner_key": "疱",
+          "target_key": "處的",
+          "shared_chars": 0,
+          "top1_prob": 0.075
+        },
+        {
+          "target_phase_mod4": 3,
+          "winner_phase_mod4": 0,
+          "record_offset": 494,
+          "winner_key": "告知",
+          "target_key": "为此",
+          "shared_chars": 0,
+          "top1_prob": 0.002
+        },
+        {
+          "target_phase_mod4": 3,
+          "winner_phase_mod4": 3,
+          "record_offset": 2043,
+          "winner_key": "该项目",
+          "target_key": "たく",
+          "shared_chars": 0,
+          "top1_prob": 0.148
+        },
+        {
+          "target_phase_mod4": 3,
+          "winner_phase_mod4": 3,
+          "record_offset": 115,
+          "winner_key": "死去",
+          "target_key": "逝去",
+          "shared_chars": 1,
+          "top1_prob": 0.965
+        },
+        {
+          "target_phase_mod4": 3,
+          "winner_phase_mod4": 1,
+          "record_offset": 3088,
+          "winner_key": "午休",
+          "target_key": "时在",
+          "shared_chars": 0,
+          "top1_prob": 0.067
+        },
+        {
+          "target_phase_mod4": 3,
+          "winner_phase_mod4": 3,
+          "record_offset": 2386,
+          "winner_key": "ーマ",
+          "target_key": "効",
+          "shared_chars": 0,
+          "top1_prob": 0.653
+        },
+        {
+          "target_phase_mod4": 3,
+          "winner_phase_mod4": 3,
+          "record_offset": 48,
+          "winner_key": "大爷",
+          "target_key": "直属",
+          "shared_chars": 0,
+          "top1_prob": 0.074
+        },
+        {
+          "target_phase_mod4": 3,
+          "winner_phase_mod4": 3,
+          "record_offset": 245,
+          "winner_key": "良性",
+          "target_key": "ichtige",
+          "shared_chars": 0,
+          "top1_prob": 0.684
+        },
+        {
+          "target_phase_mod4": 0,
+          "winner_phase_mod4": 0,
+          "record_offset": -1,
+          "winner_key": "教学资源",
+          "target_key": "化纤",
+          "shared_chars": 0,
+          "top1_prob": 0.864
+        },
+        {
+          "target_phase_mod4": 0,
+          "winner_phase_mod4": 0,
+          "record_offset": 145,
+          "winner_key": "中的地位",
+          "target_key": "的地位",
+          "shared_chars": 3,
+          "top1_prob": 0.908
+        },
+        {
+          "target_phase_mod4": 1,
+          "winner_phase_mod4": 1,
+          "record_offset": 145,
+          "winner_key": "中的地位",
+          "target_key": "的地位",
+          "shared_chars": 3,
+          "top1_prob": 0.987
+        },
+        {
+          "target_phase_mod4": 2,
+          "winner_phase_mod4": 2,
+          "record_offset": -1,
+          "winner_key": "教学资源",
+          "target_key": "化纤",
+          "shared_chars": 0,
+          "top1_prob": 0.704
+        },
+        {
+          "target_phase_mod4": 2,
+          "winner_phase_mod4": 1,
+          "record_offset": 10348,
+          "winner_key": "了半天",
+          "target_key": "的实践",
+          "shared_chars": 0,
+          "top1_prob": 0.021
+        },
+        {
+          "target_phase_mod4": 2,
+          "winner_phase_mod4": 0,
+          "record_offset": 8819,
+          "winner_key": "与信息",
+          "target_key": "和信息",
+          "shared_chars": 2,
+          "top1_prob": 0.224
+        },
+        {
+          "target_phase_mod4": 3,
+          "winner_phase_mod4": 3,
+          "record_offset": 470,
+          "winner_key": "需要做",
+          "target_key": "的实践",
+          "shared_chars": 0,
+          "top1_prob": 0.066
+        },
+        {
+          "target_phase_mod4": 3,
+          "winner_phase_mod4": 3,
+          "record_offset": 885,
+          "winner_key": "和数据",
+          "target_key": "和信息",
+          "shared_chars": 1,
+          "top1_prob": 0.187
+        },
+        {
+          "target_phase_mod4": 3,
+          "winner_phase_mod4": 0,
+          "record_offset": 1345,
+          "winner_key": "由市",
+          "target_key": "在思想上",
+          "shared_chars": 0,
+          "top1_prob": 0.017
+        },
+        {
+          "target_phase_mod4": 3,
+          "winner_phase_mod4": 1,
+          "record_offset": 4554,
+          "winner_key": "飞的",
+          "target_key": "的实践",
+          "shared_chars": 1,
+          "top1_prob": 0.013
+        },
+        {
+          "target_phase_mod4": 3,
+          "winner_phase_mod4": 3,
+          "record_offset": 48,
+          "winner_key": "三中",
+          "target_key": "三道",
+          "shared_chars": 1,
+          "top1_prob": 0.269
+        },
+        {
+          "target_phase_mod4": 3,
+          "winner_phase_mod4": 0,
+          "record_offset": 1909,
+          "winner_key": "胡萝卜",
+          "target_key": "長輩",
+          "shared_chars": 0,
+          "top1_prob": 0.548
+        },
+        {
+          "target_phase_mod4": 3,
+          "winner_phase_mod4": 1,
+          "record_offset": 10428,
+          "winner_key": "已經是",
+          "target_key": "既に",
+          "shared_chars": 0,
+          "top1_prob": 0.167
+        },
+        {
+          "target_phase_mod4": 3,
+          "winner_phase_mod4": 2,
+          "record_offset": 6687,
+          "winner_key": "太过",
+          "target_key": "端正",
+          "shared_chars": 0,
+          "top1_prob": 0.986
+        },
+        {
+          "target_phase_mod4": 3,
+          "winner_phase_mod4": 1,
+          "record_offset": -69,
+          "winner_key": "科尔",
+          "target_key": "ញ",
+          "shared_chars": 0,
+          "top1_prob": 0.431
+        },
+        {
+          "target_phase_mod4": 3,
+          "winner_phase_mod4": 3,
+          "record_offset": -2,
+          "winner_key": "却一直",
+          "target_key": "锢",
+          "shared_chars": 0,
+          "top1_prob": 0.919
+        },
+        {
+          "target_phase_mod4": 3,
+          "winner_phase_mod4": 3,
+          "record_offset": 9868,
+          "winner_key": "貫",
+          "target_key": "的传播",
+          "shared_chars": 0,
+          "top1_prob": 0.074
+        },
+        {
+          "target_phase_mod4": 3,
+          "winner_phase_mod4": 1,
+          "record_offset": 13075,
+          "winner_key": "ぱ",
+          "target_key": "っぱ",
+          "shared_chars": 1,
+          "top1_prob": 0.097
+        },
+        {
+          "target_phase_mod4": 3,
+          "winner_phase_mod4": 3,
+          "record_offset": 8619,
+          "winner_key": "悠久的历史",
+          "target_key": "的特征",
+          "shared_chars": 1,
+          "top1_prob": 0.196
+        },
+        {
+          "target_phase_mod4": 3,
+          "winner_phase_mod4": 0,
+          "record_offset": -244,
+          "winner_key": "裙",
+          "target_key": "目を",
+          "shared_chars": 0,
+          "top1_prob": 0.012
+        },
+        {
+          "target_phase_mod4": 3,
+          "winner_phase_mod4": 3,
+          "record_offset": 245,
+          "winner_key": "良性",
+          "target_key": "ichtige",
+          "shared_chars": 0,
+          "top1_prob": 0.765
+        },
+        {
+          "target_phase_mod4": 3,
+          "winner_phase_mod4": 2,
+          "record_offset": 10247,
+          "winner_key": "收到了",
+          "target_key": "收到的",
+          "shared_chars": 2,
+          "top1_prob": 0.913
+        },
+        {
+          "target_phase_mod4": 3,
+          "winner_phase_mod4": 1,
+          "record_offset": -201,
+          "winner_key": "日には",
+          "target_key": "年には",
+          "shared_chars": 2,
+          "top1_prob": 0.867
+        },
+        {
+          "target_phase_mod4": 3,
+          "winner_phase_mod4": 0,
+          "record_offset": 4917,
+          "winner_key": "时无",
+          "target_key": "时在",
+          "shared_chars": 1,
+          "top1_prob": 0.189
+        },
+        {
+          "target_phase_mod4": 3,
+          "winner_phase_mod4": 0,
+          "record_offset": 7064,
+          "winner_key": "効果",
+          "target_key": "効",
+          "shared_chars": 1,
+          "top1_prob": 0.896
+        }
+      ]
+    }
+  },
+  "q4_gold_probability": {
+    "prefix": {
+      "wrong_gold_prob_bins_by_mod4": {
+        "0": {
+          "absent_from_top10": 3,
+          "<0.01": 2,
+          "0.01-0.1": 0,
+          "0.1-0.3": 0,
+          ">=0.3": 0
+        },
+        "1": {
+          "absent_from_top10": 3,
+          "<0.01": 0,
+          "0.01-0.1": 2,
+          "0.1-0.3": 1,
+          ">=0.3": 1
+        },
+        "2": {
+          "absent_from_top10": 6,
+          "<0.01": 0,
+          "0.01-0.1": 1,
+          "0.1-0.3": 1,
+          ">=0.3": 0
+        },
+        "3": {
+          "absent_from_top10": 36,
+          "<0.01": 3,
+          "0.01-0.1": 1,
+          "0.1-0.3": 2,
+          ">=0.3": 0
+        }
+      },
+      "wrong_gold_over_top1_ratio_median_when_present": {
+        "0": 0.0011800389566212332,
+        "1": 0.7640727145062438,
+        "2": 0.44845029200540415,
+        "3": 0.48720505044203777
+      },
+      "top10_floor_prob_median_in_wrong": 0.0022406196932886675,
+      "correct_gold_prob_by_mod4": {
+        "0": {
+          "median": 0.9984541032102311,
+          "below_0.9": 22,
+          "below_0.99": 155,
+          "rows": 1019
+        },
+        "1": {
+          "median": 0.9985648753718366,
+          "below_0.9": 25,
+          "below_0.99": 143,
+          "rows": 1017
+        },
+        "2": {
+          "median": 0.9984445366217398,
+          "below_0.9": 22,
+          "below_0.99": 147,
+          "rows": 1016
+        },
+        "3": {
+          "median": 0.9982793187303243,
+          "below_0.9": 48,
+          "below_0.99": 176,
+          "rows": 982
+        }
+      }
+    },
+    "in_sequence": {
+      "wrong_gold_prob_bins_by_mod4": {
+        "0": {
+          "absent_from_top10": 3,
+          "<0.01": 0,
+          "0.01-0.1": 2,
+          "0.1-0.3": 4,
+          ">=0.3": 2
+        },
+        "1": {
+          "absent_from_top10": 3,
+          "<0.01": 0,
+          "0.01-0.1": 1,
+          "0.1-0.3": 2,
+          ">=0.3": 1
+        },
+        "2": {
+          "absent_from_top10": 7,
+          "<0.01": 0,
+          "0.01-0.1": 0,
+          "0.1-0.3": 2,
+          ">=0.3": 2
+        },
+        "3": {
+          "absent_from_top10": 34,
+          "<0.01": 1,
+          "0.01-0.1": 8,
+          "0.1-0.3": 2,
+          ">=0.3": 1
+        }
+      },
+      "wrong_gold_over_top1_ratio_median_when_present": {
+        "0": 0.44210047699758315,
+        "1": 0.5179259301444279,
+        "2": 0.5038139925044168,
+        "3": 0.34626597619222077
+      },
+      "top10_floor_prob_median_in_wrong": 0.001761857207005753,
+      "correct_gold_prob_by_mod4": {
+        "0": {
+          "median": 0.9984783474101339,
+          "below_0.9": 19,
+          "below_0.99": 151,
+          "rows": 1013
+        },
+        "1": {
+          "median": 0.9985615470736995,
+          "below_0.9": 24,
+          "below_0.99": 157,
+          "rows": 1017
+        },
+        "2": {
+          "median": 0.998528027797242,
+          "below_0.9": 20,
+          "below_0.99": 154,
+          "rows": 1013
+        },
+        "3": {
+          "median": 0.9981955722130871,
+          "below_0.9": 41,
+          "below_0.99": 188,
+          "rows": 978
+        }
+      }
+    }
+  }
+}

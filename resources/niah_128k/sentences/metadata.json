@@ -1,0 +1,73 @@
+{
+  "_id": "66fbf8e1f401b579c5dd7eef",
+  "id": "agentlans/high-quality-english-sentences",
+  "author": "agentlans",
+  "sha": "5dfcb23b31fa9b85ce90b5713fcbba29179f2401",
+  "lastModified": "2024-10-01T13:36:37.000Z",
+  "private": false,
+  "gated": false,
+  "disabled": false,
+  "tags": [
+    "task_categories:text-classification",
+    "task_categories:text-generation",
+    "task_categories:feature-extraction",
+    "task_categories:sentence-similarity",
+    "language:en",
+    "license:odc-by",
+    "size_categories:1M<n<10M",
+    "format:text",
+    "modality:text",
+    "library:datasets",
+    "library:mlcroissant",
+    "region:us"
+  ],
+  "description": "\n\t\n\t\t\n\t\n\t\n\t\tHigh-Quality English Sentences\n\t\n\n\n\t\n\t\t\n\t\n\t\n\t\tDataset Description\n\t\n\nThis dataset contains a collection of high-quality English sentences sourced from C4 and FineWeb (not FineWeb-Edu). The sentences have been carefully filtered and processed to ensure quality and uniqueness.\n\"High-quality\" means they're legible English and not spam, although they may still have spelling and grammar errors.\n\n\t\n\t\t\n\t\n\t\n\t\tSource Data\n\t\n\nBefore filtering:\n\nC4: 1 million sentences\nFineWeb: 1 million… See the full description on the dataset page: https://huggingface.co/datasets/agentlans/high-quality-english-sentences.",
+  "downloads": 1094,
+  "likes": 40,
+  "cardData": {
+    "license": "odc-by",
+    "task_categories": [
+      "text-classification",
+      "text-generation",
+      "feature-extraction",
+      "sentence-similarity"
+    ],
+    "language": [
+      "en"
+    ]
+  },
+  "siblings": [
+    {
+      "rfilename": ".gitattributes",
+      "blobId": "55cab133643a2a73e083373d2106533678d0edd5",
+      "size": 2419
+    },
+    {
+      "rfilename": "README.md",
+      "blobId": "775c94ba9c7e6cfbb2248444b175753e00f146ff",
+      "size": 2297
+    },
+    {
+      "rfilename": "test.txt.gz",
+      "blobId": "ef395fc6e0705134859a7707b9576cb10ea375a1",
+      "size": 9488687,
+      "lfs": {
+        "sha256": "70f1b4e0ea23de2d3e2060372587512906c37b120747f31a2d4373d868850923",
+        "size": 9488687,
+        "pointerSize": 132
+      }
+    },
+    {
+      "rfilename": "train.txt.gz",
+      "blobId": "b86402b4aa107bc99f11af40208ec02e12dac687",
+      "size": 85467066,
+      "lfs": {
+        "sha256": "edbcece9d0236c149f872b1098a1cb952e43a61bfc6cde0c42b44adbeb594406",
+        "size": 85467066,
+        "pointerSize": 133
+      }
+    }
+  ],
+  "createdAt": "2024-10-01T13:28:01.000Z",
+  "usedStorage": 260643175
+}

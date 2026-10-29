@@ -6,11 +6,16 @@ from dataclasses import dataclass
 from typing import TYPE_CHECKING, Any
 
 from periodic_weak_spots.tokenization import (
+    FastTokenizer,
     Tokenizer,
     assert_additive,
     build_token_exact_padding,
     token_ids,
+    token_ids_batch,
+    token_ids_sha256,
 )
+
+from .profiles import DEEPSEEK_MODEL_ID, MODEL_PROFILES, ModelProfile
 
 if TYPE_CHECKING:
     from .bindings import Binding
@@ -43,6 +48,11 @@ class Scaffold:
     tail_token_count: int
     query_token_count: int
     query_separator_token_count: int
+    chat_prefix_text: str = ""
+    chat_prefix_token_count: int = 0
+    chat_suffix_text: str = ""
+    chat_suffix_token_count: int = 0
+    use_chat_template: bool = False
 
 
 def render_pair(key: str, value: str, spec: LayoutSpec) -> str:
@@ -75,30 +85,57 @@ def validate_pair_body(tokenizer: Tokenizer, binding: Binding, spec: LayoutSpec)
     colon = _single_token(tokenizer, ":", "colon")
     separator = _single_token(tokenizer, spec.record_separator, "separator")
     expected_body: list[int] = []
+    expected_records: list[list[int]] = []
     texts: list[str] = []
     for pair in binding.pairs:
         expected = [pair.key_token_id, colon, pair.value_token_id, separator]
         text = render_pair(pair.key, pair.value, spec)
-        if token_ids(tokenizer, text) != expected:
-            raise ValueError("pair record is not token-exact")
+        expected_records.append(expected)
         texts.append(text)
         expected_body.extend(expected)
+    if token_ids_batch(tokenizer, texts) != expected_records:
+        raise ValueError("pair record is not token-exact")
     if token_ids(tokenizer, "".join(texts)) != expected_body:
         raise ValueError("adjacent records merge")
     return expected_body
 
 
-def _aligned_intro(tokenizer: Tokenizer, filler_text: str, spec: LayoutSpec) -> tuple[str, int]:
-    """Pad the intro with filler until its token count is a multiple of ``spec.alignment``."""
+def _aligned_intro(
+    tokenizer: Tokenizer, filler_text: str, spec: LayoutSpec, *, leading_token_count: int = 0
+) -> tuple[str, int]:
+    """补充 intro，使前导 chat 标记与 intro 的总长度为 alignment 的整数倍。"""
 
     intro = render_intro(spec)
     for padding_count in range(spec.alignment * 8):
         padding = build_token_exact_padding(tokenizer, padding_count, filler_text)
         candidate = intro + padding + "\n"
         count = len(token_ids(tokenizer, candidate))
-        if count % spec.alignment == 0:
+        if (leading_token_count + count) % spec.alignment == 0:
             return candidate, count
     raise ValueError("could not align the intro")
+
+
+def render_chat_prompt(tokenizer: Tokenizer, content: str) -> str:
+    if not isinstance(tokenizer, FastTokenizer):
+        raise TypeError("chat template 需要使用已加载的 HF/GigaToken Tokenizer")
+    return str(
+        tokenizer.hf.apply_chat_template(
+            [{"role": "user", "content": content}],
+            tokenize=False,
+            add_generation_prompt=True,
+            enable_thinking=False,
+        )
+    )
+
+
+def _chat_affixes(tokenizer: Tokenizer, content: str) -> tuple[str, str]:
+    content = content.strip()
+    rendered = render_chat_prompt(tokenizer, content)
+    if rendered.count(content) != 1:
+        raise ValueError("chat template 必须完整保留 user 内容一次")
+    prefix, _, suffix = rendered.partition(content)
+    assert_additive(tokenizer, prefix, content, suffix, label="chat template")
+    return prefix, suffix
 
 
 def _guarded_padding(
@@ -127,16 +164,27 @@ def prepare_scaffold(
     alignment_filler: str,
     tail_filler: str,
     spec: LayoutSpec,
+    profile: ModelProfile = MODEL_PROFILES[DEEPSEEK_MODEL_ID],
 ) -> Scaffold:
     body_ids = validate_pair_body(tokenizer, example_binding, spec)
-    intro, intro_count = _aligned_intro(tokenizer, alignment_filler, spec)
-    query_count = len(token_ids(tokenizer, render_query(example_binding.target.key)))
+    query_text = render_query(example_binding.target.key)
+    chat_prefix, chat_suffix = "", ""
+    if profile.use_chat_template:
+        query_text = query_text.rstrip()
+        chat_prefix, chat_suffix = _chat_affixes(tokenizer, render_intro(spec) + query_text)
+    chat_prefix_count = len(token_ids(tokenizer, chat_prefix))
+    chat_suffix_count = len(token_ids(tokenizer, chat_suffix))
+    intro, intro_count = _aligned_intro(
+        tokenizer, alignment_filler, spec, leading_token_count=chat_prefix_count
+    )
+    query_count = len(token_ids(tokenizer, query_text))
     separator_count = len(token_ids(tokenizer, spec.query_separator))
     # The target record then starts at target_pair_mean - natural_filler_tokens // 2 + prefill.
     # That offset (63,976) is a multiple of 8, so the prefill length alone sets the residue, and
     # the mean prefill of 24 puts the mean target start at target_pair_mean.
     body_prefix_count = (
         spec.target_pair_mean
+        - chat_prefix_count
         - intro_count
         - spec.target_index * PAIR_TOKENS
         - spec.natural_filler_tokens // 2
@@ -147,12 +195,14 @@ def prepare_scaffold(
         tokenizer, body_prefix_count, tail_filler, spec.body_prefix_guard_token, label="body prefix"
     )
     fixed_count = (
-        intro_count
+        chat_prefix_count
+        + intro_count
         + spec.natural_filler_tokens
         + body_prefix_count
         + len(body_ids)
         + separator_count
         + query_count
+        + chat_suffix_count
     )
     # Prefill + postfill always totals natural_filler_tokens, so one tail fits every row.
     tail_count = spec.prompt_tokens - fixed_count
@@ -170,6 +220,11 @@ def prepare_scaffold(
         tail_token_count=tail_count,
         query_token_count=query_count,
         query_separator_token_count=separator_count,
+        chat_prefix_text=chat_prefix,
+        chat_prefix_token_count=chat_prefix_count,
+        chat_suffix_text=chat_suffix,
+        chat_suffix_token_count=chat_suffix_count,
+        use_chat_template=profile.use_chat_template,
     )
 
 
@@ -187,10 +242,13 @@ def build_prompt_row(
     body_ids = validate_pair_body(tokenizer, binding, spec)
     body_text = "".join(render_pair(pair.key, pair.value, spec) for pair in binding.pairs)
     query_text = render_query(binding.target.key)
+    if scaffold.use_chat_template:
+        query_text = query_text.rstrip()
     query_ids = token_ids(tokenizer, query_text)
     if len(query_ids) != scaffold.query_token_count:
         raise ValueError("query token count varies across single-token keys")
     components = {
+        **({"chat_prefix": scaffold.chat_prefix_text} if scaffold.use_chat_template else {}),
         "intro": scaffold.intro_text,
         "natural_prefill": assignment.prefill.text,
         "body_prefix": scaffold.body_prefix_text,
@@ -199,6 +257,7 @@ def build_prompt_row(
         "tail": scaffold.tail_text,
         "query_separator": spec.query_separator,
         "query": query_text,
+        **({"chat_suffix": scaffold.chat_suffix_text} if scaffold.use_chat_template else {}),
     }
     # Additivity makes each component's own token count a valid span in the full prompt.
     assert_additive(
@@ -207,10 +266,19 @@ def build_prompt_row(
         label=f"{PAIR_FORM}/phase{assignment.phase}/row{assignment.row_index}",
     )
     prompt = "".join(components.values())
+    if scaffold.use_chat_template:
+        user_text = "".join(
+            text
+            for label, text in components.items()
+            if label not in {"chat_prefix", "chat_suffix"}
+        )
+        if render_chat_prompt(tokenizer, user_text) != prompt:
+            raise ValueError("完整文本与官方 chat template 不一致")
     prompt_ids = token_ids(tokenizer, prompt)
     if len(prompt_ids) != spec.prompt_tokens:
         raise ValueError(f"prompt has {len(prompt_ids)} tokens, expected {spec.prompt_tokens}")
     counts = {
+        **({"chat_prefix": scaffold.chat_prefix_token_count} if scaffold.use_chat_template else {}),
         "intro": scaffold.intro_token_count,
         "natural_prefill": assignment.prefill.token_count,
         "body_prefix": scaffold.body_prefix_token_count,
@@ -219,6 +287,7 @@ def build_prompt_row(
         "tail": scaffold.tail_token_count,
         "query_separator": scaffold.query_separator_token_count,
         "query": len(query_ids),
+        **({"chat_suffix": scaffold.chat_suffix_token_count} if scaffold.use_chat_template else {}),
     }
     starts: dict[str, int] = {}
     cursor = 0
@@ -229,9 +298,9 @@ def build_prompt_row(
         raise AssertionError("component spans do not sum to prompt length")
     target_pair_start = starts["pair_body"] + binding.target_index * PAIR_TOKENS
     target_value_start = target_pair_start + VALUE_OFFSET
-    query_start = spec.prompt_tokens - counts["query"]
+    query_start = spec.prompt_tokens - scaffold.chat_suffix_token_count - counts["query"]
     if starts["query"] != query_start:
-        raise AssertionError("query start must equal prompt length minus query length")
+        raise AssertionError("query 起点与完整输入长度及 chat_suffix 长度不一致")
     if target_pair_start % spec.alignment != assignment.phase:
         raise ValueError("target phase equation is violated")
     coordinate = f"phase{assignment.phase}_{assignment.row_index:03d}"
@@ -244,6 +313,11 @@ def build_prompt_row(
         "answer": [binding.target.value],
         "components": components,
         "metadata": {
+            **(
+                {"input_token_ids_sha256": token_ids_sha256(prompt_ids)}
+                if scaffold.use_chat_template
+                else {}
+            ),
             "prompt_token_count": spec.prompt_tokens,
             "model_prefill_token_count": spec.prompt_tokens,
             "phase_control_prefix_count": assignment.prefill.token_count,

@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import hashlib
 import json
 from fractions import Fraction
 from pathlib import Path
@@ -174,7 +175,12 @@ def publish_dataset(
     )
     # Every row shares the intro, body prefix, and tail; only bindings and sentences vary.
     scaffold = prepare_scaffold(
-        tokenizer, bindings[0], alignment_filler=filler, tail_filler=filler, spec=config.layout
+        tokenizer,
+        bindings[0],
+        alignment_filler=filler,
+        tail_filler=filler,
+        spec=config.layout,
+        profile=config.profile,
     )
     for phase in config.matrix.phases:
         assignments = sorted(
@@ -198,6 +204,9 @@ def publish_dataset(
         "dataset_id": config.experiment_id,
         "status": "complete",
         "config": config.to_dict(),
+        "filler_sha256": hashlib.sha256(filler.encode("utf-8")).hexdigest(),
+        "input_format": "qwen_non_thinking" if config.profile.use_chat_template else "raw",
+        "tokenizer_files": dict(config.profile.tokenizer_files),
         "source_report": source_report,
         "design": inspect_design(
             config, available_capacity={length: len(rows) for length, rows in bins.items()}

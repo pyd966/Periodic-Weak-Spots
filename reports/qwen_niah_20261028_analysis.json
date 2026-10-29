@@ -1,0 +1,4104 @@
+{
+  "runs": {
+    "prefill": {
+      "file": "results/qwen_niah_128k_fp8_tp4_full.json",
+      "run": {
+        "dataset_path": "/root/Periodic-Weak-Spots/.research/niah_qwen_128k_512",
+        "model": "/root/autodl-tmp/models/Qwen3.8-Flash-Next-FP8",
+        "model_profile": "Qwen/Qwen3.8-Flash-Next",
+        "engine": "vllm",
+        "versions": {
+          "torch": "2.13.0",
+          "transformers": "5.19.0",
+          "vllm": "0.32.0"
+        },
+        "engine_args": {
+          "enable_expert_parallel": true,
+          "generation_config": "vllm",
+          "logprobs_mode": "raw_logprobs",
+          "max_logprobs": 10,
+          "max_model_len": 131072,
+          "tensor_parallel_size": 4
+        },
+        "sampling_params": {
+          "logprobs": 10,
+          "max_tokens": 8,
+          "temperature": 0
+        },
+        "tokenizer_revision": "de4b8e4d43b917e7706784d8bb445c9af86a3540"
+      },
+      "records": 4096,
+      "correct": 4034,
+      "incorrect": 62,
+      "accuracy": 0.98486328125,
+      "phase_stats": {
+        "0": {
+          "rows": 512,
+          "correct": 510,
+          "incorrect": 2,
+          "accuracy": 0.99609375,
+          "wilson_95": [
+            0.9858703008860721,
+            0.9989281333619606
+          ],
+          "target_key_position": {
+            "min": 63984,
+            "p25": 64000,
+            "median": 64000.0,
+            "p75": 64000,
+            "max": 64016
+          },
+          "target_value_position": {
+            "min": 63986,
+            "p25": 64002,
+            "median": 64002.0,
+            "p75": 64002,
+            "max": 64018
+          },
+          "target_top10_rank_counts": {
+            "1": 510,
+            "2": 0,
+            "3": 0,
+            "4": 0,
+            "5": 0,
+            "6": 0,
+            "7": 0,
+            "8": 0,
+            "9": 0,
+            "10": 0
+          },
+          "target_absent_from_top10": 2,
+          "target_probability_when_in_top10": {
+            "mean": 0.9887453916100094,
+            "median": 0.9984539251001656,
+            "min": 0.16176398511404969,
+            "max": 0.9999946356109105
+          }
+        },
+        "1": {
+          "rows": 512,
+          "correct": 508,
+          "incorrect": 4,
+          "accuracy": 0.9921875,
+          "wilson_95": [
+            0.9800862685977904,
+            0.9969578472703368
+          ],
+          "target_key_position": {
+            "min": 63985,
+            "p25": 63993,
+            "median": 64001.0,
+            "p75": 64001,
+            "max": 64009
+          },
+          "target_value_position": {
+            "min": 63987,
+            "p25": 63995,
+            "median": 64003.0,
+            "p75": 64003,
+            "max": 64011
+          },
+          "target_top10_rank_counts": {
+            "1": 508,
+            "2": 1,
+            "3": 1,
+            "4": 0,
+            "5": 0,
+            "6": 0,
+            "7": 0,
+            "8": 0,
+            "9": 0,
+            "10": 0
+          },
+          "target_absent_from_top10": 2,
+          "target_probability_when_in_top10": {
+            "mean": 0.9853789708141907,
+            "median": 0.9985675499025184,
+            "min": 0.057856891504500456,
+            "max": 0.9999964237340748
+          }
+        },
+        "2": {
+          "rows": 512,
+          "correct": 509,
+          "incorrect": 3,
+          "accuracy": 0.994140625,
+          "wilson_95": [
+            0.9829159147435814,
+            0.9980053603144984
+          ],
+          "target_key_position": {
+            "min": 63986,
+            "p25": 63994,
+            "median": 64002.0,
+            "p75": 64002,
+            "max": 64010
+          },
+          "target_value_position": {
+            "min": 63988,
+            "p25": 63996,
+            "median": 64004.0,
+            "p75": 64004,
+            "max": 64012
+          },
+          "target_top10_rank_counts": {
+            "1": 509,
+            "2": 0,
+            "3": 0,
+            "4": 0,
+            "5": 0,
+            "6": 0,
+            "7": 0,
+            "8": 0,
+            "9": 0,
+            "10": 0
+          },
+          "target_absent_from_top10": 3,
+          "target_probability_when_in_top10": {
+            "mean": 0.9895887287233941,
+            "median": 0.9985449059819074,
+            "min": 0.1843932530931313,
+            "max": 0.9999969005680498
+          }
+        },
+        "3": {
+          "rows": 512,
+          "correct": 493,
+          "incorrect": 19,
+          "accuracy": 0.962890625,
+          "wilson_95": [
+            0.9427703121926854,
+            0.9761164158261484
+          ],
+          "target_key_position": {
+            "min": 63987,
+            "p25": 63995,
+            "median": 64003.0,
+            "p75": 64003,
+            "max": 64011
+          },
+          "target_value_position": {
+            "min": 63989,
+            "p25": 63997,
+            "median": 64005.0,
+            "p75": 64005,
+            "max": 64013
+          },
+          "target_top10_rank_counts": {
+            "1": 493,
+            "2": 1,
+            "3": 0,
+            "4": 0,
+            "5": 0,
+            "6": 0,
+            "7": 1,
+            "8": 0,
+            "9": 0,
+            "10": 0
+          },
+          "target_absent_from_top10": 17,
+          "target_probability_when_in_top10": {
+            "mean": 0.9733621313423841,
+            "median": 0.9983200685492147,
+            "min": 0.003352481994269613,
+            "max": 0.9999946356109105
+          }
+        },
+        "4": {
+          "rows": 512,
+          "correct": 509,
+          "incorrect": 3,
+          "accuracy": 0.994140625,
+          "wilson_95": [
+            0.9829159147435814,
+            0.9980053603144984
+          ],
+          "target_key_position": {
+            "min": 63988,
+            "p25": 63996,
+            "median": 64000.0,
+            "p75": 64004,
+            "max": 64012
+          },
+          "target_value_position": {
+            "min": 63990,
+            "p25": 63998,
+            "median": 64002.0,
+            "p75": 64006,
+            "max": 64014
+          },
+          "target_top10_rank_counts": {
+            "1": 509,
+            "2": 1,
+            "3": 1,
+            "4": 0,
+            "5": 0,
+            "6": 0,
+            "7": 0,
+            "8": 0,
+            "9": 0,
+            "10": 0
+          },
+          "target_absent_from_top10": 1,
+          "target_probability_when_in_top10": {
+            "mean": 0.9840232065751663,
+            "median": 0.9984426946590071,
+            "min": 0.0010319391325808412,
+            "max": 0.9999970197767496
+          }
+        },
+        "5": {
+          "rows": 512,
+          "correct": 509,
+          "incorrect": 3,
+          "accuracy": 0.994140625,
+          "wilson_95": [
+            0.9829159147435814,
+            0.9980053603144984
+          ],
+          "target_key_position": {
+            "min": 63989,
+            "p25": 63997,
+            "median": 63997.0,
+            "p75": 64005,
+            "max": 64013
+          },
+          "target_value_position": {
+            "min": 63991,
+            "p25": 63999,
+            "median": 63999.0,
+            "p75": 64007,
+            "max": 64015
+          },
+          "target_top10_rank_counts": {
+            "1": 509,
+            "2": 2,
+            "3": 0,
+            "4": 0,
+            "5": 0,
+            "6": 0,
+            "7": 0,
+            "8": 0,
+            "9": 0,
+            "10": 0
+          },
+          "target_absent_from_top10": 1,
+          "target_probability_when_in_top10": {
+            "mean": 0.9857751733306754,
+            "median": 0.9985213718064224,
+            "min": 0.023172167213725687,
+            "max": 0.9999967813595916
+          }
+        },
+        "6": {
+          "rows": 512,
+          "correct": 507,
+          "incorrect": 5,
+          "accuracy": 0.990234375,
+          "wilson_95": [
+            0.9773451967514872,
+            0.995821759926687
+          ],
+          "target_key_position": {
+            "min": 63990,
+            "p25": 63998,
+            "median": 63998.0,
+            "p75": 64006,
+            "max": 64014
+          },
+          "target_value_position": {
+            "min": 63992,
+            "p25": 64000,
+            "median": 64000.0,
+            "p75": 64008,
+            "max": 64016
+          },
+          "target_top10_rank_counts": {
+            "1": 507,
+            "2": 0,
+            "3": 1,
+            "4": 1,
+            "5": 0,
+            "6": 0,
+            "7": 0,
+            "8": 0,
+            "9": 0,
+            "10": 0
+          },
+          "target_absent_from_top10": 3,
+          "target_probability_when_in_top10": {
+            "mean": 0.9854274302592806,
+            "median": 0.9983535738713337,
+            "min": 0.014875598621925746,
+            "max": 0.9999953508594287
+          }
+        },
+        "7": {
+          "rows": 512,
+          "correct": 489,
+          "incorrect": 23,
+          "accuracy": 0.955078125,
+          "wilson_95": [
+            0.9334955903063304,
+            0.9698825009526917
+          ],
+          "target_key_position": {
+            "min": 63991,
+            "p25": 63999,
+            "median": 63999.0,
+            "p75": 64007,
+            "max": 64015
+          },
+          "target_value_position": {
+            "min": 63993,
+            "p25": 64001,
+            "median": 64001.0,
+            "p75": 64009,
+            "max": 64017
+          },
+          "target_top10_rank_counts": {
+            "1": 489,
+            "2": 1,
+            "3": 1,
+            "4": 1,
+            "5": 0,
+            "6": 0,
+            "7": 0,
+            "8": 0,
+            "9": 1,
+            "10": 0
+          },
+          "target_absent_from_top10": 19,
+          "target_probability_when_in_top10": {
+            "mean": 0.9724837832559416,
+            "median": 0.9981102958088672,
+            "min": 0.0020896040959548483,
+            "max": 0.9999958276922101
+          }
+        }
+      },
+      "target_top10_rank_counts": {
+        "1": 4034,
+        "2": 6,
+        "3": 4,
+        "4": 2,
+        "5": 0,
+        "6": 0,
+        "7": 1,
+        "8": 0,
+        "9": 1,
+        "10": 0
+      },
+      "target_absent_from_top10": 48,
+      "target_probability_when_in_top10": {
+        "count": 4048,
+        "mean": 0.9831774659214595,
+        "median": 0.9984172044553193,
+        "min": 0.0010319391325808412,
+        "max": 0.9999970197767496
+      },
+      "top1_probability": {
+        "min": 0.0024123739972586344,
+        "p25": 0.9944951075180138,
+        "median": 0.9983743079275182,
+        "p75": 0.9996370203172751,
+        "max": 0.9999970197767496
+      },
+      "generation_length": {
+        "min": 2,
+        "p25": 2,
+        "median": 2.0,
+        "p75": 2,
+        "max": 3
+      },
+      "finish_reasons": {
+        "stop": 4096
+      },
+      "stop_reasons": {
+        "None": 4096
+      },
+      "completion_text_unique": 554,
+      "completion_text_top20": [
+        [
+          "古镇",
+          16
+        ],
+        [
+          "我不知道",
+          12
+        ],
+        [
+          "臺北",
+          8
+        ],
+        [
+          "乾",
+          8
+        ],
+        [
+          "ҷ",
+          8
+        ],
+        [
+          "女子的",
+          8
+        ],
+        [
+          "太好了",
+          8
+        ],
+        [
+          "写作文",
+          8
+        ],
+        [
+          "抽屉",
+          8
+        ],
+        [
+          "夸大",
+          8
+        ],
+        [
+          "ちゃんが",
+          8
+        ],
+        [
+          "工作状态",
+          8
+        ],
+        [
+          "这么一个",
+          8
+        ],
+        [
+          "ichtigt",
+          8
+        ],
+        [
+          "方的",
+          8
+        ],
+        [
+          "客服电话",
+          8
+        ],
+        [
+          "出名",
+          8
+        ],
+        [
+          "都被",
+          8
+        ],
+        [
+          "镜子",
+          8
+        ],
+        [
+          "双一流",
+          8
+        ]
+      ],
+      "wrong_records": [
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase0_131",
+          "phase": 0,
+          "row_index": 131,
+          "gold": "本站只是为了宣传",
+          "text": "擅",
+          "token_ids": [
+            99317,
+            248046
+          ],
+          "target_key_position": 64000,
+          "target_value_position": 64002,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase0_203",
+          "phase": 0,
+          "row_index": 203,
+          "gold": "我们也要",
+          "text": "小子",
+          "token_ids": [
+            105055,
+            248046
+          ],
+          "target_key_position": 64000,
+          "target_value_position": 64002,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase1_094",
+          "phase": 1,
+          "row_index": 94,
+          "gold": "本站只是为了宣传",
+          "text": "擅宣传",
+          "token_ids": [
+            99317,
+            97288,
+            248046
+          ],
+          "target_key_position": 64001,
+          "target_value_position": 64003,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase1_166",
+          "phase": 1,
+          "row_index": 166,
+          "gold": "我们也要",
+          "text": "小子",
+          "token_ids": [
+            105055,
+            248046
+          ],
+          "target_key_position": 63993,
+          "target_value_position": 63995,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase1_423",
+          "phase": 1,
+          "row_index": 423,
+          "gold": "危険",
+          "text": "危险的",
+          "token_ids": [
+            119227,
+            248046
+          ],
+          "target_key_position": 63993,
+          "target_value_position": 63995,
+          "target_rank": 2,
+          "target_probability": 0.1816362183386919
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase1_445",
+          "phase": 1,
+          "row_index": 445,
+          "gold": "รมาก",
+          "text": "ามาก",
+          "token_ids": [
+            196434,
+            248046
+          ],
+          "target_key_position": 64001,
+          "target_value_position": 64003,
+          "target_rank": 3,
+          "target_probability": 0.057856891504500456
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase2_057",
+          "phase": 2,
+          "row_index": 57,
+          "gold": "本站只是为了宣传",
+          "text": "只宣传",
+          "token_ids": [
+            96227,
+            97288,
+            248046
+          ],
+          "target_key_position": 64002,
+          "target_value_position": 64004,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase2_219",
+          "phase": 2,
+          "row_index": 219,
+          "gold": "有所不同",
+          "text": "工作部署",
+          "token_ids": [
+            130615,
+            248046
+          ],
+          "target_key_position": 63994,
+          "target_value_position": 63996,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase2_243",
+          "phase": 2,
+          "row_index": 243,
+          "gold": "予定",
+          "text": "天才",
+          "token_ids": [
+            110734,
+            248046
+          ],
+          "target_key_position": 64002,
+          "target_value_position": 64004,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase3_020",
+          "phase": 3,
+          "row_index": 20,
+          "gold": "本站只是为了宣传",
+          "text": "只宣传",
+          "token_ids": [
+            96227,
+            97288,
+            248046
+          ],
+          "target_key_position": 64003,
+          "target_value_position": 64005,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase3_058",
+          "phase": 3,
+          "row_index": 58,
+          "gold": "立场",
+          "text": "内向",
+          "token_ids": [
+            123572,
+            248046
+          ],
+          "target_key_position": 63995,
+          "target_value_position": 63997,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase3_105",
+          "phase": 3,
+          "row_index": 105,
+          "gold": "我不知道",
+          "text": "不知道",
+          "token_ids": [
+            98281,
+            248046
+          ],
+          "target_key_position": 63995,
+          "target_value_position": 63997,
+          "target_rank": 7,
+          "target_probability": 0.003352481994269613
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase3_182",
+          "phase": 3,
+          "row_index": 182,
+          "gold": "有所不同",
+          "text": "管理的",
+          "token_ids": [
+            109092,
+            248046
+          ],
+          "target_key_position": 64003,
+          "target_value_position": 64005,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase3_219",
+          "phase": 3,
+          "row_index": 219,
+          "gold": "再继续",
+          "text": "思想上",
+          "token_ids": [
+            106257,
+            248046
+          ],
+          "target_key_position": 64003,
+          "target_value_position": 64005,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase3_230",
+          "phase": 3,
+          "row_index": 230,
+          "gold": "地の",
+          "text": "不会",
+          "token_ids": [
+            97073,
+            248046
+          ],
+          "target_key_position": 64003,
+          "target_value_position": 64005,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase3_246",
+          "phase": 3,
+          "row_index": 246,
+          "gold": "类推",
+          "text": "长辈",
+          "token_ids": [
+            115121,
+            248046
+          ],
+          "target_key_position": 64003,
+          "target_value_position": 64005,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase3_248",
+          "phase": 3,
+          "row_index": 248,
+          "gold": "子曰",
+          "text": "处的",
+          "token_ids": [
+            99664,
+            248046
+          ],
+          "target_key_position": 64003,
+          "target_value_position": 64005,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase3_249",
+          "phase": 3,
+          "row_index": 249,
+          "gold": "陀螺",
+          "text": "競争",
+          "token_ids": [
+            247748,
+            248046
+          ],
+          "target_key_position": 63995,
+          "target_value_position": 63997,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase3_264",
+          "phase": 3,
+          "row_index": 264,
+          "gold": "たっぷ",
+          "text": "的",
+          "token_ids": [
+            95726,
+            248046
+          ],
+          "target_key_position": 63995,
+          "target_value_position": 63997,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase3_283",
+          "phase": 3,
+          "row_index": 283,
+          "gold": "體質",
+          "text": "大好き",
+          "token_ids": [
+            213634,
+            248046
+          ],
+          "target_key_position": 63995,
+          "target_value_position": 63997,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase3_331",
+          "phase": 3,
+          "row_index": 331,
+          "gold": "声乐",
+          "text": "一个",
+          "token_ids": [
+            96125,
+            248046
+          ],
+          "target_key_position": 64003,
+          "target_value_position": 64005,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase3_371",
+          "phase": 3,
+          "row_index": 371,
+          "gold": "รมาก",
+          "text": "ามาก",
+          "token_ids": [
+            196434,
+            248046
+          ],
+          "target_key_position": 64011,
+          "target_value_position": 64013,
+          "target_rank": 2,
+          "target_probability": 0.15619119194635245
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase3_376",
+          "phase": 3,
+          "row_index": 376,
+          "gold": "我不知道",
+          "text": "務必",
+          "token_ids": [
+            135325,
+            248046
+          ],
+          "target_key_position": 64003,
+          "target_value_position": 64005,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase3_394",
+          "phase": 3,
+          "row_index": 394,
+          "gold": "我们都是",
+          "text": "液晶",
+          "token_ids": [
+            102442,
+            248046
+          ],
+          "target_key_position": 64003,
+          "target_value_position": 64005,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase3_489",
+          "phase": 3,
+          "row_index": 489,
+          "gold": "酎",
+          "text": "特点",
+          "token_ids": [
+            98432,
+            248046
+          ],
+          "target_key_position": 63995,
+          "target_value_position": 63997,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase3_499",
+          "phase": 3,
+          "row_index": 499,
+          "gold": "星级",
+          "text": "风机",
+          "token_ids": [
+            104807,
+            248046
+          ],
+          "target_key_position": 63995,
+          "target_value_position": 63997,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase3_504",
+          "phase": 3,
+          "row_index": 504,
+          "gold": "落下帷幕",
+          "text": "大",
+          "token_ids": [
+            95779,
+            248046
+          ],
+          "target_key_position": 64003,
+          "target_value_position": 64005,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase3_507",
+          "phase": 3,
+          "row_index": 507,
+          "gold": "幽灵",
+          "text": "晚上的",
+          "token_ids": [
+            126425,
+            248046
+          ],
+          "target_key_position": 64003,
+          "target_value_position": 64005,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase4_009",
+          "phase": 4,
+          "row_index": 9,
+          "gold": "配图",
+          "text": "翰",
+          "token_ids": [
+            99885,
+            248046
+          ],
+          "target_key_position": 63996,
+          "target_value_position": 63998,
+          "target_rank": 2,
+          "target_probability": 0.0010319391325808412
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase4_055",
+          "phase": 4,
+          "row_index": 55,
+          "gold": "我们也要",
+          "text": "小子",
+          "token_ids": [
+            105055,
+            248046
+          ],
+          "target_key_position": 63996,
+          "target_value_position": 63998,
+          "target_rank": 3,
+          "target_probability": 0.0012754869133815008
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase4_239",
+          "phase": 4,
+          "row_index": 239,
+          "gold": "本站只是为了宣传",
+          "text": "只宣传",
+          "token_ids": [
+            96227,
+            97288,
+            248046
+          ],
+          "target_key_position": 63996,
+          "target_value_position": 63998,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase5_020",
+          "phase": 5,
+          "row_index": 20,
+          "gold": "本站只是为了宣传",
+          "text": "自己",
+          "token_ids": [
+            96115,
+            248046
+          ],
+          "target_key_position": 63997,
+          "target_value_position": 63999,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase5_092",
+          "phase": 5,
+          "row_index": 92,
+          "gold": "我们也要",
+          "text": "小子",
+          "token_ids": [
+            105055,
+            248046
+          ],
+          "target_key_position": 63997,
+          "target_value_position": 63999,
+          "target_rank": 2,
+          "target_probability": 0.023172167213725687
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase5_217",
+          "phase": 5,
+          "row_index": 217,
+          "gold": "場の",
+          "text": "場的",
+          "token_ids": [
+            132573,
+            248046
+          ],
+          "target_key_position": 64005,
+          "target_value_position": 64007,
+          "target_rank": 2,
+          "target_probability": 0.45924287507958794
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase6_000",
+          "phase": 6,
+          "row_index": 0,
+          "gold": "再继续",
+          "text": "思想上",
+          "token_ids": [
+            106257,
+            248046
+          ],
+          "target_key_position": 63998,
+          "target_value_position": 64000,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase6_057",
+          "phase": 6,
+          "row_index": 57,
+          "gold": "本站只是为了宣传",
+          "text": "只宣传",
+          "token_ids": [
+            96227,
+            97288,
+            248046
+          ],
+          "target_key_position": 63998,
+          "target_value_position": 64000,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase6_219",
+          "phase": 6,
+          "row_index": 219,
+          "gold": "有所不同",
+          "text": "开发与",
+          "token_ids": [
+            137939,
+            248046
+          ],
+          "target_key_position": 64006,
+          "target_value_position": 64008,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase6_243",
+          "phase": 6,
+          "row_index": 243,
+          "gold": "予定",
+          "text": "粉的",
+          "token_ids": [
+            130317,
+            248046
+          ],
+          "target_key_position": 63998,
+          "target_value_position": 64000,
+          "target_rank": 4,
+          "target_probability": 0.014875598621925746
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase6_408",
+          "phase": 6,
+          "row_index": 408,
+          "gold": "รมาก",
+          "text": "ามาก",
+          "token_ids": [
+            196434,
+            248046
+          ],
+          "target_key_position": 64006,
+          "target_value_position": 64008,
+          "target_rank": 3,
+          "target_probability": 0.11359301885757173
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase7_000",
+          "phase": 7,
+          "row_index": 0,
+          "gold": "有所不同",
+          "text": "管理",
+          "token_ids": [
+            96205,
+            248046
+          ],
+          "target_key_position": 64007,
+          "target_value_position": 64009,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase7_037",
+          "phase": 7,
+          "row_index": 37,
+          "gold": "再继续",
+          "text": "思想上",
+          "token_ids": [
+            106257,
+            248046
+          ],
+          "target_key_position": 63999,
+          "target_value_position": 64001,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase7_044",
+          "phase": 7,
+          "row_index": 44,
+          "gold": "颜",
+          "text": "技术创新",
+          "token_ids": [
+            113109,
+            248046
+          ],
+          "target_key_position": 64007,
+          "target_value_position": 64009,
+          "target_rank": 9,
+          "target_probability": 0.0020896040959548483
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase7_053",
+          "phase": 7,
+          "row_index": 53,
+          "gold": "但未",
+          "text": "笑了",
+          "token_ids": [
+            104430,
+            248046
+          ],
+          "target_key_position": 63999,
+          "target_value_position": 64001,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase7_064",
+          "phase": 7,
+          "row_index": 64,
+          "gold": "类推",
+          "text": "长辈",
+          "token_ids": [
+            115121,
+            248046
+          ],
+          "target_key_position": 64007,
+          "target_value_position": 64009,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase7_066",
+          "phase": 7,
+          "row_index": 66,
+          "gold": "子曰",
+          "text": "处的",
+          "token_ids": [
+            99664,
+            248046
+          ],
+          "target_key_position": 64007,
+          "target_value_position": 64009,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase7_067",
+          "phase": 7,
+          "row_index": 67,
+          "gold": "陀螺",
+          "text": "競争",
+          "token_ids": [
+            247748,
+            248046
+          ],
+          "target_key_position": 63991,
+          "target_value_position": 63993,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase7_094",
+          "phase": 7,
+          "row_index": 94,
+          "gold": "本站只是为了宣传",
+          "text": "只宣传",
+          "token_ids": [
+            96227,
+            97288,
+            248046
+          ],
+          "target_key_position": 63999,
+          "target_value_position": 64001,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase7_179",
+          "phase": 7,
+          "row_index": 179,
+          "gold": "我不知道",
+          "text": "习惯",
+          "token_ids": [
+            98031,
+            248046
+          ],
+          "target_key_position": 63999,
+          "target_value_position": 64001,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase7_242",
+          "phase": 7,
+          "row_index": 242,
+          "gold": "概念股",
+          "text": "酸痛",
+          "token_ids": [
+            123691,
+            248046
+          ],
+          "target_key_position": 63999,
+          "target_value_position": 64001,
+          "target_rank": 3,
+          "target_probability": 0.005420018037635545
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase7_298",
+          "phase": 7,
+          "row_index": 298,
+          "gold": "預防",
+          "text": "予防",
+          "token_ids": [
+            247356,
+            248046
+          ],
+          "target_key_position": 63999,
+          "target_value_position": 64001,
+          "target_rank": 4,
+          "target_probability": 0.06215646209972782
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase7_307",
+          "phase": 7,
+          "row_index": 307,
+          "gold": "酎",
+          "text": "特点",
+          "token_ids": [
+            98432,
+            248046
+          ],
+          "target_key_position": 63991,
+          "target_value_position": 63993,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase7_315",
+          "phase": 7,
+          "row_index": 315,
+          "gold": "之源",
+          "text": "香的",
+          "token_ids": [
+            116723,
+            248046
+          ],
+          "target_key_position": 63999,
+          "target_value_position": 64001,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase7_317",
+          "phase": 7,
+          "row_index": 317,
+          "gold": "星级",
+          "text": "风机",
+          "token_ids": [
+            104807,
+            248046
+          ],
+          "target_key_position": 64007,
+          "target_value_position": 64009,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase7_322",
+          "phase": 7,
+          "row_index": 322,
+          "gold": "落下帷幕",
+          "text": "这么多",
+          "token_ids": [
+            109826,
+            248046
+          ],
+          "target_key_position": 64007,
+          "target_value_position": 64009,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase7_338",
+          "phase": 7,
+          "row_index": 338,
+          "gold": "たっぷ",
+          "text": "帮助",
+          "token_ids": [
+            96791,
+            248046
+          ],
+          "target_key_position": 63999,
+          "target_value_position": 64001,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase7_357",
+          "phase": 7,
+          "row_index": 357,
+          "gold": "體質",
+          "text": "三餐",
+          "token_ids": [
+            122389,
+            248046
+          ],
+          "target_key_position": 63999,
+          "target_value_position": 64001,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase7_405",
+          "phase": 7,
+          "row_index": 405,
+          "gold": "声乐",
+          "text": "d",
+          "token_ids": [
+            67,
+            248046
+          ],
+          "target_key_position": 63991,
+          "target_value_position": 63993,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase7_425",
+          "phase": 7,
+          "row_index": 425,
+          "gold": "八点",
+          "text": "紧紧地",
+          "token_ids": [
+            131278,
+            248046
+          ],
+          "target_key_position": 63999,
+          "target_value_position": 64001,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase7_431",
+          "phase": 7,
+          "row_index": 431,
+          "gold": "文化交流",
+          "text": "闇",
+          "token_ids": [
+            246985,
+            248046
+          ],
+          "target_key_position": 63999,
+          "target_value_position": 64001,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase7_445",
+          "phase": 7,
+          "row_index": 445,
+          "gold": "รมาก",
+          "text": "มาก",
+          "token_ids": [
+            149196,
+            248046
+          ],
+          "target_key_position": 63999,
+          "target_value_position": 64001,
+          "target_rank": 2,
+          "target_probability": 0.12172662402507504
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase7_450",
+          "phase": 7,
+          "row_index": 450,
+          "gold": "我不知道",
+          "text": "務必",
+          "token_ids": [
+            135325,
+            248046
+          ],
+          "target_key_position": 63999,
+          "target_value_position": 64001,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase7_468",
+          "phase": 7,
+          "row_index": 468,
+          "gold": "我们都是",
+          "text": "茶叶",
+          "token_ids": [
+            108983,
+            248046
+          ],
+          "target_key_position": 63999,
+          "target_value_position": 64001,
+          "target_rank": null,
+          "target_probability": null
+        }
+      ],
+      "progress": {
+        "lines": 4098,
+        "types": {
+          "start": 1,
+          "record": 4096,
+          "complete": 1
+        },
+        "complete_record": true
+      },
+      "raw_summary": {
+        "absolute_accuracy_difference_r_vs_r_plus_4": {
+          "0": 0.001953125,
+          "1": 0.001953125,
+          "2": 0.00390625,
+          "3": 0.0078125
+        },
+        "answer_prefix_accuracy": 0.98486328125,
+        "answer_prefix_accuracy_by_residue": {
+          "0": 0.99609375,
+          "1": 0.9921875,
+          "2": 0.994140625,
+          "3": 0.962890625,
+          "4": 0.994140625,
+          "5": 0.994140625,
+          "6": 0.990234375,
+          "7": 0.955078125
+        },
+        "correct_count_by_residue": {
+          "0": 510,
+          "1": 508,
+          "2": 509,
+          "3": 493,
+          "4": 509,
+          "5": 509,
+          "6": 507,
+          "7": 489
+        },
+        "gap": 0.041015625,
+        "mean_absolute_accuracy_difference_r_vs_r_plus_4": 0.00390625,
+        "rows": 4096,
+        "sample_count_by_residue": {
+          "0": 512,
+          "1": 512,
+          "2": 512,
+          "3": 512,
+          "4": 512,
+          "5": 512,
+          "6": 512,
+          "7": 512
+        },
+        "wilson_95_by_residue": {
+          "0": {
+            "lower": 0.9858703008860721,
+            "upper": 0.9989281333619606
+          },
+          "1": {
+            "lower": 0.9800862685977904,
+            "upper": 0.9969578472703368
+          },
+          "2": {
+            "lower": 0.9829159147435814,
+            "upper": 0.9980053603144984
+          },
+          "3": {
+            "lower": 0.9427703121926854,
+            "upper": 0.9761164158261484
+          },
+          "4": {
+            "lower": 0.9829159147435814,
+            "upper": 0.9980053603144984
+          },
+          "5": {
+            "lower": 0.9829159147435814,
+            "upper": 0.9980053603144984
+          },
+          "6": {
+            "lower": 0.9773451967514872,
+            "upper": 0.995821759926687
+          },
+          "7": {
+            "lower": 0.9334955903063304,
+            "upper": 0.9698825009526917
+          }
+        }
+      }
+    },
+    "in_sequence": {
+      "file": "results/qwen_niah_128k_fp8_tp4_in_sequence.json",
+      "run": {
+        "dataset_path": "/root/autodl-tmp/periodic_weak_spots/niah_qwen_128k_in_sequence",
+        "model": "/root/autodl-tmp/models/Qwen3.8-Flash-Next-FP8",
+        "model_profile": "Qwen/Qwen3.8-Flash-Next",
+        "engine": "vllm",
+        "versions": {
+          "torch": "2.13.0",
+          "transformers": "5.19.0",
+          "vllm": "0.32.0"
+        },
+        "engine_args": {
+          "enable_expert_parallel": true,
+          "generation_config": "vllm",
+          "logprobs_mode": "raw_logprobs",
+          "max_logprobs": 10,
+          "max_model_len": 131072,
+          "tensor_parallel_size": 4
+        },
+        "sampling_params": {
+          "logprobs": 10,
+          "max_tokens": 8,
+          "temperature": 0
+        },
+        "tokenizer_revision": "de4b8e4d43b917e7706784d8bb445c9af86a3540"
+      },
+      "records": 4096,
+      "correct": 4021,
+      "incorrect": 75,
+      "accuracy": 0.981689453125,
+      "phase_stats": {
+        "0": {
+          "rows": 512,
+          "correct": 506,
+          "incorrect": 6,
+          "accuracy": 0.98828125,
+          "wilson_95": [
+            0.9746712957438487,
+            0.9946185017443726
+          ],
+          "target_key_position": {
+            "min": 63984,
+            "p25": 64000,
+            "median": 64000.0,
+            "p75": 64000,
+            "max": 64016
+          },
+          "target_value_position": {
+            "min": 63986,
+            "p25": 64002,
+            "median": 64002.0,
+            "p75": 64002,
+            "max": 64018
+          },
+          "target_top10_rank_counts": {
+            "1": 506,
+            "2": 3,
+            "3": 0,
+            "4": 0,
+            "5": 1,
+            "6": 0,
+            "7": 0,
+            "8": 0,
+            "9": 0,
+            "10": 0
+          },
+          "target_absent_from_top10": 2,
+          "target_probability_when_in_top10": {
+            "mean": 0.9828495409682796,
+            "median": 0.9983617129330982,
+            "min": 0.03125751079008635,
+            "max": 0.9999946356109105
+          }
+        },
+        "1": {
+          "rows": 512,
+          "correct": 508,
+          "incorrect": 4,
+          "accuracy": 0.9921875,
+          "wilson_95": [
+            0.9800862685977904,
+            0.9969578472703368
+          ],
+          "target_key_position": {
+            "min": 63985,
+            "p25": 63993,
+            "median": 64001.0,
+            "p75": 64001,
+            "max": 64009
+          },
+          "target_value_position": {
+            "min": 63987,
+            "p25": 63995,
+            "median": 64003.0,
+            "p75": 64003,
+            "max": 64011
+          },
+          "target_top10_rank_counts": {
+            "1": 509,
+            "2": 2,
+            "3": 0,
+            "4": 0,
+            "5": 0,
+            "6": 0,
+            "7": 0,
+            "8": 0,
+            "9": 0,
+            "10": 0
+          },
+          "target_absent_from_top10": 1,
+          "target_probability_when_in_top10": {
+            "mean": 0.9830976161669909,
+            "median": 0.9985041378565094,
+            "min": 0.019193814753807187,
+            "max": 0.9999926090786457
+          }
+        },
+        "2": {
+          "rows": 512,
+          "correct": 506,
+          "incorrect": 6,
+          "accuracy": 0.98828125,
+          "wilson_95": [
+            0.9746712957438487,
+            0.9946185017443726
+          ],
+          "target_key_position": {
+            "min": 63986,
+            "p25": 63994,
+            "median": 64002.0,
+            "p75": 64002,
+            "max": 64010
+          },
+          "target_value_position": {
+            "min": 63988,
+            "p25": 63996,
+            "median": 64004.0,
+            "p75": 64004,
+            "max": 64012
+          },
+          "target_top10_rank_counts": {
+            "1": 506,
+            "2": 2,
+            "3": 0,
+            "4": 0,
+            "5": 0,
+            "6": 0,
+            "7": 0,
+            "8": 0,
+            "9": 0,
+            "10": 0
+          },
+          "target_absent_from_top10": 4,
+          "target_probability_when_in_top10": {
+            "mean": 0.9873211091516485,
+            "median": 0.9985715914063453,
+            "min": 0.2987210991159174,
+            "max": 0.9999955892755635
+          }
+        },
+        "3": {
+          "rows": 512,
+          "correct": 488,
+          "incorrect": 24,
+          "accuracy": 0.953125,
+          "wilson_95": [
+            0.9312001663227251,
+            0.9683007657463442
+          ],
+          "target_key_position": {
+            "min": 63987,
+            "p25": 63995,
+            "median": 64003.0,
+            "p75": 64003,
+            "max": 64011
+          },
+          "target_value_position": {
+            "min": 63989,
+            "p25": 63997,
+            "median": 64005.0,
+            "p75": 64005,
+            "max": 64013
+          },
+          "target_top10_rank_counts": {
+            "1": 488,
+            "2": 7,
+            "3": 0,
+            "4": 0,
+            "5": 0,
+            "6": 0,
+            "7": 1,
+            "8": 0,
+            "9": 0,
+            "10": 0
+          },
+          "target_absent_from_top10": 16,
+          "target_probability_when_in_top10": {
+            "mean": 0.9652473442033424,
+            "median": 0.9981773399764604,
+            "min": 0.005791867906842531,
+            "max": 0.9999924898711537
+          }
+        },
+        "4": {
+          "rows": 512,
+          "correct": 507,
+          "incorrect": 5,
+          "accuracy": 0.990234375,
+          "wilson_95": [
+            0.9773451967514872,
+            0.995821759926687
+          ],
+          "target_key_position": {
+            "min": 63988,
+            "p25": 63996,
+            "median": 64000.0,
+            "p75": 64004,
+            "max": 64012
+          },
+          "target_value_position": {
+            "min": 63990,
+            "p25": 63998,
+            "median": 64002.0,
+            "p75": 64006,
+            "max": 64014
+          },
+          "target_top10_rank_counts": {
+            "1": 507,
+            "2": 4,
+            "3": 0,
+            "4": 0,
+            "5": 0,
+            "6": 0,
+            "7": 0,
+            "8": 0,
+            "9": 0,
+            "10": 0
+          },
+          "target_absent_from_top10": 1,
+          "target_probability_when_in_top10": {
+            "mean": 0.9836750373429879,
+            "median": 0.9985734338372723,
+            "min": 0.01662468553734521,
+            "max": 0.9999935627400018
+          }
+        },
+        "5": {
+          "rows": 512,
+          "correct": 509,
+          "incorrect": 3,
+          "accuracy": 0.994140625,
+          "wilson_95": [
+            0.9829159147435814,
+            0.9980053603144984
+          ],
+          "target_key_position": {
+            "min": 63989,
+            "p25": 63997,
+            "median": 63997.0,
+            "p75": 64005,
+            "max": 64013
+          },
+          "target_value_position": {
+            "min": 63991,
+            "p25": 63999,
+            "median": 63999.0,
+            "p75": 64007,
+            "max": 64015
+          },
+          "target_top10_rank_counts": {
+            "1": 509,
+            "2": 1,
+            "3": 0,
+            "4": 0,
+            "5": 0,
+            "6": 0,
+            "7": 0,
+            "8": 0,
+            "9": 0,
+            "10": 0
+          },
+          "target_absent_from_top10": 2,
+          "target_probability_when_in_top10": {
+            "mean": 0.9868878420022866,
+            "median": 0.9985761678490099,
+            "min": 0.15406669702314876,
+            "max": 0.9999969005680498
+          }
+        },
+        "6": {
+          "rows": 512,
+          "correct": 507,
+          "incorrect": 5,
+          "accuracy": 0.990234375,
+          "wilson_95": [
+            0.9773451967514872,
+            0.995821759926687
+          ],
+          "target_key_position": {
+            "min": 63990,
+            "p25": 63998,
+            "median": 63998.0,
+            "p75": 64006,
+            "max": 64014
+          },
+          "target_value_position": {
+            "min": 63992,
+            "p25": 64000,
+            "median": 64000.0,
+            "p75": 64008,
+            "max": 64016
+          },
+          "target_top10_rank_counts": {
+            "1": 507,
+            "2": 2,
+            "3": 0,
+            "4": 0,
+            "5": 0,
+            "6": 0,
+            "7": 0,
+            "8": 0,
+            "9": 0,
+            "10": 0
+          },
+          "target_absent_from_top10": 3,
+          "target_probability_when_in_top10": {
+            "mean": 0.985943195911673,
+            "median": 0.9983672380310067,
+            "min": 0.11438918330605419,
+            "max": 0.9999949932351057
+          }
+        },
+        "7": {
+          "rows": 512,
+          "correct": 490,
+          "incorrect": 22,
+          "accuracy": 0.95703125,
+          "wilson_95": [
+            0.935799736427874,
+            0.9714555140211011
+          ],
+          "target_key_position": {
+            "min": 63991,
+            "p25": 63999,
+            "median": 63999.0,
+            "p75": 64007,
+            "max": 64015
+          },
+          "target_value_position": {
+            "min": 63993,
+            "p25": 64001,
+            "median": 64001.0,
+            "p75": 64009,
+            "max": 64017
+          },
+          "target_top10_rank_counts": {
+            "1": 490,
+            "2": 4,
+            "3": 0,
+            "4": 0,
+            "5": 0,
+            "6": 0,
+            "7": 0,
+            "8": 0,
+            "9": 0,
+            "10": 0
+          },
+          "target_absent_from_top10": 18,
+          "target_probability_when_in_top10": {
+            "mean": 0.970640783989283,
+            "median": 0.9981502004730136,
+            "min": 0.04869639491150785,
+            "max": 0.9999964237340748
+          }
+        }
+      },
+      "target_top10_rank_counts": {
+        "1": 4022,
+        "2": 25,
+        "3": 0,
+        "4": 0,
+        "5": 1,
+        "6": 0,
+        "7": 1,
+        "8": 0,
+        "9": 0,
+        "10": 0
+      },
+      "target_absent_from_top10": 47,
+      "target_probability_when_in_top10": {
+        "count": 4049,
+        "mean": 0.9807978096918327,
+        "median": 0.998437941163529,
+        "min": 0.005791867906842531,
+        "max": 0.9999969005680498
+      },
+      "top1_probability": {
+        "min": 0.0022559977538537937,
+        "p25": 0.9943224134042468,
+        "median": 0.9983910621079197,
+        "p75": 0.9996129580899547,
+        "max": 0.9999969005680498
+      },
+      "generation_length": {
+        "min": 2,
+        "p25": 2,
+        "median": 2.0,
+        "p75": 2,
+        "max": 3
+      },
+      "finish_reasons": {
+        "stop": 4096
+      },
+      "stop_reasons": {
+        "None": 4096
+      },
+      "completion_text_unique": 563,
+      "completion_text_top20": [
+        [
+          "古镇",
+          16
+        ],
+        [
+          "我不知道",
+          16
+        ],
+        [
+          "臺北",
+          8
+        ],
+        [
+          "乾",
+          8
+        ],
+        [
+          "ҷ",
+          8
+        ],
+        [
+          "女子的",
+          8
+        ],
+        [
+          "太好了",
+          8
+        ],
+        [
+          "写作文",
+          8
+        ],
+        [
+          "抽屉",
+          8
+        ],
+        [
+          "夸大",
+          8
+        ],
+        [
+          "工作状态",
+          8
+        ],
+        [
+          "这么一个",
+          8
+        ],
+        [
+          "ichtigt",
+          8
+        ],
+        [
+          "方的",
+          8
+        ],
+        [
+          "客服电话",
+          8
+        ],
+        [
+          "出名",
+          8
+        ],
+        [
+          "都被",
+          8
+        ],
+        [
+          "镜子",
+          8
+        ],
+        [
+          "双一流",
+          8
+        ],
+        [
+          "阳痿",
+          8
+        ]
+      ],
+      "wrong_records": [
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase0_131",
+          "phase": 0,
+          "row_index": 131,
+          "gold": "本站只是为了宣传",
+          "text": "自己",
+          "token_ids": [
+            96115,
+            248046
+          ],
+          "target_key_position": 64000,
+          "target_value_position": 64002,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase0_203",
+          "phase": 0,
+          "row_index": 203,
+          "gold": "我们也要",
+          "text": "小子",
+          "token_ids": [
+            105055,
+            248046
+          ],
+          "target_key_position": 64000,
+          "target_value_position": 64002,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase0_247",
+          "phase": 0,
+          "row_index": 247,
+          "gold": "必要时",
+          "text": "变更前",
+          "token_ids": [
+            127535,
+            248046
+          ],
+          "target_key_position": 63992,
+          "target_value_position": 63994,
+          "target_rank": 2,
+          "target_probability": 0.2872922394651388
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase0_252",
+          "phase": 0,
+          "row_index": 252,
+          "gold": "的习惯",
+          "text": "路由",
+          "token_ids": [
+            104916,
+            248046
+          ],
+          "target_key_position": 64000,
+          "target_value_position": 64002,
+          "target_rank": 2,
+          "target_probability": 0.1597028163039989
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase0_311",
+          "phase": 0,
+          "row_index": 311,
+          "gold": "irmware",
+          "text": "firmware",
+          "token_ids": [
+            8537,
+            1606,
+            248046
+          ],
+          "target_key_position": 64000,
+          "target_value_position": 64002,
+          "target_rank": 5,
+          "target_probability": 0.03125751079008635
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase0_482",
+          "phase": 0,
+          "row_index": 482,
+          "gold": "รมาก",
+          "text": "ามาก",
+          "token_ids": [
+            196434,
+            248046
+          ],
+          "target_key_position": 63992,
+          "target_value_position": 63994,
+          "target_rank": 2,
+          "target_probability": 0.11148879288586605
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase1_035",
+          "phase": 1,
+          "row_index": 35,
+          "gold": "場の",
+          "text": "場的",
+          "token_ids": [
+            132573,
+            248046
+          ],
+          "target_key_position": 64001,
+          "target_value_position": 64003,
+          "target_rank": 1,
+          "target_probability": 0.47915369497984395
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase1_094",
+          "phase": 1,
+          "row_index": 94,
+          "gold": "本站只是为了宣传",
+          "text": "自己",
+          "token_ids": [
+            96115,
+            248046
+          ],
+          "target_key_position": 64001,
+          "target_value_position": 64003,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase1_120",
+          "phase": 1,
+          "row_index": 120,
+          "gold": "配图",
+          "text": "翰",
+          "token_ids": [
+            99885,
+            248046
+          ],
+          "target_key_position": 64001,
+          "target_value_position": 64003,
+          "target_rank": 2,
+          "target_probability": 0.13269453335863748
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase1_166",
+          "phase": 1,
+          "row_index": 166,
+          "gold": "我们也要",
+          "text": "小子",
+          "token_ids": [
+            105055,
+            248046
+          ],
+          "target_key_position": 63993,
+          "target_value_position": 63995,
+          "target_rank": 2,
+          "target_probability": 0.019193814753807187
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase2_027",
+          "phase": 2,
+          "row_index": 27,
+          "gold": "类推",
+          "text": "长辈",
+          "token_ids": [
+            115121,
+            248046
+          ],
+          "target_key_position": 64002,
+          "target_value_position": 64004,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase2_057",
+          "phase": 2,
+          "row_index": 57,
+          "gold": "本站只是为了宣传",
+          "text": "自传播",
+          "token_ids": [
+            95845,
+            99980,
+            248046
+          ],
+          "target_key_position": 64002,
+          "target_value_position": 64004,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase2_219",
+          "phase": 2,
+          "row_index": 219,
+          "gold": "有所不同",
+          "text": "工作部署",
+          "token_ids": [
+            130615,
+            248046
+          ],
+          "target_key_position": 63994,
+          "target_value_position": 63996,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase2_243",
+          "phase": 2,
+          "row_index": 243,
+          "gold": "予定",
+          "text": "成本和",
+          "token_ids": [
+            129188,
+            248046
+          ],
+          "target_key_position": 64002,
+          "target_value_position": 64004,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase2_272",
+          "phase": 2,
+          "row_index": 272,
+          "gold": "回的",
+          "text": "生物技术",
+          "token_ids": [
+            127775,
+            248046
+          ],
+          "target_key_position": 64002,
+          "target_value_position": 64004,
+          "target_rank": 2,
+          "target_probability": 0.34077825085212476
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase2_501",
+          "phase": 2,
+          "row_index": 501,
+          "gold": "局副局长",
+          "text": "副局长",
+          "token_ids": [
+            105548,
+            248046
+          ],
+          "target_key_position": 64002,
+          "target_value_position": 64004,
+          "target_rank": 2,
+          "target_probability": 0.3643143420826742
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase3_007",
+          "phase": 3,
+          "row_index": 7,
+          "gold": "集的",
+          "text": "集",
+          "token_ids": [
+            96275,
+            248046
+          ],
+          "target_key_position": 64003,
+          "target_value_position": 64005,
+          "target_rank": 2,
+          "target_probability": 0.02189306373418684
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase3_020",
+          "phase": 3,
+          "row_index": 20,
+          "gold": "本站只是为了宣传",
+          "text": "自己",
+          "token_ids": [
+            96115,
+            248046
+          ],
+          "target_key_position": 64003,
+          "target_value_position": 64005,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase3_029",
+          "phase": 3,
+          "row_index": 29,
+          "gold": "张三",
+          "text": "惊",
+          "token_ids": [
+            97067,
+            248046
+          ],
+          "target_key_position": 64003,
+          "target_value_position": 64005,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase3_102",
+          "phase": 3,
+          "row_index": 102,
+          "gold": "かった",
+          "text": "稍",
+          "token_ids": [
+            99011,
+            248046
+          ],
+          "target_key_position": 64003,
+          "target_value_position": 64005,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase3_131",
+          "phase": 3,
+          "row_index": 131,
+          "gold": "就业率",
+          "text": "的原",
+          "token_ids": [
+            112166,
+            248046
+          ],
+          "target_key_position": 64011,
+          "target_value_position": 64013,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase3_168",
+          "phase": 3,
+          "row_index": 168,
+          "gold": "概念股",
+          "text": "声音",
+          "token_ids": [
+            101601,
+            248046
+          ],
+          "target_key_position": 63995,
+          "target_value_position": 63997,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase3_174",
+          "phase": 3,
+          "row_index": 174,
+          "gold": "违约责任",
+          "text": "六合",
+          "token_ids": [
+            129455,
+            248046
+          ],
+          "target_key_position": 64003,
+          "target_value_position": 64005,
+          "target_rank": 2,
+          "target_probability": 0.014295658395587642
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase3_206",
+          "phase": 3,
+          "row_index": 206,
+          "gold": "予定",
+          "text": "拼装",
+          "token_ids": [
+            138731,
+            248046
+          ],
+          "target_key_position": 64003,
+          "target_value_position": 64005,
+          "target_rank": 2,
+          "target_probability": 0.04445425476123096
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase3_217",
+          "phase": 3,
+          "row_index": 217,
+          "gold": "場の",
+          "text": "場的",
+          "token_ids": [
+            132573,
+            248046
+          ],
+          "target_key_position": 63995,
+          "target_value_position": 63997,
+          "target_rank": 2,
+          "target_probability": 0.31128298371946683
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase3_219",
+          "phase": 3,
+          "row_index": 219,
+          "gold": "再继续",
+          "text": "精神状态",
+          "token_ids": [
+            132064,
+            248046
+          ],
+          "target_key_position": 64003,
+          "target_value_position": 64005,
+          "target_rank": 7,
+          "target_probability": 0.005791867906842531
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase3_230",
+          "phase": 3,
+          "row_index": 230,
+          "gold": "地の",
+          "text": "舍不得",
+          "token_ids": [
+            117068,
+            248046
+          ],
+          "target_key_position": 64003,
+          "target_value_position": 64005,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase3_235",
+          "phase": 3,
+          "row_index": 235,
+          "gold": "但未",
+          "text": "笑",
+          "token_ids": [
+            96651,
+            248046
+          ],
+          "target_key_position": 64003,
+          "target_value_position": 64005,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase3_246",
+          "phase": 3,
+          "row_index": 246,
+          "gold": "类推",
+          "text": "长辈",
+          "token_ids": [
+            115121,
+            248046
+          ],
+          "target_key_position": 64003,
+          "target_value_position": 64005,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase3_248",
+          "phase": 3,
+          "row_index": 248,
+          "gold": "子曰",
+          "text": "处的",
+          "token_ids": [
+            99664,
+            248046
+          ],
+          "target_key_position": 64003,
+          "target_value_position": 64005,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase3_249",
+          "phase": 3,
+          "row_index": 249,
+          "gold": "陀螺",
+          "text": "競争",
+          "token_ids": [
+            247748,
+            248046
+          ],
+          "target_key_position": 63995,
+          "target_value_position": 63997,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase3_264",
+          "phase": 3,
+          "row_index": 264,
+          "gold": "たっぷ",
+          "text": "移位",
+          "token_ids": [
+            134887,
+            248046
+          ],
+          "target_key_position": 63995,
+          "target_value_position": 63997,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase3_283",
+          "phase": 3,
+          "row_index": 283,
+          "gold": "體質",
+          "text": "体质",
+          "token_ids": [
+            104846,
+            248046
+          ],
+          "target_key_position": 63995,
+          "target_value_position": 63997,
+          "target_rank": 2,
+          "target_probability": 0.05430176917564966
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase3_327",
+          "phase": 3,
+          "row_index": 327,
+          "gold": "认缴出资",
+          "text": "年秋季",
+          "token_ids": [
+            131328,
+            248046
+          ],
+          "target_key_position": 64003,
+          "target_value_position": 64005,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase3_331",
+          "phase": 3,
+          "row_index": 331,
+          "gold": "声乐",
+          "text": "规模",
+          "token_ids": [
+            97908,
+            248046
+          ],
+          "target_key_position": 64003,
+          "target_value_position": 64005,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase3_357",
+          "phase": 3,
+          "row_index": 357,
+          "gold": "文化交流",
+          "text": "闇",
+          "token_ids": [
+            246985,
+            248046
+          ],
+          "target_key_position": 63995,
+          "target_value_position": 63997,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase3_394",
+          "phase": 3,
+          "row_index": 394,
+          "gold": "我们都是",
+          "text": "液晶",
+          "token_ids": [
+            102442,
+            248046
+          ],
+          "target_key_position": 64003,
+          "target_value_position": 64005,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase3_443",
+          "phase": 3,
+          "row_index": 443,
+          "gold": "申し上げ",
+          "text": "临床试验",
+          "token_ids": [
+            121435,
+            248046
+          ],
+          "target_key_position": 64003,
+          "target_value_position": 64005,
+          "target_rank": 2,
+          "target_probability": 0.051176086341216384
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase3_456",
+          "phase": 3,
+          "row_index": 456,
+          "gold": "irmware",
+          "text": "firmware",
+          "token_ids": [
+            8537,
+            1606,
+            248046
+          ],
+          "target_key_position": 64003,
+          "target_value_position": 64005,
+          "target_rank": 2,
+          "target_probability": 0.24740054021994876
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase3_499",
+          "phase": 3,
+          "row_index": 499,
+          "gold": "星级",
+          "text": "准备了",
+          "token_ids": [
+            114802,
+            248046
+          ],
+          "target_key_position": 63995,
+          "target_value_position": 63997,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase4_009",
+          "phase": 4,
+          "row_index": 9,
+          "gold": "配图",
+          "text": "翰",
+          "token_ids": [
+            99885,
+            248046
+          ],
+          "target_key_position": 63996,
+          "target_value_position": 63998,
+          "target_rank": 2,
+          "target_probability": 0.1324254189098254
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase4_055",
+          "phase": 4,
+          "row_index": 55,
+          "gold": "我们也要",
+          "text": "小子",
+          "token_ids": [
+            105055,
+            248046
+          ],
+          "target_key_position": 63996,
+          "target_value_position": 63998,
+          "target_rank": 2,
+          "target_probability": 0.01662468553734521
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase4_180",
+          "phase": 4,
+          "row_index": 180,
+          "gold": "場の",
+          "text": "場的",
+          "token_ids": [
+            132573,
+            248046
+          ],
+          "target_key_position": 64004,
+          "target_value_position": 64006,
+          "target_rank": 2,
+          "target_probability": 0.44937711554438536
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase4_239",
+          "phase": 4,
+          "row_index": 239,
+          "gold": "本站只是为了宣传",
+          "text": "自己",
+          "token_ids": [
+            96115,
+            248046
+          ],
+          "target_key_position": 63996,
+          "target_value_position": 63998,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase4_419",
+          "phase": 4,
+          "row_index": 419,
+          "gold": "irmware",
+          "text": "firmware",
+          "token_ids": [
+            8537,
+            1606,
+            248046
+          ],
+          "target_key_position": 63996,
+          "target_value_position": 63998,
+          "target_rank": 2,
+          "target_probability": 0.3524146913825004
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase5_020",
+          "phase": 5,
+          "row_index": 20,
+          "gold": "本站只是为了宣传",
+          "text": "擅",
+          "token_ids": [
+            99317,
+            248046
+          ],
+          "target_key_position": 63997,
+          "target_value_position": 63999,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase5_092",
+          "phase": 5,
+          "row_index": 92,
+          "gold": "我们也要",
+          "text": "小子",
+          "token_ids": [
+            105055,
+            248046
+          ],
+          "target_key_position": 63997,
+          "target_value_position": 63999,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase5_371",
+          "phase": 5,
+          "row_index": 371,
+          "gold": "รมาก",
+          "text": "ามาก",
+          "token_ids": [
+            196434,
+            248046
+          ],
+          "target_key_position": 63989,
+          "target_value_position": 63991,
+          "target_rank": 2,
+          "target_probability": 0.15406669702314876
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase6_057",
+          "phase": 6,
+          "row_index": 57,
+          "gold": "本站只是为了宣传",
+          "text": "擅",
+          "token_ids": [
+            99317,
+            248046
+          ],
+          "target_key_position": 63998,
+          "target_value_position": 64000,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase6_083",
+          "phase": 6,
+          "row_index": 83,
+          "gold": "配图",
+          "text": "翰",
+          "token_ids": [
+            99885,
+            248046
+          ],
+          "target_key_position": 63998,
+          "target_value_position": 64000,
+          "target_rank": 2,
+          "target_probability": 0.2935562651219206
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase6_219",
+          "phase": 6,
+          "row_index": 219,
+          "gold": "有所不同",
+          "text": "工作部署",
+          "token_ids": [
+            130615,
+            248046
+          ],
+          "target_key_position": 64006,
+          "target_value_position": 64008,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase6_243",
+          "phase": 6,
+          "row_index": 243,
+          "gold": "予定",
+          "text": "天才",
+          "token_ids": [
+            110734,
+            248046
+          ],
+          "target_key_position": 63998,
+          "target_value_position": 64000,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase6_493",
+          "phase": 6,
+          "row_index": 493,
+          "gold": "irmware",
+          "text": "firmware",
+          "token_ids": [
+            8537,
+            1606,
+            248046
+          ],
+          "target_key_position": 63998,
+          "target_value_position": 64000,
+          "target_rank": 2,
+          "target_probability": 0.2754272992011885
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase7_000",
+          "phase": 7,
+          "row_index": 0,
+          "gold": "有所不同",
+          "text": "运营",
+          "token_ids": [
+            99465,
+            248046
+          ],
+          "target_key_position": 64007,
+          "target_value_position": 64009,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase7_024",
+          "phase": 7,
+          "row_index": 24,
+          "gold": "予定",
+          "text": "拼装",
+          "token_ids": [
+            138731,
+            248046
+          ],
+          "target_key_position": 64007,
+          "target_value_position": 64009,
+          "target_rank": 2,
+          "target_probability": 0.08317080911034445
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase7_037",
+          "phase": 7,
+          "row_index": 37,
+          "gold": "再继续",
+          "text": "精神上的",
+          "token_ids": [
+            138318,
+            248046
+          ],
+          "target_key_position": 63999,
+          "target_value_position": 64001,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase7_044",
+          "phase": 7,
+          "row_index": 44,
+          "gold": "颜",
+          "text": "技术",
+          "token_ids": [
+            96314,
+            248046
+          ],
+          "target_key_position": 64007,
+          "target_value_position": 64009,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase7_061",
+          "phase": 7,
+          "row_index": 61,
+          "gold": "已",
+          "text": "很大",
+          "token_ids": [
+            99555,
+            248046
+          ],
+          "target_key_position": 63999,
+          "target_value_position": 64001,
+          "target_rank": 2,
+          "target_probability": 0.19649039798244178
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase7_064",
+          "phase": 7,
+          "row_index": 64,
+          "gold": "类推",
+          "text": "长辈",
+          "token_ids": [
+            115121,
+            248046
+          ],
+          "target_key_position": 64007,
+          "target_value_position": 64009,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase7_067",
+          "phase": 7,
+          "row_index": 67,
+          "gold": "陀螺",
+          "text": "持",
+          "token_ids": [
+            96256,
+            248046
+          ],
+          "target_key_position": 63991,
+          "target_value_position": 63993,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase7_094",
+          "phase": 7,
+          "row_index": 94,
+          "gold": "本站只是为了宣传",
+          "text": "自己",
+          "token_ids": [
+            96115,
+            248046
+          ],
+          "target_key_position": 63999,
+          "target_value_position": 64001,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase7_100",
+          "phase": 7,
+          "row_index": 100,
+          "gold": "牟",
+          "text": "端庄",
+          "token_ids": [
+            127866,
+            248046
+          ],
+          "target_key_position": 63999,
+          "target_value_position": 64001,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase7_205",
+          "phase": 7,
+          "row_index": 205,
+          "gold": "就业率",
+          "text": "评为",
+          "token_ids": [
+            105008,
+            248046
+          ],
+          "target_key_position": 63991,
+          "target_value_position": 63993,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase7_215",
+          "phase": 7,
+          "row_index": 215,
+          "gold": "的习惯",
+          "text": "路由",
+          "token_ids": [
+            104916,
+            248046
+          ],
+          "target_key_position": 63999,
+          "target_value_position": 64001,
+          "target_rank": 2,
+          "target_probability": 0.04869639491150785
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase7_240",
+          "phase": 7,
+          "row_index": 240,
+          "gold": "工商行政",
+          "text": "挖掘",
+          "token_ids": [
+            98965,
+            248046
+          ],
+          "target_key_position": 63991,
+          "target_value_position": 63993,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase7_270",
+          "phase": 7,
+          "row_index": 270,
+          "gold": "先驱",
+          "text": "增",
+          "token_ids": [
+            96353,
+            248046
+          ],
+          "target_key_position": 63999,
+          "target_value_position": 64001,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase7_307",
+          "phase": 7,
+          "row_index": 307,
+          "gold": "酎",
+          "text": "特性",
+          "token_ids": [
+            103908,
+            248046
+          ],
+          "target_key_position": 63991,
+          "target_value_position": 63993,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase7_315",
+          "phase": 7,
+          "row_index": 315,
+          "gold": "之源",
+          "text": "成果",
+          "token_ids": [
+            98886,
+            248046
+          ],
+          "target_key_position": 63999,
+          "target_value_position": 64001,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase7_317",
+          "phase": 7,
+          "row_index": 317,
+          "gold": "星级",
+          "text": "准备了",
+          "token_ids": [
+            114802,
+            248046
+          ],
+          "target_key_position": 64007,
+          "target_value_position": 64009,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase7_325",
+          "phase": 7,
+          "row_index": 325,
+          "gold": "幽灵",
+          "text": "晚上的",
+          "token_ids": [
+            126425,
+            248046
+          ],
+          "target_key_position": 63999,
+          "target_value_position": 64001,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase7_338",
+          "phase": 7,
+          "row_index": 338,
+          "gold": "たっぷ",
+          "text": "的",
+          "token_ids": [
+            95726,
+            248046
+          ],
+          "target_key_position": 63999,
+          "target_value_position": 64001,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase7_377",
+          "phase": 7,
+          "row_index": 377,
+          "gold": "空气清新",
+          "text": "爱人",
+          "token_ids": [
+            115667,
+            248046
+          ],
+          "target_key_position": 63999,
+          "target_value_position": 64001,
+          "target_rank": 2,
+          "target_probability": 0.05900777920633794
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase7_405",
+          "phase": 7,
+          "row_index": 405,
+          "gold": "声乐",
+          "text": "是",
+          "token_ids": [
+            95761,
+            248046
+          ],
+          "target_key_position": 63991,
+          "target_value_position": 63993,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase7_431",
+          "phase": 7,
+          "row_index": 431,
+          "gold": "文化交流",
+          "text": "承兑",
+          "token_ids": [
+            136767,
+            248046
+          ],
+          "target_key_position": 63999,
+          "target_value_position": 64001,
+          "target_rank": null,
+          "target_probability": null
+        },
+        {
+          "sample_id": "niah128k-qwen38_key_value_phase7_468",
+          "phase": 7,
+          "row_index": 468,
+          "gold": "我们都是",
+          "text": "嘉",
+          "token_ids": [
+            98494,
+            248046
+          ],
+          "target_key_position": 63999,
+          "target_value_position": 64001,
+          "target_rank": null,
+          "target_probability": null
+        }
+      ],
+      "progress": {
+        "lines": 4098,
+        "types": {
+          "start": 1,
+          "record": 4096,
+          "complete": 1
+        },
+        "complete_record": true
+      },
+      "raw_summary": {
+        "absolute_accuracy_difference_r_vs_r_plus_4": {
+          "0": 0.001953125,
+          "1": 0.001953125,
+          "2": 0.001953125,
+          "3": 0.00390625
+        },
+        "answer_prefix_accuracy": 0.981689453125,
+        "answer_prefix_accuracy_by_residue": {
+          "0": 0.98828125,
+          "1": 0.9921875,
+          "2": 0.98828125,
+          "3": 0.953125,
+          "4": 0.990234375,
+          "5": 0.994140625,
+          "6": 0.990234375,
+          "7": 0.95703125
+        },
+        "correct_count_by_residue": {
+          "0": 506,
+          "1": 508,
+          "2": 506,
+          "3": 488,
+          "4": 507,
+          "5": 509,
+          "6": 507,
+          "7": 490
+        },
+        "gap": 0.041015625,
+        "mean_absolute_accuracy_difference_r_vs_r_plus_4": 0.00244140625,
+        "rows": 4096,
+        "sample_count_by_residue": {
+          "0": 512,
+          "1": 512,
+          "2": 512,
+          "3": 512,
+          "4": 512,
+          "5": 512,
+          "6": 512,
+          "7": 512
+        },
+        "wilson_95_by_residue": {
+          "0": {
+            "lower": 0.9746712957438487,
+            "upper": 0.9946185017443726
+          },
+          "1": {
+            "lower": 0.9800862685977904,
+            "upper": 0.9969578472703368
+          },
+          "2": {
+            "lower": 0.9746712957438487,
+            "upper": 0.9946185017443726
+          },
+          "3": {
+            "lower": 0.9312001663227251,
+            "upper": 0.9683007657463442
+          },
+          "4": {
+            "lower": 0.9773451967514872,
+            "upper": 0.995821759926687
+          },
+          "5": {
+            "lower": 0.9829159147435814,
+            "upper": 0.9980053603144984
+          },
+          "6": {
+            "lower": 0.9773451967514872,
+            "upper": 0.995821759926687
+          },
+          "7": {
+            "lower": 0.935799736427874,
+            "upper": 0.9714555140211011
+          }
+        }
+      }
+    }
+  },
+  "comparison": {
+    "same_sample_ids": 4096,
+    "gold_answer_equal": 4096,
+    "prompt_hash_equal": 0,
+    "target_key_position_difference_in_sequence_minus_prefill": {
+      "0": 4096
+    },
+    "completion_text_equal": 4008,
+    "first_generated_token_equal": 4009,
+    "correctness_contingency": {
+      "prefill_correct_in_sequence_correct": 3998,
+      "prefill_correct_in_sequence_wrong": 36,
+      "prefill_wrong_in_sequence_correct": 23,
+      "prefill_wrong_in_sequence_wrong": 39
+    },
+    "correctness_change_by_phase": {
+      "0": {
+        "prefill_correct_in_sequence_correct": 506,
+        "prefill_correct_in_sequence_wrong": 4,
+        "prefill_wrong_in_sequence_wrong": 2
+      },
+      "1": {
+        "prefill_correct_in_sequence_correct": 506,
+        "prefill_correct_in_sequence_wrong": 2,
+        "prefill_wrong_in_sequence_correct": 2,
+        "prefill_wrong_in_sequence_wrong": 2
+      },
+      "2": {
+        "prefill_correct_in_sequence_correct": 506,
+        "prefill_correct_in_sequence_wrong": 3,
+        "prefill_wrong_in_sequence_wrong": 3
+      },
+      "3": {
+        "prefill_correct_in_sequence_correct": 480,
+        "prefill_correct_in_sequence_wrong": 13,
+        "prefill_wrong_in_sequence_correct": 8,
+        "prefill_wrong_in_sequence_wrong": 11
+      },
+      "4": {
+        "prefill_correct_in_sequence_correct": 507,
+        "prefill_correct_in_sequence_wrong": 2,
+        "prefill_wrong_in_sequence_wrong": 3
+      },
+      "5": {
+        "prefill_correct_in_sequence_correct": 508,
+        "prefill_correct_in_sequence_wrong": 1,
+        "prefill_wrong_in_sequence_correct": 1,
+        "prefill_wrong_in_sequence_wrong": 2
+      },
+      "6": {
+        "prefill_correct_in_sequence_correct": 505,
+        "prefill_correct_in_sequence_wrong": 2,
+        "prefill_wrong_in_sequence_correct": 2,
+        "prefill_wrong_in_sequence_wrong": 3
+      },
+      "7": {
+        "prefill_correct_in_sequence_correct": 480,
+        "prefill_correct_in_sequence_wrong": 9,
+        "prefill_wrong_in_sequence_correct": 10,
+        "prefill_wrong_in_sequence_wrong": 13
+      }
+    },
+    "rows_with_different_correctness_or_text": 88,
+    "different_rows": [
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase0_131",
+        "phase": 0,
+        "prefill_correct": false,
+        "in_sequence_correct": false,
+        "prefill_text": "擅",
+        "in_sequence_text": "自己",
+        "gold": "本站只是为了宣传"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase0_247",
+        "phase": 0,
+        "prefill_correct": true,
+        "in_sequence_correct": false,
+        "prefill_text": "必要时",
+        "in_sequence_text": "变更前",
+        "gold": "必要时"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase0_252",
+        "phase": 0,
+        "prefill_correct": true,
+        "in_sequence_correct": false,
+        "prefill_text": "的习惯",
+        "in_sequence_text": "路由",
+        "gold": "的习惯"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase0_311",
+        "phase": 0,
+        "prefill_correct": true,
+        "in_sequence_correct": false,
+        "prefill_text": "irmware",
+        "in_sequence_text": "firmware",
+        "gold": "irmware"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase0_482",
+        "phase": 0,
+        "prefill_correct": true,
+        "in_sequence_correct": false,
+        "prefill_text": "รมาก",
+        "in_sequence_text": "ามาก",
+        "gold": "รมาก"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase1_035",
+        "phase": 1,
+        "prefill_correct": true,
+        "in_sequence_correct": false,
+        "prefill_text": "場の",
+        "in_sequence_text": "場的",
+        "gold": "場の"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase1_094",
+        "phase": 1,
+        "prefill_correct": false,
+        "in_sequence_correct": false,
+        "prefill_text": "擅宣传",
+        "in_sequence_text": "自己",
+        "gold": "本站只是为了宣传"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase1_120",
+        "phase": 1,
+        "prefill_correct": true,
+        "in_sequence_correct": false,
+        "prefill_text": "配图",
+        "in_sequence_text": "翰",
+        "gold": "配图"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase1_423",
+        "phase": 1,
+        "prefill_correct": false,
+        "in_sequence_correct": true,
+        "prefill_text": "危险的",
+        "in_sequence_text": "危険",
+        "gold": "危険"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase1_445",
+        "phase": 1,
+        "prefill_correct": false,
+        "in_sequence_correct": true,
+        "prefill_text": "ามาก",
+        "in_sequence_text": "รมาก",
+        "gold": "รมาก"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase2_027",
+        "phase": 2,
+        "prefill_correct": true,
+        "in_sequence_correct": false,
+        "prefill_text": "类推",
+        "in_sequence_text": "长辈",
+        "gold": "类推"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase2_057",
+        "phase": 2,
+        "prefill_correct": false,
+        "in_sequence_correct": false,
+        "prefill_text": "只宣传",
+        "in_sequence_text": "自传播",
+        "gold": "本站只是为了宣传"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase2_243",
+        "phase": 2,
+        "prefill_correct": false,
+        "in_sequence_correct": false,
+        "prefill_text": "天才",
+        "in_sequence_text": "成本和",
+        "gold": "予定"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase2_272",
+        "phase": 2,
+        "prefill_correct": true,
+        "in_sequence_correct": false,
+        "prefill_text": "回的",
+        "in_sequence_text": "生物技术",
+        "gold": "回的"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase2_501",
+        "phase": 2,
+        "prefill_correct": true,
+        "in_sequence_correct": false,
+        "prefill_text": "局副局长",
+        "in_sequence_text": "副局长",
+        "gold": "局副局长"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase3_007",
+        "phase": 3,
+        "prefill_correct": true,
+        "in_sequence_correct": false,
+        "prefill_text": "集的",
+        "in_sequence_text": "集",
+        "gold": "集的"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase3_020",
+        "phase": 3,
+        "prefill_correct": false,
+        "in_sequence_correct": false,
+        "prefill_text": "只宣传",
+        "in_sequence_text": "自己",
+        "gold": "本站只是为了宣传"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase3_029",
+        "phase": 3,
+        "prefill_correct": true,
+        "in_sequence_correct": false,
+        "prefill_text": "张三",
+        "in_sequence_text": "惊",
+        "gold": "张三"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase3_058",
+        "phase": 3,
+        "prefill_correct": false,
+        "in_sequence_correct": true,
+        "prefill_text": "内向",
+        "in_sequence_text": "立场",
+        "gold": "立场"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase3_102",
+        "phase": 3,
+        "prefill_correct": true,
+        "in_sequence_correct": false,
+        "prefill_text": "かった",
+        "in_sequence_text": "稍",
+        "gold": "かった"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase3_105",
+        "phase": 3,
+        "prefill_correct": false,
+        "in_sequence_correct": true,
+        "prefill_text": "不知道",
+        "in_sequence_text": "我不知道",
+        "gold": "我不知道"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase3_131",
+        "phase": 3,
+        "prefill_correct": true,
+        "in_sequence_correct": false,
+        "prefill_text": "就业率",
+        "in_sequence_text": "的原",
+        "gold": "就业率"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase3_168",
+        "phase": 3,
+        "prefill_correct": true,
+        "in_sequence_correct": false,
+        "prefill_text": "概念股",
+        "in_sequence_text": "声音",
+        "gold": "概念股"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase3_174",
+        "phase": 3,
+        "prefill_correct": true,
+        "in_sequence_correct": false,
+        "prefill_text": "违约责任",
+        "in_sequence_text": "六合",
+        "gold": "违约责任"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase3_182",
+        "phase": 3,
+        "prefill_correct": false,
+        "in_sequence_correct": true,
+        "prefill_text": "管理的",
+        "in_sequence_text": "有所不同",
+        "gold": "有所不同"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase3_206",
+        "phase": 3,
+        "prefill_correct": true,
+        "in_sequence_correct": false,
+        "prefill_text": "予定",
+        "in_sequence_text": "拼装",
+        "gold": "予定"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase3_217",
+        "phase": 3,
+        "prefill_correct": true,
+        "in_sequence_correct": false,
+        "prefill_text": "場の",
+        "in_sequence_text": "場的",
+        "gold": "場の"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase3_219",
+        "phase": 3,
+        "prefill_correct": false,
+        "in_sequence_correct": false,
+        "prefill_text": "思想上",
+        "in_sequence_text": "精神状态",
+        "gold": "再继续"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase3_230",
+        "phase": 3,
+        "prefill_correct": false,
+        "in_sequence_correct": false,
+        "prefill_text": "不会",
+        "in_sequence_text": "舍不得",
+        "gold": "地の"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase3_235",
+        "phase": 3,
+        "prefill_correct": true,
+        "in_sequence_correct": false,
+        "prefill_text": "但未",
+        "in_sequence_text": "笑",
+        "gold": "但未"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase3_264",
+        "phase": 3,
+        "prefill_correct": false,
+        "in_sequence_correct": false,
+        "prefill_text": "的",
+        "in_sequence_text": "移位",
+        "gold": "たっぷ"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase3_283",
+        "phase": 3,
+        "prefill_correct": false,
+        "in_sequence_correct": false,
+        "prefill_text": "大好き",
+        "in_sequence_text": "体质",
+        "gold": "體質"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase3_327",
+        "phase": 3,
+        "prefill_correct": true,
+        "in_sequence_correct": false,
+        "prefill_text": "认缴出资",
+        "in_sequence_text": "年秋季",
+        "gold": "认缴出资"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase3_331",
+        "phase": 3,
+        "prefill_correct": false,
+        "in_sequence_correct": false,
+        "prefill_text": "一个",
+        "in_sequence_text": "规模",
+        "gold": "声乐"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase3_357",
+        "phase": 3,
+        "prefill_correct": true,
+        "in_sequence_correct": false,
+        "prefill_text": "文化交流",
+        "in_sequence_text": "闇",
+        "gold": "文化交流"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase3_371",
+        "phase": 3,
+        "prefill_correct": false,
+        "in_sequence_correct": true,
+        "prefill_text": "ามาก",
+        "in_sequence_text": "รมาก",
+        "gold": "รมาก"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase3_376",
+        "phase": 3,
+        "prefill_correct": false,
+        "in_sequence_correct": true,
+        "prefill_text": "務必",
+        "in_sequence_text": "我不知道",
+        "gold": "我不知道"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase3_443",
+        "phase": 3,
+        "prefill_correct": true,
+        "in_sequence_correct": false,
+        "prefill_text": "申し上げ",
+        "in_sequence_text": "临床试验",
+        "gold": "申し上げ"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase3_456",
+        "phase": 3,
+        "prefill_correct": true,
+        "in_sequence_correct": false,
+        "prefill_text": "irmware",
+        "in_sequence_text": "firmware",
+        "gold": "irmware"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase3_489",
+        "phase": 3,
+        "prefill_correct": false,
+        "in_sequence_correct": true,
+        "prefill_text": "特点",
+        "in_sequence_text": "酎",
+        "gold": "酎"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase3_499",
+        "phase": 3,
+        "prefill_correct": false,
+        "in_sequence_correct": false,
+        "prefill_text": "风机",
+        "in_sequence_text": "准备了",
+        "gold": "星级"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase3_504",
+        "phase": 3,
+        "prefill_correct": false,
+        "in_sequence_correct": true,
+        "prefill_text": "大",
+        "in_sequence_text": "落下帷幕",
+        "gold": "落下帷幕"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase3_507",
+        "phase": 3,
+        "prefill_correct": false,
+        "in_sequence_correct": true,
+        "prefill_text": "晚上的",
+        "in_sequence_text": "幽灵",
+        "gold": "幽灵"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase4_180",
+        "phase": 4,
+        "prefill_correct": true,
+        "in_sequence_correct": false,
+        "prefill_text": "場の",
+        "in_sequence_text": "場的",
+        "gold": "場の"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase4_239",
+        "phase": 4,
+        "prefill_correct": false,
+        "in_sequence_correct": false,
+        "prefill_text": "只宣传",
+        "in_sequence_text": "自己",
+        "gold": "本站只是为了宣传"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase4_419",
+        "phase": 4,
+        "prefill_correct": true,
+        "in_sequence_correct": false,
+        "prefill_text": "irmware",
+        "in_sequence_text": "firmware",
+        "gold": "irmware"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase5_020",
+        "phase": 5,
+        "prefill_correct": false,
+        "in_sequence_correct": false,
+        "prefill_text": "自己",
+        "in_sequence_text": "擅",
+        "gold": "本站只是为了宣传"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase5_217",
+        "phase": 5,
+        "prefill_correct": false,
+        "in_sequence_correct": true,
+        "prefill_text": "場的",
+        "in_sequence_text": "場の",
+        "gold": "場の"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase5_371",
+        "phase": 5,
+        "prefill_correct": true,
+        "in_sequence_correct": false,
+        "prefill_text": "รมาก",
+        "in_sequence_text": "ามาก",
+        "gold": "รมาก"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase6_000",
+        "phase": 6,
+        "prefill_correct": false,
+        "in_sequence_correct": true,
+        "prefill_text": "思想上",
+        "in_sequence_text": "再继续",
+        "gold": "再继续"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase6_057",
+        "phase": 6,
+        "prefill_correct": false,
+        "in_sequence_correct": false,
+        "prefill_text": "只宣传",
+        "in_sequence_text": "擅",
+        "gold": "本站只是为了宣传"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase6_083",
+        "phase": 6,
+        "prefill_correct": true,
+        "in_sequence_correct": false,
+        "prefill_text": "配图",
+        "in_sequence_text": "翰",
+        "gold": "配图"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase6_190",
+        "phase": 6,
+        "prefill_correct": true,
+        "in_sequence_correct": true,
+        "prefill_text": "ちゃんが",
+        "in_sequence_text": "ちゃんが。",
+        "gold": "ちゃんが"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase6_219",
+        "phase": 6,
+        "prefill_correct": false,
+        "in_sequence_correct": false,
+        "prefill_text": "开发与",
+        "in_sequence_text": "工作部署",
+        "gold": "有所不同"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase6_243",
+        "phase": 6,
+        "prefill_correct": false,
+        "in_sequence_correct": false,
+        "prefill_text": "粉的",
+        "in_sequence_text": "天才",
+        "gold": "予定"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase6_408",
+        "phase": 6,
+        "prefill_correct": false,
+        "in_sequence_correct": true,
+        "prefill_text": "ามาก",
+        "in_sequence_text": "รมาก",
+        "gold": "รมาก"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase6_493",
+        "phase": 6,
+        "prefill_correct": true,
+        "in_sequence_correct": false,
+        "prefill_text": "irmware",
+        "in_sequence_text": "firmware",
+        "gold": "irmware"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase7_000",
+        "phase": 7,
+        "prefill_correct": false,
+        "in_sequence_correct": false,
+        "prefill_text": "管理",
+        "in_sequence_text": "运营",
+        "gold": "有所不同"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase7_024",
+        "phase": 7,
+        "prefill_correct": true,
+        "in_sequence_correct": false,
+        "prefill_text": "予定",
+        "in_sequence_text": "拼装",
+        "gold": "予定"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase7_037",
+        "phase": 7,
+        "prefill_correct": false,
+        "in_sequence_correct": false,
+        "prefill_text": "思想上",
+        "in_sequence_text": "精神上的",
+        "gold": "再继续"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase7_044",
+        "phase": 7,
+        "prefill_correct": false,
+        "in_sequence_correct": false,
+        "prefill_text": "技术创新",
+        "in_sequence_text": "技术",
+        "gold": "颜"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase7_053",
+        "phase": 7,
+        "prefill_correct": false,
+        "in_sequence_correct": true,
+        "prefill_text": "笑了",
+        "in_sequence_text": "但未",
+        "gold": "但未"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase7_061",
+        "phase": 7,
+        "prefill_correct": true,
+        "in_sequence_correct": false,
+        "prefill_text": "已",
+        "in_sequence_text": "很大",
+        "gold": "已"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase7_066",
+        "phase": 7,
+        "prefill_correct": false,
+        "in_sequence_correct": true,
+        "prefill_text": "处的",
+        "in_sequence_text": "子曰",
+        "gold": "子曰"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase7_067",
+        "phase": 7,
+        "prefill_correct": false,
+        "in_sequence_correct": false,
+        "prefill_text": "競争",
+        "in_sequence_text": "持",
+        "gold": "陀螺"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase7_094",
+        "phase": 7,
+        "prefill_correct": false,
+        "in_sequence_correct": false,
+        "prefill_text": "只宣传",
+        "in_sequence_text": "自己",
+        "gold": "本站只是为了宣传"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase7_100",
+        "phase": 7,
+        "prefill_correct": true,
+        "in_sequence_correct": false,
+        "prefill_text": "牟",
+        "in_sequence_text": "端庄",
+        "gold": "牟"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase7_179",
+        "phase": 7,
+        "prefill_correct": false,
+        "in_sequence_correct": true,
+        "prefill_text": "习惯",
+        "in_sequence_text": "我不知道",
+        "gold": "我不知道"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase7_205",
+        "phase": 7,
+        "prefill_correct": true,
+        "in_sequence_correct": false,
+        "prefill_text": "就业率",
+        "in_sequence_text": "评为",
+        "gold": "就业率"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase7_215",
+        "phase": 7,
+        "prefill_correct": true,
+        "in_sequence_correct": false,
+        "prefill_text": "的习惯",
+        "in_sequence_text": "路由",
+        "gold": "的习惯"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase7_240",
+        "phase": 7,
+        "prefill_correct": true,
+        "in_sequence_correct": false,
+        "prefill_text": "工商行政",
+        "in_sequence_text": "挖掘",
+        "gold": "工商行政"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase7_242",
+        "phase": 7,
+        "prefill_correct": false,
+        "in_sequence_correct": true,
+        "prefill_text": "酸痛",
+        "in_sequence_text": "概念股",
+        "gold": "概念股"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase7_270",
+        "phase": 7,
+        "prefill_correct": true,
+        "in_sequence_correct": false,
+        "prefill_text": "先驱",
+        "in_sequence_text": "增",
+        "gold": "先驱"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase7_298",
+        "phase": 7,
+        "prefill_correct": false,
+        "in_sequence_correct": true,
+        "prefill_text": "予防",
+        "in_sequence_text": "預防",
+        "gold": "預防"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase7_307",
+        "phase": 7,
+        "prefill_correct": false,
+        "in_sequence_correct": false,
+        "prefill_text": "特点",
+        "in_sequence_text": "特性",
+        "gold": "酎"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase7_315",
+        "phase": 7,
+        "prefill_correct": false,
+        "in_sequence_correct": false,
+        "prefill_text": "香的",
+        "in_sequence_text": "成果",
+        "gold": "之源"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase7_317",
+        "phase": 7,
+        "prefill_correct": false,
+        "in_sequence_correct": false,
+        "prefill_text": "风机",
+        "in_sequence_text": "准备了",
+        "gold": "星级"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase7_322",
+        "phase": 7,
+        "prefill_correct": false,
+        "in_sequence_correct": true,
+        "prefill_text": "这么多",
+        "in_sequence_text": "落下帷幕",
+        "gold": "落下帷幕"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase7_325",
+        "phase": 7,
+        "prefill_correct": true,
+        "in_sequence_correct": false,
+        "prefill_text": "幽灵",
+        "in_sequence_text": "晚上的",
+        "gold": "幽灵"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase7_338",
+        "phase": 7,
+        "prefill_correct": false,
+        "in_sequence_correct": false,
+        "prefill_text": "帮助",
+        "in_sequence_text": "的",
+        "gold": "たっぷ"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase7_357",
+        "phase": 7,
+        "prefill_correct": false,
+        "in_sequence_correct": true,
+        "prefill_text": "三餐",
+        "in_sequence_text": "體質",
+        "gold": "體質"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase7_377",
+        "phase": 7,
+        "prefill_correct": true,
+        "in_sequence_correct": false,
+        "prefill_text": "空气清新",
+        "in_sequence_text": "爱人",
+        "gold": "空气清新"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase7_405",
+        "phase": 7,
+        "prefill_correct": false,
+        "in_sequence_correct": false,
+        "prefill_text": "d",
+        "in_sequence_text": "是",
+        "gold": "声乐"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase7_425",
+        "phase": 7,
+        "prefill_correct": false,
+        "in_sequence_correct": true,
+        "prefill_text": "紧紧地",
+        "in_sequence_text": "八点",
+        "gold": "八点"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase7_431",
+        "phase": 7,
+        "prefill_correct": false,
+        "in_sequence_correct": false,
+        "prefill_text": "闇",
+        "in_sequence_text": "承兑",
+        "gold": "文化交流"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase7_445",
+        "phase": 7,
+        "prefill_correct": false,
+        "in_sequence_correct": true,
+        "prefill_text": "มาก",
+        "in_sequence_text": "รมาก",
+        "gold": "รมาก"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase7_450",
+        "phase": 7,
+        "prefill_correct": false,
+        "in_sequence_correct": true,
+        "prefill_text": "務必",
+        "in_sequence_text": "我不知道",
+        "gold": "我不知道"
+      },
+      {
+        "sample_id": "niah128k-qwen38_key_value_phase7_468",
+        "phase": 7,
+        "prefill_correct": false,
+        "in_sequence_correct": false,
+        "prefill_text": "茶叶",
+        "in_sequence_text": "嘉",
+        "gold": "我们都是"
+      }
+    ]
+  }
+}

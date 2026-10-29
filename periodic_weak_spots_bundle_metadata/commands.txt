@@ -1,0 +1,11 @@
+Prefix Padding score:
+python -m periodic_weak_spots.niah_128k score --dataset .research/niah_qwen_128k_512 --model /root/autodl-tmp/models/Qwen3.8-Flash-Next-FP8 --tensor-parallel-size 4 --enable-expert-parallel --max-model-len 131072 --max-tokens 8 --batch-size 16 --progress results/qwen_niah_128k_fp8_tp4_full.progress.jsonl --results results/qwen_niah_128k_fp8_tp4_full.json
+
+In-sequence dataset build:
+python -m periodic_weak_spots.niah_128k.in_sequence build --reference-dataset .research/niah_qwen_128k_512 --output /root/autodl-tmp/periodic_weak_spots/niah_qwen_128k_in_sequence --tokenizer-path resources/qwen3_8_flash_next
+
+In-sequence validation:
+python -m periodic_weak_spots.niah_128k.in_sequence validate --dataset /root/autodl-tmp/periodic_weak_spots/niah_qwen_128k_in_sequence --tokenizer-path resources/qwen3_8_flash_next
+
+In-sequence score:
+python -m periodic_weak_spots.niah_128k score --dataset .research/niah_qwen_128k_in_sequence --model /root/autodl-tmp/models/Qwen3.8-Flash-Next-FP8 --tensor-parallel-size 4 --enable-expert-parallel --max-model-len 131072 --max-tokens 8 --batch-size 16 --progress results/qwen_niah_128k_fp8_tp4_in_sequence.progress.jsonl --results results/qwen_niah_128k_fp8_tp4_in_sequence.json

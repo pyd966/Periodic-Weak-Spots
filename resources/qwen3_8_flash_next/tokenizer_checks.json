@@ -1,0 +1,48 @@
+{
+  "versions": {
+    "transformers": "5.20.2",
+    "tokenizers": "0.23.3",
+    "gigatoken": "0.10.0"
+  },
+  "hf_tokenizer_class": "Qwen3_5Tokenizer",
+  "tokenizer_length": 248077,
+  "vocab_size": 248044,
+  "leading_special_ids": [],
+  "punctuation": {
+    ":": [
+      25
+    ],
+    "。": [
+      1710
+    ],
+    "｜": [
+      158819
+    ]
+  },
+  "pad_repetitions_stable_1_to_64": true,
+  "chat_templates": {
+    "default": {
+      "text": "<|im_start|>system\nReasoning effort is set to xhigh. Please think carefully through the task, validate key assumptions, consider plausible alternatives, and prioritize correctness, consistency, and clarity in the final answer.<|im_end|>\n<|im_start|>user\nNIAH<|im_end|>\n<|im_start|>assistant\n<think>\n",
+      "token_count": 55
+    },
+    "medium": {
+      "text": "<|im_start|>user\nNIAH<|im_end|>\n<|im_start|>assistant\n<think>\n",
+      "token_count": 13
+    },
+    "non_thinking": {
+      "text": "<|im_start|>user\nNIAH<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+      "token_count": 15
+    }
+  },
+  "animal_name_pool": {
+    "entries": 128,
+    "single_token_count": 128,
+    "same_token_id_count": 0
+  },
+  "niah_128k_candidates": {
+    "count": 57078,
+    "required_for_16000_pairs": 32000,
+    "capacity_sufficient": true
+  },
+  "hf_gigatoken_matching_texts": 114157
+}

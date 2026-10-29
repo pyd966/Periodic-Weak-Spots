@@ -1,0 +1,28 @@
+{
+  "created_at_utc": "2026-10-27T23:10:48.728499+00:00",
+  "excluded": [
+    ".research/niah_qwen_128k_512",
+    ".research/niah_qwen_128k",
+    ".research/niah_qwen_128k_python312",
+    ".research data/dependency/cache directories",
+    "__pycache__",
+    ".pytest_cache",
+    "Periodic-Weak-Spots-cloud.zip"
+  ],
+  "included": [
+    "AGENTS.md",
+    "README.md",
+    "CITATION.cff",
+    "LICENSE",
+    "pyproject.toml",
+    "uv.lock",
+    "configs",
+    "docs",
+    "paper",
+    "periodic_weak_spots",
+    "resources",
+    ".research/original_repo",
+    ".research top-level research scripts/reports/logs"
+  ],
+  "large_experiment_data": "saved in Periodic-Weak-Spots-experiments-20261028.zip"
+}\n

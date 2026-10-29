@@ -1,12 +1,6 @@
-"""One tokenizer for every builder: HF loading and decode, GigaToken encode.
-
-GigaToken runs the same ``tokenizer.json`` in a parallel Rust encoder. All
-token-exact checks in this repository go through ``token_ids`` and
-``token_ids_batch``, so generation and validation share one encoder.
-"""
-
 from __future__ import annotations
 
+import hashlib
 from collections.abc import Sequence
 from pathlib import Path
 from typing import Any, Protocol, runtime_checkable
@@ -64,6 +58,26 @@ class FastTokenizer:
         return len(self.hf)
 
 
+class HFTokenizer:
+    def __init__(self, hf_tokenizer: Any) -> None:
+        self.hf = hf_tokenizer
+        self.eos_token_id = hf_tokenizer.eos_token_id
+
+    def encode(self, text: str, *, add_special_tokens: bool = False) -> list[int]:
+        return list(self.hf.encode(text, add_special_tokens=add_special_tokens))
+
+    def encode_batch(
+        self, texts: Sequence[str], *, add_special_tokens: bool = False
+    ) -> list[list[int]]:
+        return self.hf(list(texts), add_special_tokens=add_special_tokens)["input_ids"]
+
+    def decode(self, ids: Sequence[int], **kwargs: object) -> str:
+        return str(self.hf.decode(list(ids), **kwargs))
+
+    def __len__(self) -> int:
+        return len(self.hf)
+
+
 def load_tokenizer(
     model_id: str,
     revision: str,
@@ -103,6 +117,12 @@ def leading_special_ids(tokenizer: FastTokenizer) -> tuple[int, ...]:
 
 def token_ids(tokenizer: Tokenizer, text: str) -> list[int]:
     return [int(token) for token in tokenizer.encode(text, add_special_tokens=False)]
+
+
+def token_ids_sha256(ids: Sequence[int]) -> str:
+    import numpy as np
+
+    return hashlib.sha256(np.asarray(ids, dtype="<u4").tobytes()).hexdigest()
 
 
 def token_ids_batch(tokenizer: Tokenizer, texts: Sequence[str]) -> list[list[int]]:

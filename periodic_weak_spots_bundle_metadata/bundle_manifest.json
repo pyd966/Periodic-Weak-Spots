@@ -1,0 +1,19 @@
+{
+  "archive_layout": {
+    "code": "/root/Periodic-Weak-Spots/periodic_weak_spots",
+    "datasets/in_sequence": "/root/autodl-tmp/periodic_weak_spots/niah_qwen_128k_in_sequence",
+    "datasets/prefix": "/root/Periodic-Weak-Spots/.research/niah_qwen_128k_512",
+    "official_snapshot": "/root/Periodic-Weak-Spots/.research/original_repo",
+    "resources": "/root/Periodic-Weak-Spots/resources",
+    "results": "/root/Periodic-Weak-Spots/results"
+  },
+  "contents": [
+    "完整 prompt JSONL、bindings、sentence_schedule、padding_schedule、metadata",
+    "两套评分 JSON、progress JSONL 和 phase 统计",
+    "当前代码、配置、文档、Tokenizer 资源、官方仓库快照和论文 PDF",
+    "Qwen3.8 模型 config.json 与 tokenizer/model identity hash",
+    "Python 包、CUDA/GPU 环境和评分命令"
+  ],
+  "created_at_utc": "2026-10-27T16:50:52.669279+00:00",
+  "model_weights": "archive excludes model weight shards; model config and hashes are included"
+}\n

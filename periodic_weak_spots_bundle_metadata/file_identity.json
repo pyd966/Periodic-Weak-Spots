@@ -1,0 +1,16 @@
+{
+  "in_sequence_metadata_sha256": "a9293bdf9161834b87ea37bd5cec640d6a2f4a3b1a0ddbc12dc54a2a6f692c9e",
+  "model_config_sha256": "c22eb0a053eed62e18f0184d3ca62d3798f208c3e00b9feee939fc3dbacdc8ca",
+  "prefix_metadata_sha256": "f3eac43ef27429465d0dc2a10c77e47a415f99ccb16cdc9c09ee84fb9210b5bf",
+  "tokenizer_files": {
+    "README.md": "35ca37ccc366f1ba478dab33841a2c0c18ce53fd62f291ca05341f7728b225b2",
+    "chat_template.jinja": "c3cf9e34abf4f9e36c2d72165aa9c132d3e2a725b6c2586aaa3a8af9d7a81041",
+    "config.json": "889658f2508e8c61d409b02e70e0d78d8d4452ec65aaafbe129805d213d2e74b",
+    "generation_config.json": "e70c136c1b78ddc1fb0905bac8e733a4dc448d4f852a5dd75143fffc70be550e",
+    "source_manifest.json": "5095f29c218236ee23e97cc63e003cb2e88de8a3b4a59a9ac68309436e68a2a5",
+    "tech_report.pdf": "04f263446d74a35cb7cea368574e0c561f3b05c133be2c777ac884404063655d",
+    "tokenizer.json": "0997f410c57a1f4e53b09e4be8f4a172d90edd9564368fb0847030937229b9f3",
+    "tokenizer_checks.json": "282be86d7393943e78485f212bb46df680f901533f98663df95dc7e2078bc4a2",
+    "tokenizer_config.json": "b11349aafa7cdc6a320767cf7ceb29ed82f7eda5d65e8e0819e76f0ce947bf27"
+  }
+}\n

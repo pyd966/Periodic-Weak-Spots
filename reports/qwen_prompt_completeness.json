@@ -1,0 +1,86 @@
+{
+  "status": "ok",
+  "dataset": ".research/niah_qwen_128k_512",
+  "input_field": "prompt",
+  "input_format": "qwen_non_thinking",
+  "tokenizer_files": {
+    "tokenizer.json": "0997f410c57a1f4e53b09e4be8f4a172d90edd9564368fb0847030937229b9f3",
+    "tokenizer_config.json": "b11349aafa7cdc6a320767cf7ceb29ed82f7eda5d65e8e0819e76f0ce947bf27",
+    "chat_template.jinja": "c3cf9e34abf4f9e36c2d72165aa9c132d3e2a725b6c2586aaa3a8af9d7a81041"
+  },
+  "tokenizer_class": "Qwen3_5Tokenizer",
+  "tokenizer_version": "5.20.2",
+  "native_context_tokens": 262144,
+  "generation_max_tokens": 8,
+  "vllm_model_execution_checked": false,
+  "phases": {
+    "0": {
+      "rows": 512,
+      "path": "rows/key_value/phase_0.jsonl",
+      "file_sha256": "c9bd3128405d493842396fe8b94a16acd5d7a5fa29c2eb04434eee989b786f52",
+      "default_encoding_matches_recorded_ids": 512,
+      "official_chat_template_matches": 512,
+      "prompt_token_count": 128000
+    },
+    "1": {
+      "rows": 512,
+      "path": "rows/key_value/phase_1.jsonl",
+      "file_sha256": "b40b0899efca64e789eb1110492f87383af357f3831e1ab6dc26b1ea93ec3323",
+      "default_encoding_matches_recorded_ids": 512,
+      "official_chat_template_matches": 512,
+      "prompt_token_count": 128000
+    },
+    "2": {
+      "rows": 512,
+      "path": "rows/key_value/phase_2.jsonl",
+      "file_sha256": "b97bbd5b7c47a8fea65848f028ff377385c6d340f239d37173c2d7dc4f0f6ea1",
+      "default_encoding_matches_recorded_ids": 512,
+      "official_chat_template_matches": 512,
+      "prompt_token_count": 128000
+    },
+    "3": {
+      "rows": 512,
+      "path": "rows/key_value/phase_3.jsonl",
+      "file_sha256": "3c56b8904d3e1017537c9efa4c5f020186c8f21fd59b8022d4b27f62457fff58",
+      "default_encoding_matches_recorded_ids": 512,
+      "official_chat_template_matches": 512,
+      "prompt_token_count": 128000
+    },
+    "4": {
+      "rows": 512,
+      "path": "rows/key_value/phase_4.jsonl",
+      "file_sha256": "2abf82e9be907c1ddc590de5582af61f6645055af5f4800396ee10adbc3a6917",
+      "default_encoding_matches_recorded_ids": 512,
+      "official_chat_template_matches": 512,
+      "prompt_token_count": 128000
+    },
+    "5": {
+      "rows": 512,
+      "path": "rows/key_value/phase_5.jsonl",
+      "file_sha256": "4b442713b075b50e64945375969d9cb2bdb53128ee83fbb65c5ef171c3bd823c",
+      "default_encoding_matches_recorded_ids": 512,
+      "official_chat_template_matches": 512,
+      "prompt_token_count": 128000
+    },
+    "6": {
+      "rows": 512,
+      "path": "rows/key_value/phase_6.jsonl",
+      "file_sha256": "fbc5e20acf5c79bdb06fba855e5a93dac8daf29fbee99f5749727da6936e37e4",
+      "default_encoding_matches_recorded_ids": 512,
+      "official_chat_template_matches": 512,
+      "prompt_token_count": 128000
+    },
+    "7": {
+      "rows": 512,
+      "path": "rows/key_value/phase_7.jsonl",
+      "file_sha256": "641f9692e9c81e9941c00eb4eb854f3766479d47446122bdae01ac36ae1fc876",
+      "default_encoding_matches_recorded_ids": 512,
+      "official_chat_template_matches": 512,
+      "prompt_token_count": 128000
+    }
+  },
+  "checked_rows": 4096,
+  "scoring_input_records_checked": 4096,
+  "chat_prefix": "<|im_start|>user\n",
+  "chat_suffix": "<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n"
+}

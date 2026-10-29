@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import hashlib
 import random
 from collections import Counter
 from collections.abc import Mapping
@@ -137,9 +138,23 @@ def curate_sentence_bins(
     return bins, report
 
 
-def load_pinned_source(spec: SourceSpec, *, cache_dir: str | None = None) -> SentenceSource:
+def load_pinned_source(
+    spec: SourceSpec,
+    *,
+    cache_dir: str | None = None,
+    local_file: str | None = None,
+) -> SentenceSource:
     from datasets import load_dataset
 
+    if local_file is not None:
+        from pathlib import Path
+
+        expected = "edbcece9d0236c149f872b1098a1cb952e43a61bfc6cde0c42b44adbeb594406"
+        if hashlib.sha256(Path(local_file).read_bytes()).hexdigest() != expected:
+            raise ValueError("本地句子文件与固定 revision 的 train.txt.gz 不一致")
+        return load_dataset(
+            "text", data_files={"train": local_file}, split="train", cache_dir=cache_dir
+        )
     return load_dataset(
         spec.dataset_id,
         name="default",

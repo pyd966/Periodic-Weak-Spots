@@ -1,0 +1,139 @@
+{
+  "dataset_id": "niah-128k-qwen3.8-flash-next-balanced-target64k-16000pairs",
+  "default_model_path": "/models/Qwen3.8-Flash-Next",
+  "filler_sha256": "b3a70ebc054f2eab5057baf3c4b7e857711472be8086240a516fd29b648ad857",
+  "hf_gigatoken_full_prompt_matches": 4096,
+  "independent_hf_encoding": true,
+  "input_format": "qwen_non_thinking",
+  "leading_special_ids": [],
+  "model_profile": "Qwen/Qwen3.8-Flash-Next",
+  "residues": {
+    "0": {
+      "prompt_token_counts": [
+        128000
+      ],
+      "query_token_starts": [
+        127958
+      ],
+      "rows": 512,
+      "target_key_max": 64016,
+      "target_key_mean": 64000.0,
+      "target_key_min": 63984,
+      "target_key_variance": 28,
+      "target_value_mean": 64002.0
+    },
+    "1": {
+      "prompt_token_counts": [
+        128000
+      ],
+      "query_token_starts": [
+        127958
+      ],
+      "rows": 512,
+      "target_key_max": 64009,
+      "target_key_mean": 64000.0,
+      "target_key_min": 63985,
+      "target_key_variance": 28,
+      "target_value_mean": 64002.0
+    },
+    "2": {
+      "prompt_token_counts": [
+        128000
+      ],
+      "query_token_starts": [
+        127958
+      ],
+      "rows": 512,
+      "target_key_max": 64010,
+      "target_key_mean": 64000.0,
+      "target_key_min": 63986,
+      "target_key_variance": 28,
+      "target_value_mean": 64002.0
+    },
+    "3": {
+      "prompt_token_counts": [
+        128000
+      ],
+      "query_token_starts": [
+        127958
+      ],
+      "rows": 512,
+      "target_key_max": 64011,
+      "target_key_mean": 64000.0,
+      "target_key_min": 63987,
+      "target_key_variance": 28,
+      "target_value_mean": 64002.0
+    },
+    "4": {
+      "prompt_token_counts": [
+        128000
+      ],
+      "query_token_starts": [
+        127958
+      ],
+      "rows": 512,
+      "target_key_max": 64012,
+      "target_key_mean": 64000.0,
+      "target_key_min": 63988,
+      "target_key_variance": 28,
+      "target_value_mean": 64002.0
+    },
+    "5": {
+      "prompt_token_counts": [
+        128000
+      ],
+      "query_token_starts": [
+        127958
+      ],
+      "rows": 512,
+      "target_key_max": 64013,
+      "target_key_mean": 64000.0,
+      "target_key_min": 63989,
+      "target_key_variance": 28,
+      "target_value_mean": 64002.0
+    },
+    "6": {
+      "prompt_token_counts": [
+        128000
+      ],
+      "query_token_starts": [
+        127958
+      ],
+      "rows": 512,
+      "target_key_max": 64014,
+      "target_key_mean": 64000.0,
+      "target_key_min": 63990,
+      "target_key_variance": 28,
+      "target_value_mean": 64002.0
+    },
+    "7": {
+      "prompt_token_counts": [
+        128000
+      ],
+      "query_token_starts": [
+        127958
+      ],
+      "rows": 512,
+      "target_key_max": 64015,
+      "target_key_mean": 64000.0,
+      "target_key_min": 63991,
+      "target_key_variance": 28,
+      "target_value_mean": 64002.0
+    }
+  },
+  "status": "ok",
+  "tokenizer_files": {
+    "chat_template.jinja": "c3cf9e34abf4f9e36c2d72165aa9c132d3e2a725b6c2586aaa3a8af9d7a81041",
+    "tokenizer.json": "0997f410c57a1f4e53b09e4be8f4a172d90edd9564368fb0847030937229b9f3",
+    "tokenizer_config.json": "b11349aafa7cdc6a320767cf7ceb29ed82f7eda5d65e8e0819e76f0ce947bf27"
+  },
+  "tokenizer_id": "Qwen/Qwen3.8-Flash-Next",
+  "tokenizer_revision": "de4b8e4d43b917e7706784d8bb445c9af86a3540",
+  "validated_rows": 4096,
+  "versions": {
+    "gigatoken": "0.10.0",
+    "python": "3.12.3",
+    "tokenizers": "0.23.3",
+    "transformers": "5.20.2"
+  }
+}

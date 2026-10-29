@@ -125,9 +125,32 @@ python -m periodic_weak_spots.niah_128k validate --dataset data/niah_128k
 
 `niah_0p6b score` reports full-vocabulary and candidate accuracy by residue
 mod 24 and the best-minus-worst gap; `niah_128k score` reports answer-prefix
-accuracy by residue mod 8 and the gap, and `--results` also saves completions.
+accuracy by residue mod 8 and the gap.
+`niah_128k score` 必须提供 `--results`，保存逐条 key、value 的 token 位置、
+生成文本、生成 token ID、逐 token logprob，以及完整输入最后一个位置的 next-token
+top 10 和概率，同时保存每个 residue 的 Wilson 区间和准确率差。
 `runs/reference` stands for any Qwen3-KVC checkpoint saved with
 `save_pretrained`.
+
+## Qwen3.8-Flash-Next 的 128K NIAH
+
+Qwen 使用专用配置，默认模型目录为 `/models/Qwen3.8-Flash-Next`。
+生成和检查 prompt 时只加载 Tokenizer。完整输入包含官方 non-thinking
+chat template，长度恰好为 128,000 个 token。八个 group 各有 512 条 prompt，
+共 4,096 条。使用的文本、Tokenizer 和官方资料保存在 [resources/](resources/README.md)。
+
+```bash
+python -m periodic_weak_spots.niah_128k build --config configs/niah_128k/qwen3_8_flash_next.json --tokenizer-path resources/qwen3_8_flash_next --source-file resources/niah_128k/sentences/train.txt.gz --filler-file resources/niah_128k/paul_graham/filler.txt --output data/niah_qwen_128k
+python -m periodic_weak_spots.niah_128k.check_qwen --dataset data/niah_qwen_128k --tokenizer-path resources/qwen3_8_flash_next --report reports/qwen_niah_validation.json
+python -m periodic_weak_spots.niah_128k score --dataset data/niah_qwen_128k --tensor-parallel-size 4 --max-model-len 131072 --results results/qwen_niah_128k.json
+```
+
+检查程序逐条核查全部 prompt，并比较 HF 与 GigaToken 的完整编码。
+`--tokenizer-path` 可以指定本地 Tokenizer 目录。
+填充文章来源、模型下载和命令说明见
+[Qwen 128K NIAH 使用说明](docs/qwen_niah_adaptation.zh-CN.md)。云服务器执行步骤见
+[云端执行说明](docs/qwen_niah_cloud_execution.zh-CN.md)。给出 value 问 key 的反向 query 数据集见
+[反向 query 说明](docs/qwen_reverse_query.zh-CN.md)。
 
 ## Data
 
@@ -152,10 +175,10 @@ DeepSeek-V4.1-Flash, copy a profile, set `dataset_role` to `custom` with unique
 `experiment_id` and `sample_prefix`, and scale `rows_per_phase` (a multiple of
 256), `sentence_pair_count` (4x), and `distinct_sentence_count` (8x).
 
-The filler text for padding is not redistributed. The paper used the Paul
-Graham essay haystack of the standard NIAH benchmark (sha256
-`51eaf041f492d8fdfdcf87be8756d23888eda0d3cab6816b3c3f11e7682de337`); `build`
-reports whether your `--filler-file` matches. Natural sentences come from
+仓库的 `resources/` 保存了当前使用的 Paul Graham essays、英文句子文件和
+Tokenizer。论文使用的 Paul Graham essay haystack SHA256 为
+`51eaf041f492d8fdfdcf87be8756d23888eda0d3cab6816b3c3f11e7682de337`；`build`
+报告会记录当前 `--filler-file` 的 SHA256。Natural sentences come from
 [`agentlans/high-quality-english-sentences`](https://huggingface.co/datasets/agentlans/high-quality-english-sentences)
 (ODC-BY).
 

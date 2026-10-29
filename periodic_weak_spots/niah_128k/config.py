@@ -1,15 +1,11 @@
-"""The balanced 128K / 16,000-pair NIAH design used for DeepSeek-V4.
-
-Every geometric constant is checked against the published design. Dataset size
-may be increased in exact 256-row balanced blocks per phase.
-"""
-
 from __future__ import annotations
 
 import json
 from dataclasses import asdict, dataclass, field, fields
 from pathlib import Path
 from typing import Any, TypeVar, cast
+
+from .profiles import DEEPSEEK_MODEL_ID, MODEL_PROFILES, ModelProfile, get_model_profile
 
 SOURCE_DATASET_ID = "agentlans/high-quality-english-sentences"
 SOURCE_REVISION = "5dfcb23b31fa9b85ce90b5713fcbba29179f2401"
@@ -78,8 +74,12 @@ class TokenizerSpec:
     revision: str = TOKENIZER_REVISION
 
     def __post_init__(self) -> None:
-        if (self.model_id, self.revision) != (TOKENIZER_ID, TOKENIZER_REVISION):
-            raise ValueError("the DeepSeek-V4 tokenizer revision is pinned")
+        registered = {
+            (profile.tokenizer_id, profile.tokenizer_revision)
+            for profile in MODEL_PROFILES.values()
+        }
+        if (self.model_id, self.revision) not in registered:
+            raise ValueError("Tokenizer 必须使用已注册 NIAH 模型的固定 revision")
 
 
 @dataclass(frozen=True, slots=True)
@@ -175,8 +175,15 @@ class ExperimentConfig:
     binding_seed: int = 20260625
     dataset_role: str = "evaluation"
     sample_prefix: str = "niah128k"
+    model_profile: str = DEEPSEEK_MODEL_ID
 
     def __post_init__(self) -> None:
+        profile = self.profile
+        if (self.tokenizer.model_id, self.tokenizer.revision) != (
+            profile.tokenizer_id,
+            profile.tokenizer_revision,
+        ):
+            raise ValueError("Tokenizer 与所选模型配置不一致")
         identity = {
             "experiment_id": self.experiment_id,
             "sample_prefix": self.sample_prefix,
@@ -187,12 +194,22 @@ class ExperimentConfig:
         if self.schema_version != 1:
             raise ValueError("schema_version must be 1")
         if self.dataset_role in PROFILE_IDENTITIES:
-            if PROFILE_IDENTITIES[self.dataset_role] != identity:
+            expected = dict(PROFILE_IDENTITIES[self.dataset_role])
+            calibration = self.dataset_role == "calibration"
+            expected["experiment_id"] = profile.experiment_id + (
+                "-calibration" if calibration else ""
+            )
+            expected["sample_prefix"] = profile.sample_prefix + ("-cal" if calibration else "")
+            if expected != identity:
                 raise ValueError("unknown 128K profile identity")
         elif self.dataset_role != "custom":
             raise ValueError("dataset_role must be evaluation, calibration, or custom")
         elif not self.experiment_id or not self.sample_prefix:
             raise ValueError("custom profiles require experiment_id and sample_prefix")
+
+    @property
+    def profile(self) -> ModelProfile:
+        return get_model_profile(self.model_profile)
 
     def to_dict(self) -> dict[str, Any]:
         value = asdict(self)
@@ -203,7 +220,7 @@ class ExperimentConfig:
     @classmethod
     def from_dict(cls, value: dict[str, Any]) -> ExperimentConfig:
         expected = {item.name for item in fields(cls)}
-        if set(value) != expected:
+        if set(value) - {"model_profile"} != expected - {"model_profile"}:
             raise ValueError(f"config keys must be exactly {sorted(expected)}")
         matrix = dict(value["matrix"])
         matrix["forms"] = tuple(matrix["forms"])
@@ -220,6 +237,7 @@ class ExperimentConfig:
             binding_seed=value["binding_seed"],
             dataset_role=value["dataset_role"],
             sample_prefix=value["sample_prefix"],
+            model_profile=value.get("model_profile", DEEPSEEK_MODEL_ID),
         )
 
 
