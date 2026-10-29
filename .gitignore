@@ -1,4 +1,6 @@
 .research/
 __pycache__/
 *.zip
+*.tar.zst
+*.tar.zst.sha256
 periodic_weak_spots/niah_qwen_128k_in_sequence/

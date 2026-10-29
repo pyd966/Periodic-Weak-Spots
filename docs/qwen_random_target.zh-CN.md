@@ -4,7 +4,7 @@
 
 ## 相位控制
 
-目标 record 相对 record body 起点的偏移为 `4t`，`t` 为目标下标。偏移在 mod 8 下为 0（`t` 为偶数）或 4（`t` 为奇数）。偏移为 4 时，`body_prefix` 缩短 4 个 token，`tail` 延长 4 个 token；record body、自然语言后句整体向前移动 4 个 token，prompt 总长度、query 起点、query 之后的组件都不变。目标 key 的相位因此仍由自然语言前句长度决定，`phase_control_prefix_count` 与参考数据相同。
+目标 record 相对 record body 起点的位移为 `4t`，`t` 为目标下标。位移在 mod 8 下为 0（`t` 为偶数）或 4（`t` 为奇数）。位移为 4 时，`body_prefix` 缩短 4 个 token，`tail` 延长 4 个 token；record body、自然语言后句整体向前移动 4 个 token，prompt 总长度、query 起点、query 之后的组件都不变。目标 key 的相位因此仍由自然语言前句长度决定，`phase_control_prefix_count` 与参考数据相同。
 
 | 组件 | `t` 为偶数 | `t` 为奇数 |
 | --- | --- | --- |
@@ -20,7 +20,7 @@
 
 `random.Random(f"{seed}:random-target:{pair_count}")` 按 `binding_id` 升序为每个 binding 抽取 `randrange(pair_count)`。被抽到的 record 必须同时满足三个条件：下标在 `[8, 15991]` 之内（In-sequence Padding 把至多 32 个 `｜` 放进目标一侧的间隔，每个间隔至多 4 个，目标两侧因此都至少需要 8 条 record）；key 在正向 query 模板中保持单个 token；value 在反向 query 模板中保持单个 token（两种模板的原始形式与 `rstrip` 形式都检查）。不满足时重新抽取，被拒绝的次数记录在 metadata 中。这样同一组目标可以直接用于反向 query 与 In-sequence Padding 数据集。默认 seed 为 20261029。
 
-输出的 `bindings.jsonl` 保留参考数据的全部 record，只更新 `target_index`、`target_key`、`target_value`。每一行的 `metadata` 记录 `target_index`、`target_pair_token_start`、`target_value_token_start`、`target_phase`、`target_protocol = "random_index"`、`body_prefix_shift_tokens` 与全部组件 span。数据集 `metadata.json` 新增 `target_protocol`，包含 seed、两侧保留的 record 数量、被拒绝的抽样次数、偏移 4 的 binding 数量、目标下标与目标位置的最小值、最大值、平均值；`design.target_position_moments` 改为实际的目标位置统计。`config` 与参考数据相同，评分入口不需要改动。
+输出的 `bindings.jsonl` 保留参考数据的全部 record，只更新 `target_index`、`target_key`、`target_value`。每一行的 `metadata` 记录 `target_index`、`target_pair_token_start`、`target_value_token_start`、`target_phase`、`target_protocol = "random_index"`、`body_prefix_shift_tokens` 与全部组件 span。数据集 `metadata.json` 新增 `target_protocol`，包含 seed、两侧保留的 record 数量、被拒绝的抽样次数、位移 4 的 binding 数量、目标下标与目标位置的最小值、最大值、平均值；`design.target_position_moments` 改为实际的目标位置统计。`config` 与参考数据相同，评分入口不需要改动。
 
 ## 构造与验证
 
