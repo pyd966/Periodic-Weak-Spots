@@ -1,12 +1,12 @@
 # Qwen3.8-Flash-Next 反向 query（给出 value 问 key）
 
-反向 query 数据集以已经构造好的 Qwen3.8 数据集作为参考，Prefix Padding 与 In-sequence Padding 的数据集都可以作为参考。参考数据的 binding、record 顺序、每条 record 的位置、目标 record 的位置、前后填充、chat template 全部保持不变，只替换三个组件：
+反向 query 数据集以已经构造好的 Qwen3.8 数据集作为参考，Prefix Padding、In-sequence Padding 与[随机目标](qwen_random_target.zh-CN.md)数据集都可以作为参考。参考数据的 binding、record 顺序、每条 record 的位置、目标 record 的位置、前后填充、chat template 全部保持不变，只替换三个组件：
 
 | 组件 | 做法 |
 | --- | --- |
 | `intro` | 指令改为 "I will give you a value afterwards and ask for its key."，其余句子与格式示例不变；用与参考数据相同的 filler 补齐到参考 intro 的 token 数量，因此 intro 之后所有组件的起点不变 |
 | `query` | `Now answer the question using the key-value pairs above. What is the key for value {value}? Answer with only the key. The key for value {value} is`，三段模板的 token 数量与正向模板相同，query 共 33 token，起点仍为 127,958 |
-| `tail` | query 的 token 数量与参考相同时逐字节沿用参考 tail；若模板改动造成 query 长度变化，tail 用相同 filler 重新构造以抵消差值 |
+| `tail` | query 的 token 数量与参考相同时逐字节沿用该行的参考 tail；若模板改动造成 query 长度变化，tail 用相同 filler 重新构造以抵消差值。参考 tail 随行变化时（随机目标数据集），按每行的参考 tail 分别处理 |
 
 答案为目标 key。每一行记录 `query_direction = "value_to_key"`，评分入口按这个字段选择 query 模板与 gold，正向数据集没有这个字段，按原来的方式评分。
 
@@ -24,7 +24,7 @@ PYTHONPATH=/root/Periodic-Weak-Spots python -m periodic_weak_spots.niah_128k.rev
 
 In-sequence 参考数据只需替换 `--reference-dataset` 与 `--output`。filler 必须与参考数据构造时使用的文件相同，构造前会比较 SHA256。
 
-独立验证需要同时给出参考数据集，逐行比较除 `intro`、`tail`、`query` 之外的组件是否逐字节相同，并重新编码检查全部位置、hash、答案 token、chat template 以及 query 起点、intro、tail 在全部样本中是否唯一：
+独立验证需要同时给出参考数据集，逐行比较除 `intro`、`tail`、`query` 之外的组件是否逐字节相同，并重新编码检查全部位置、hash、答案 token、chat template，query 起点与 intro 在全部样本中唯一，每一行的 tail 起点与参考行相同且 tail 与 query 的 token 总数与参考行相同：
 
 ```bash
 PYTHONPATH=/root/Periodic-Weak-Spots python -m periodic_weak_spots.niah_128k.reverse_query validate \

@@ -138,6 +138,17 @@ def build_tail(
     return _guarded_padding(tokenizer, tail_count, filler, guard, label="reverse query tail")
 
 
+def _assert_tail_compensates(
+    spans: dict[str, dict[str, int]], reference_spans: dict[str, dict[str, int]], label: str
+) -> None:
+    # tail 起点与参考行相同，tail 与 query 的 token 总数与参考行相同
+    if spans["tail"]["start"] != reference_spans["tail"]["start"] or (
+        spans["tail"]["count"] + spans["query"]["count"]
+        != reference_spans["tail"]["count"] + reference_spans["query"]["count"]
+    ):
+        raise ValueError(f"{label} 的 tail 没有抵消 query 长度变化")
+
+
 def _build_row(
     reference_row: dict[str, Any],
     binding: dict[str, Any],
@@ -181,6 +192,7 @@ def _build_row(
             raise ValueError(f"{reference_row['sample_id']} 的组件 {label} 位置发生变化")
     if spans["intro"] != reference_spans["intro"]:
         raise ValueError(f"{reference_row['sample_id']} 的 intro 位置或长度发生变化")
+    _assert_tail_compensates(spans, reference_spans, reference_row["sample_id"])
     target_pair_start = int(reference_metadata["target_pair_token_start"])
     target_value_start = int(reference_metadata["target_value_token_start"])
     if prompt_ids[target_pair_start] != int(target["key_token_id"]):
@@ -211,7 +223,7 @@ def _build_row(
 
 
 def _query_protocol(
-    tokenizer: Tokenizer, intro: str, tail: str, query_count: int, reference: Path
+    tokenizer: Tokenizer, intro: str, tails: dict[str, str], query_count: int, reference: Path
 ) -> dict[str, Any]:
     return {
         "direction": QUERY_DIRECTION,
@@ -219,7 +231,7 @@ def _query_protocol(
         "query_middle": REVERSE_QUERY_MIDDLE,
         "query_suffix": REVERSE_QUERY_SUFFIX,
         "intro_token_count": len(token_ids(tokenizer, intro)),
-        "tail_token_count": len(token_ids(tokenizer, tail)),
+        "tail_token_counts": sorted({len(token_ids(tokenizer, tail)) for tail in tails.values()}),
         "query_token_count": query_count,
         "reference_dataset": str(reference.resolve()),
     }
@@ -252,14 +264,8 @@ def build_dataset(
     intro = build_reverse_intro(tokenizer, first_components["intro"], filler, layout)
     first_value = _target_pair(bindings[int(first_row["binding_id"])])["value"]
     query_count = len(token_ids(tokenizer, _query_text(first_value, use_chat_template)))
-    tail = build_tail(
-        tokenizer,
-        first_components["tail"],
-        filler,
-        layout.tail_guard_token,
-        reference_query_count=len(token_ids(tokenizer, first_components["query"])),
-        query_count=query_count,
-    )
+    # 参考数据的 tail 可能随行变化（随机目标数据集按相位偏移调整过 tail），按参考 tail 分别补偿
+    tails: dict[str, str] = {}
     output.mkdir(parents=True, exist_ok=True)
     (output / "rows" / PAIR_FORM).mkdir(parents=True, exist_ok=True)
     total = 0
@@ -267,12 +273,24 @@ def build_dataset(
         reference_rows = _read_jsonl(reference / "rows" / PAIR_FORM / f"phase_{phase}.jsonl")
         rows = []
         for reference_row in reference_rows:
+            reference_tail = reference_row["components"]["tail"]
+            if reference_tail not in tails:
+                tails[reference_tail] = build_tail(
+                    tokenizer,
+                    reference_tail,
+                    filler,
+                    layout.tail_guard_token,
+                    reference_query_count=len(
+                        token_ids(tokenizer, reference_row["components"]["query"])
+                    ),
+                    query_count=query_count,
+                )
             row = _build_row(
                 reference_row,
                 bindings[int(reference_row["binding_id"])],
                 tokenizer,
                 intro=intro,
-                tail=tail,
+                tail=tails[reference_tail],
             )
             if row["metadata"]["query_token_count"] != query_count:
                 raise ValueError(f"{reference_row['sample_id']} 的 query token 数量与其他行不同")
@@ -285,7 +303,7 @@ def build_dataset(
     output_metadata = dict(metadata)
     output_metadata["dataset_id"] = f"{metadata['dataset_id']}-reverse-query"
     output_metadata["query_protocol"] = _query_protocol(
-        tokenizer, intro, tail, query_count, reference
+        tokenizer, intro, tails, query_count, reference
     )
     output_metadata["reverse_query_rows"] = total
     (output / "metadata.json").write_text(
@@ -298,7 +316,10 @@ def build_dataset(
 def validate_dataset(
     dataset_root: str | Path, reference_root: str | Path, tokenizer: Tokenizer
 ) -> dict[str, Any]:
-    """逐行与参考数据比较：除 intro、tail、query 之外的组件逐字节相同，位置与长度全部一致。"""
+    """逐行与参考数据比较：除 intro、tail、query 之外的组件逐字节相同，位置与长度全部一致。
+
+    tail 与参考行逐条对应：起点相同，tail 与 query 的 token 总数相同。
+    """
 
     dataset = Path(dataset_root)
     reference = Path(reference_root)
@@ -322,7 +343,6 @@ def validate_dataset(
     phases = [int(phase) for phase in metadata["matrix"]["phases"]]
     query_starts: set[int] = set()
     intro_texts: set[str] = set()
-    tail_texts: set[str] = set()
     checked = 0
     for phase in phases:
         rows = _read_jsonl(dataset / "rows" / PAIR_FORM / f"phase_{phase}.jsonl")
@@ -386,6 +406,7 @@ def validate_dataset(
                     raise ValueError(f"{label} 的组件 {name} 位置与参考数据不一致")
             if spans["intro"] != reference_spans["intro"]:
                 raise ValueError(f"{label} 的 intro 位置与参考数据不一致")
+            _assert_tail_compensates(spans, reference_spans, label)
             expected_metadata = dict(reference_row["metadata"])
             expected_metadata.update(
                 {
@@ -410,10 +431,9 @@ def validate_dataset(
                 raise ValueError(f"{label} 的答案 key 无法追加")
             query_starts.add(starts["query"])
             intro_texts.add(components["intro"])
-            tail_texts.add(components["tail"])
             checked += 1
-    if len(query_starts) != 1 or len(intro_texts) != 1 or len(tail_texts) != 1:
-        raise ValueError("query 起点、intro 或 tail 随样本变化")
+    if len(query_starts) != 1 or len(intro_texts) != 1:
+        raise ValueError("query 起点或 intro 随样本变化")
     expected_rows = {int(metadata["reverse_query_rows"]), int(metadata["matrix"]["total_rows"])}
     if expected_rows != {checked}:
         raise ValueError("检查的行数与 metadata 不一致")

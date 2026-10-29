@@ -150,7 +150,8 @@ python -m periodic_weak_spots.niah_128k score --dataset data/niah_qwen_128k --te
 填充文章来源、模型下载和命令说明见
 [Qwen 128K NIAH 使用说明](docs/qwen_niah_adaptation.zh-CN.md)。云服务器执行步骤见
 [云端执行说明](docs/qwen_niah_cloud_execution.zh-CN.md)。给出 value 问 key 的反向 query 数据集见
-[反向 query 说明](docs/qwen_reverse_query.zh-CN.md)。
+[反向 query 说明](docs/qwen_reverse_query.zh-CN.md)。每个 binding 随机抽取目标 record 的数据集见
+[随机目标说明](docs/qwen_random_target.zh-CN.md)，其中也列出了全部 Qwen3.8 数据集之间的关系。
 
 ## Data
 
