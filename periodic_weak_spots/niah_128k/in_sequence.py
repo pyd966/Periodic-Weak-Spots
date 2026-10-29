@@ -314,6 +314,12 @@ def _build_row(
         "reference_prefill_token_count": reference_length,
         "gap_extra_lengths": list(gaps),
         "spans": spans,
+        # 随机目标参考数据的目标标记随行保留
+        **{
+            key: reference_row["metadata"][key]
+            for key in ("target_protocol", "body_prefix_shift_tokens")
+            if key in reference_row["metadata"]
+        },
     }
     output = dict(reference_row)
     output["answer"] = [binding["target_value"]]
@@ -355,14 +361,12 @@ def build_dataset(
     layout = config["layout"]
     rows_per_phase = int(metadata["matrix"]["rows_per_cell"])
     pair_count = int(layout["pair_count"])
-    target_index = int(layout["target_index"])
     bindings = _load_bindings(reference)
     if len(bindings) != rows_per_phase:
         raise ValueError("参考数据的 binding 数量不符合 phase 设计")
     reference_phase0 = _read_jsonl(reference / "rows" / PAIR_FORM / "phase_0.jsonl")
     if len(reference_phase0) != rows_per_phase:
         raise ValueError("参考数据 phase_0 行数不正确")
-    fixed = _fixed_components(reference_phase0[0], True)
     body_by_binding: dict[int, str] = {}
     for row in reference_phase0:
         binding_id = int(row["binding_id"])
@@ -399,6 +403,9 @@ def build_dataset(
             for reference_row in reference_rows:
                 row_index = int(reference_row["row_index"])
                 binding_id = int(reference_row["binding_id"])
+                # 目标下标与 body_prefix、tail 都取自参考行本身，随机目标参考数据按行变化
+                target_index = int(bindings[binding_id]["target_index"])
+                fixed = _fixed_components(reference_row, True)
                 reference_length, gaps = _gap_assignment(
                     phase=phase,
                     row_index=row_index,
@@ -498,7 +505,6 @@ def validate_dataset(root: str | Path, tokenizer: Any) -> dict[str, Any]:
     layout = config["layout"]
     rows_per_phase = int(metadata["matrix"]["rows_per_cell"])
     pair_count = int(layout["pair_count"])
-    target_index = int(layout["target_index"])
     bindings = _load_bindings(dataset)
     schedule_handle = (dataset / metadata["padding_schedule_path"]).open(encoding="utf-8")
     pad_ids = token_ids(tokenizer, PAD_TEXT)
@@ -524,6 +530,9 @@ def validate_dataset(root: str | Path, tokenizer: Any) -> dict[str, Any]:
             row_index = int(row["row_index"])
             binding_id = int(row["binding_id"])
             binding = bindings[binding_id]
+            target_index = int(binding["target_index"])
+            if row["metadata"]["target_index"] != target_index:
+                raise ValueError("row metadata 的 target_index 与 binding 不一致")
             schedule_line = schedule_handle.readline()
             if not schedule_line:
                 raise ValueError("padding schedule 行数不足")

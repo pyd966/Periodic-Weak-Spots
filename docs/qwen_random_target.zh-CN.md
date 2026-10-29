@@ -18,9 +18,9 @@
 
 ## 目标抽取
 
-`random.Random(f"{seed}:random-target:{pair_count}")` 按 `binding_id` 升序为每个 binding 抽取 `randrange(pair_count)`。被抽到的 record 必须同时满足：key 在正向 query 模板中保持单个 token，value 在反向 query 模板中保持单个 token（两种模板的原始形式与 `rstrip` 形式都检查）。不满足时重新抽取，被拒绝的次数记录在 metadata 中。这样同一组目标可以直接用于反向 query 数据集。默认 seed 为 20261029。
+`random.Random(f"{seed}:random-target:{pair_count}")` 按 `binding_id` 升序为每个 binding 抽取 `randrange(pair_count)`。被抽到的 record 必须同时满足三个条件：下标在 `[8, 15991]` 之内（In-sequence Padding 把至多 32 个 `｜` 放进目标一侧的间隔，每个间隔至多 4 个，目标两侧因此都至少需要 8 条 record）；key 在正向 query 模板中保持单个 token；value 在反向 query 模板中保持单个 token（两种模板的原始形式与 `rstrip` 形式都检查）。不满足时重新抽取，被拒绝的次数记录在 metadata 中。这样同一组目标可以直接用于反向 query 与 In-sequence Padding 数据集。默认 seed 为 20261029。
 
-输出的 `bindings.jsonl` 保留参考数据的全部 record，只更新 `target_index`、`target_key`、`target_value`。每一行的 `metadata` 记录 `target_index`、`target_pair_token_start`、`target_value_token_start`、`target_phase`、`target_protocol = "random_index"`、`body_prefix_shift_tokens` 与全部组件 span。数据集 `metadata.json` 新增 `target_protocol`，包含 seed、被拒绝的抽样次数、偏移 4 的 binding 数量、目标下标与目标位置的最小值、最大值、平均值；`design.target_position_moments` 改为实际的目标位置统计。`config` 与参考数据相同，评分入口不需要改动。
+输出的 `bindings.jsonl` 保留参考数据的全部 record，只更新 `target_index`、`target_key`、`target_value`。每一行的 `metadata` 记录 `target_index`、`target_pair_token_start`、`target_value_token_start`、`target_phase`、`target_protocol = "random_index"`、`body_prefix_shift_tokens` 与全部组件 span。数据集 `metadata.json` 新增 `target_protocol`，包含 seed、两侧保留的 record 数量、被拒绝的抽样次数、偏移 4 的 binding 数量、目标下标与目标位置的最小值、最大值、平均值；`design.target_position_moments` 改为实际的目标位置统计。`config` 与参考数据相同，评分入口不需要改动。
 
 ## 构造与验证
 
@@ -56,6 +56,23 @@ PYTHONPATH=/root/Periodic-Weak-Spots python -m periodic_weak_spots.niah_128k.rev
   --filler-file /root/Periodic-Weak-Spots/resources/niah_128k/paul_graham/filler.txt
 ```
 
+## In-sequence Padding 版本
+
+随机目标数据集也可以作为 [In-sequence Padding](qwen_in_sequence.zh-CN.md) 的参考数据集。In-sequence 构造器按行读取目标下标、`body_prefix` 与 `tail`，目标之前的间隔共放入 `L − 8` 个 `｜`，目标 key 位置与随机目标数据集逐条相同；行的 `target_protocol`、`body_prefix_shift_tokens` 标记随行保留。再对该数据集运行反向 query 构造器即得到 In-sequence 随机目标的反向版本：
+
+```bash
+PYTHONPATH=/root/Periodic-Weak-Spots python -m periodic_weak_spots.niah_128k.in_sequence build \
+  --reference-dataset /root/autodl-tmp/periodic_weak_spots/niah_qwen_128k_512_random_target \
+  --output /root/autodl-tmp/periodic_weak_spots/niah_qwen_128k_random_target_in_sequence \
+  --tokenizer-path /root/Periodic-Weak-Spots/resources/qwen3_8_flash_next
+
+PYTHONPATH=/root/Periodic-Weak-Spots python -m periodic_weak_spots.niah_128k.reverse_query build \
+  --reference-dataset /root/autodl-tmp/periodic_weak_spots/niah_qwen_128k_random_target_in_sequence \
+  --output /root/autodl-tmp/periodic_weak_spots/niah_qwen_128k_random_target_in_sequence_reverse \
+  --tokenizer-path /root/Periodic-Weak-Spots/resources/qwen3_8_flash_next \
+  --filler-file /root/Periodic-Weak-Spots/resources/niah_128k/paul_graham/filler.txt
+```
+
 ## 评分
 
 评分继续使用现有 vLLM 入口，只替换 dataset、progress 和 results 路径：
@@ -75,13 +92,17 @@ PYTHONPATH=/root/Periodic-Weak-Spots python -m periodic_weak_spots.niah_128k sco
 
 ## 全部 Qwen3.8 数据集之间的关系
 
-| 数据集 | 目标 record | padding | query 方向 | 参考数据集 |
-| --- | --- | --- | --- | --- |
-| Prefix Padding | 固定第 249 条（`target_index = 248`） | 自然语言前后句 | key → value | 由 build 直接生成 |
-| In-sequence Padding | 固定第 249 条 | `｜` guard 与 record 间隔 | key → value | Prefix Padding |
-| Prefix Padding 反向 | 固定第 249 条 | 与 Prefix Padding 相同 | value → key | Prefix Padding |
-| In-sequence Padding 反向 | 固定第 249 条 | 与 In-sequence Padding 相同 | value → key | In-sequence Padding |
-| 随机目标 | 每个 binding 随机一条 | 自然语言前后句，奇数下标时 body_prefix 与 tail 各调整 4 token | key → value | Prefix Padding |
-| 随机目标反向 | 与随机目标相同 | 与随机目标相同 | value → key | 随机目标 |
+三个二元因素（padding 方式、query 方向、目标位置）组合成八个数据集：
 
-六个数据集共用同一批 512 个 binding（record 内容与顺序相同）、同一套 phase 与 row 映射、同一个 query 起点 127,958 和 4,096 个 `sample_id`。前四个数据集的目标 key 位置逐条相同；后两个数据集之间目标 key 位置逐条相同，与前四个不同。
+| 目标 record | padding | query 方向 | 参考数据集 |
+| --- | --- | --- | --- |
+| 固定第 249 条（`target_index = 248`） | Prefix | key → value | 由 build 直接生成 |
+| 固定第 249 条 | In-sequence | key → value | 固定 / Prefix / 正向 |
+| 固定第 249 条 | Prefix | value → key | 固定 / Prefix / 正向 |
+| 固定第 249 条 | In-sequence | value → key | 固定 / In-sequence / 正向 |
+| 每个 binding 随机一条 | Prefix（奇数下标时 body_prefix 与 tail 各调整 4 token） | key → value | 固定 / Prefix / 正向 |
+| 每个 binding 随机一条 | In-sequence | key → value | 随机 / Prefix / 正向 |
+| 每个 binding 随机一条 | Prefix | value → key | 随机 / Prefix / 正向 |
+| 每个 binding 随机一条 | In-sequence | value → key | 随机 / In-sequence / 正向 |
+
+八个数据集共用同一批 512 个 binding（record 内容与顺序相同）、同一套 phase 与 row 映射、同一批自然语言句子长度、同一个 query 起点 127,958 和 4,096 个 `sample_id`。固定目标的四个数据集目标 key 位置逐条相同；随机目标的四个数据集目标 key 位置逐条相同，与固定目标的不同。同一目标位置下，Prefix 与 In-sequence 的区别只在 padding 的形式，正向与反向的区别只在 intro 的一句话与 query 模板。

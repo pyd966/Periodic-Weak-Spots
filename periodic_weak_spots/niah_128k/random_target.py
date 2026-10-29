@@ -10,6 +10,7 @@ from typing import Any
 from periodic_weak_spots.tokenization import Tokenizer, token_ids, token_ids_sha256
 
 from .config import ExperimentConfig, LayoutSpec
+from .in_sequence import MAX_GAP_EXTRAS, TOTAL_GAP_EXTRAS
 from .layout import (
     PAIR_FORM,
     PAIR_TOKENS,
@@ -35,6 +36,13 @@ from .reverse_query import (
 RANDOM_TARGET_SEED = 20261029
 TARGET_PROTOCOL = "random_index"
 REPLACED_COMPONENTS = ("body_prefix", "tail", "query")
+# In-sequence Padding 把至多 TOTAL_GAP_EXTRAS 个 `｜` 放进目标一侧的间隔，每个间隔至多
+# MAX_GAP_EXTRAS 个，因此目标两侧都至少需要这么多条 record
+EDGE_MARGIN_RECORDS = -(-TOTAL_GAP_EXTRAS // MAX_GAP_EXTRAS)
+
+
+def index_supports_in_sequence(index: int, pair_count: int) -> bool:
+    return EDGE_MARGIN_RECORDS <= index <= pair_count - 1 - EDGE_MARGIN_RECORDS
 
 
 def _read_jsonl(path: Path) -> list[dict[str, Any]]:
@@ -88,7 +96,10 @@ def pair_supports_both_directions(tokenizer: Tokenizer, pair: dict[str, Any]) ->
 def sample_target_indices(
     bindings: dict[int, dict[str, Any]], tokenizer: Tokenizer, *, pair_count: int, seed: int
 ) -> tuple[dict[int, int], int]:
-    """按 binding_id 升序，为每个 binding 均匀抽取一个目标 record；返回目标与被拒绝的抽样次数。"""
+    """按 binding_id 升序，为每个 binding 均匀抽取一个目标 record；返回目标与被拒绝的抽样次数。
+
+    目标必须同时支持正向与反向 query，并与 In-sequence Padding 的 gap 方案兼容。
+    """
 
     rng = random.Random(f"{seed}:random-target:{pair_count}")
     targets: dict[int, int] = {}
@@ -99,7 +110,9 @@ def sample_target_indices(
             raise ValueError(f"binding {binding_id} 的 record 数量必须为 {pair_count}")
         while True:
             index = rng.randrange(pair_count)
-            if pair_supports_both_directions(tokenizer, pairs[index]):
+            if index_supports_in_sequence(index, pair_count) and pair_supports_both_directions(
+                tokenizer, pairs[index]
+            ):
                 break
             rejected += 1
         targets[binding_id] = index
@@ -325,6 +338,7 @@ def build_dataset(
         "mode": TARGET_PROTOCOL,
         "seed": seed,
         "pair_count": layout.pair_count,
+        "edge_margin_records": EDGE_MARGIN_RECORDS,
         "rejected_draws": rejected,
         "phase_shift_tokens": sorted(variants),
         "shifted_binding_count": sum(
@@ -372,6 +386,8 @@ def validate_dataset(
     layout = _check_reference(reference_metadata, filler).layout
     if int(protocol["pair_count"]) != layout.pair_count:
         raise ValueError("metadata 中的 pair_count 与 layout 不一致")
+    if int(protocol["edge_margin_records"]) != EDGE_MARGIN_RECORDS:
+        raise ValueError("metadata 中的 edge_margin_records 与 In-sequence 参数不一致")
     reference_bindings = _read_jsonl(reference / "bindings.jsonl")
     bindings = _read_jsonl(dataset / "bindings.jsonl")
     by_id = {int(binding["binding_id"]): binding for binding in reference_bindings}

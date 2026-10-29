@@ -1,6 +1,6 @@
 # Qwen3.8-Flash-Next In-sequence Padding
 
-In-sequence 数据集使用当前 Qwen3.8 Prefix Padding 数据集作为参考，保持相同的 binding、phase、row 映射、目标位置分布和 query 起点。固定前后 guard 各使用8个 `｜`，record 之间额外插入32个 `｜`，每个间隔最多插入4个。Qwen3.8 Tokenizer 中 `｜` 的 token ID 为158819。
+In-sequence 数据集使用当前 Qwen3.8 Prefix Padding 数据集作为参考，保持相同的 binding、phase、row 映射、目标位置分布和 query 起点。目标下标、`body_prefix` 与 `tail` 按行取自参考数据，因此[随机目标数据集](qwen_random_target.zh-CN.md)也可以作为参考。固定前后 guard 各使用8个 `｜`，record 之间额外插入32个 `｜`，每个间隔最多插入4个。Qwen3.8 Tokenizer 中 `｜` 的 token ID 为158819。
 
 对于参考数据中的 `reference_prefill_token_count=L`，目标前的 gap 总长度为 `L-8`，目标后的 gap 总长度为 `32-(L-8)`。gap 向量使用确定性的 bounded composition 生成，向量包含15999个间隔，对应16000条 record 之间的位置。
 
